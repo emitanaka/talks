@@ -489,7 +489,7 @@ class: title-slide
 
 [.textshadow[.font120[`r anicon::faa("link", animate="burst", anitype="parent-hover", color="white", rtext=".white[slides at] .gray[bit.ly/sydrladies-shiny]")`]]](bit.ly/sydrladies-shiny)
 
-[.textshadow[.font120[`r anicon::faa("github", animate="ring", anitype="parent-hover", color="white", rtext=".white[code available at] .gray[bit.ly/sydrladies-shiny]")`]]](bit.ly/sydrladies-shiny)
+[.textshadow[.font120[`r anicon::faa("github", animate="ring", anitype="parent-hover", color="white", rtext=".white[code available at github]")`]]](https://github.com/emitanaka/talks/tree/master/rladies-shiny)
 
 
 
