@@ -1,0 +1,254 @@
+
+body {
+  font-family: 'Fira Sans';
+  font-size: 45px;
+}
+h1, h2, h3 {
+  font-family: 'Fira Sans';
+  font-weight: normal;
+  color: #562457;
+}
+
+
+
+.glit2 {
+  font-size: 45px;
+  font-weight: bold;
+  background: -webkit-linear-gradient(transparent, transparent), url(figures/gold_glitter.gif) repeat;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  position:relative;
+  z-index: 40;
+}
+
+.remark-code,
+.remark-inline-code {
+  font-family: 'Source Code Pro', 'Lucida Console', Monaco, monospace;
+  font-size: 85%;
+	color: #88398a;
+}
+
+a, a > code {
+  color: #88398a;
+  text-decoration: none;
+}
+
+.footnote {
+  position: absolute;
+  bottom: 0;
+  padding-right: 8em;
+}
+.remark-slide-content .footnote  p,
+.remark-slide-content .footnote li {
+  font-size: 0.7em!important;
+}
+.footnote .remark-code,
+.footnote .remark-inline-code{ font-size: 0.8em!important; }
+
+.remark-code-string-highlighted,
+.remark-code-line-highlighted {
+    background-color: #fef5c4;
+}
+
+
+/* or you can be more specific */
+.font10 , .code10 .remark-code, .code10 .remark-inline-code{ font-size: 10%; }
+.font20 , .code20 .remark-code, .code20 .remark-inline-code{ font-size: 20%; }
+.font30 , .code30 .remark-code, .code30 .remark-inline-code{ font-size: 30%; }
+.font40 , .code40 .remark-code, .code40 .remark-inline-code{ font-size: 40%; }
+.font50 , .code50 .remark-code, .code50 .remark-inline-code{ font-size: 50%; }
+.font60 , .code60 .remark-code, .code60 .remark-inline-code{ font-size: 60%; }
+.font70 , .code70 .remark-code, .code70 .remark-inline-code{ font-size: 70%; }
+.font75 , .code75 .remark-code, .code75 .remark-inline-code{ font-size: 75%; }
+.font80 , .code80 .remark-code, .code80 .remark-inline-code{ font-size: 80%; }
+.font90 , .code90 .remark-code, .code90 .remark-inline-code{ font-size: 90%; }
+.font110, .code110 .remark-code, .code110 .remark-inline-code{ font-size: 110%; }
+.font120, .code120 .remark-code, .code120 .remark-inline-code{ font-size: 120%; }
+.font130, .code130 .remark-code, .code130 .remark-inline-code{ font-size: 130%; }
+.font140, .code140 .remark-code, .code140 .remark-inline-code{ font-size: 140%; }
+.font150, .code150 .remark-code, .code150 .remark-inline-code{ font-size: 150%; }
+.font160, .code160 .remark-code, .code160 .remark-inline-code{ font-size: 160%; }
+.font170, .code170 .remark-code, .code170 .remark-inline-code{ font-size: 170%; }
+.font175, .code175 .remark-code, .code175 .remark-inline-code{ font-size: 175%; }
+.font180, .code180 .remark-code, .code180 .remark-inline-code{ font-size: 180%; }
+.font190, .code190 .remark-code, .code190 .remark-inline-code{ font-size: 190%; }
+.font200, .code200 .remark-code, .code200 .remark-inline-code{ font-size: 200%; }
+.font45{ font-size: 45px; }
+
+.black { color: black; }
+.white { color: white; }
+.red { color: red; }
+.blue { color: blue; }
+.green { color: green; }
+.yellow { color: yellow; }
+.orange { color: orange; }
+.purple { color: #f441b8; }
+.gray { color: #d3cdd1; }
+
+.remark-slide-content {
+  padding-top: 25px;
+  padding-left: 50px;
+  padding-right: 50px;
+  padding-bottom: 25px;
+}
+
+.remark-slide-content > h1:first-of-type {
+  margin-top: 5px;
+  margin-bottom: 10px;
+}
+.remark-slide-content > h2:first-of-type {
+  margin-top: 5px;
+  margin-bottom: 10px;
+}
+.remark-slide-content > h3:first-of-type {
+  margin-top: 5px;
+  margin-bottom: 10px;
+}
+.remark-slide-content > h4:first-of-type {
+  margin-top: 5px;
+  margin-bottom: 10px;
+}
+
+
+.pull-right {
+  position: absolute;
+  left: 55%;
+}
+
+
+
+
+
+.columns-2 {
+  -webkit-columns: 2;
+  -moz-columns: 2;
+  columns: 2;
+  -webkit-column-gap: 1em;
+  -moz-column-gap: 1em;
+  column-gap: 1em;
+}
+
+
+ .remark-inline-code {
+  background: transparent;
+  border-radius: 3px;
+  padding: 2px;
+}
+
+
+.content-box {
+    box-sizing: border-box;
+    background-color: #e2e2e2;
+}
+.content-box-blue,
+.content-box-gray,
+.content-box-grey,
+.content-box-army,
+.content-box-green,
+.content-box-purple,
+.content-box-red,
+.content-box-yellow {
+  box-sizing: border-box;
+  border-radius: 15px;
+  margin: 0 0 15px;
+  overflow: hidden;
+  padding: 0px 20px 0px 20px;
+  width: 100%;
+}
+.content-box-blue { background-color: #F0F8FF; }
+.content-box-gray { background-color: #e2e2e2; }
+.content-box-grey {	background-color: #F5F5F5; }
+.content-box-army {	background-color: #737a36; }
+.content-box-green { background-color: #d9edc2; }
+.content-box-purple { background-color: #e2e2f9; }
+.content-box-red { background-color: #ffcccc; }
+.content-box-yellow { background-color: #fef5c4; }
+.content-box-blue .remark-inline-code,
+.content-box-blue .remark-inline-code,
+.content-box-gray .remark-inline-code,
+.content-box-grey .remark-inline-code,
+.content-box-army .remark-inline-code,
+.content-box-green .remark-inline-code,
+.content-box-purple .remark-inline-code,
+.content-box-red .remark-inline-code,
+.content-box-yellow .remark-inline-code {
+  background: none;
+}
+
+.title-slide {
+  background-image: url("figures/USydLogo-white.svg"), url("figures/strip.png");
+  background-position: 95% 85%, 10% 18%;
+  background-size: 200px, 100%;
+  background-color: rgba(136, 57, 138, 1);
+  color: #fff;
+  /*text-shadow: 3px 3px 3px #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;*/
+  z-index: -2, -2;
+}
+
+.textshadow {
+  text-shadow: 3px 3px 3px #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
+}
+
+.title-slide h1 {
+  color: #ffffff;
+  font-weight: bold;
+  font-size: 50px;
+  padding: 20px;
+  text-align: center;
+  margin-bottom: 18px;
+}
+
+.title-slide h2 {
+  color: #fff;
+  font-size: 35px;
+  padding-left: 20px;
+  padding-bottom: 10px;
+  margin-top: 0px;
+  text-align: left;
+  vertical-align: middle;
+}
+
+.title-slide h3 {
+  font-size: 28px;
+  font-weight: normal;
+  color: #fff;
+  padding-left: 20px;
+  margin: 0px;
+  line-height: 1;
+  text-align: left;
+  vertical-align: middle;
+}
+.glit {
+  font-size: 60px;
+  font-weight: bold;
+  background: -webkit-linear-gradient(transparent, transparent), url(figures/gold_glitter.gif) repeat;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  position:relative;
+  z-index: 2;
+}
+
+.glit:after {
+  background: none;
+  content: attr(data-text);
+  left: 0;
+  position: absolute;
+  text-shadow: 3px 3px 3px #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
+  top: 0;
+  z-index: -1;
+}
+
+.remark-slide-number {
+  opacity: 0
+}
+
+.metroheader {
+  border-top: 80px solid #562457;
+}
+
+.header {
+	position: absolute;
+	top: 4px;
+  font-size: 45px;
+	color: #fff;
+}

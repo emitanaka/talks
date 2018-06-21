@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Interactive web app with R Shiny</title>
+    <meta charset="utf-8">
+    <meta name="author" content="Emi Tanaka" />
+    <meta name="date" content="2018-06-20" />
+    <link href="libs/font-awesome-animation/font-awesome-animation.min.css" rel="stylesheet" />
+    <script src="libs/fontawesome/js/fontawesome-all.min.js"></script>
+    <link href="libs/font-awesome/css/fontawesome-all.min.css" rel="stylesheet" />
+    <link href="libs/ionicons/css/ionicons.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="custom.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+
+
+
+
+
+class: title-slide
+
+&lt;br&gt;&lt;br&gt;
+# .textshadow[Making a] &lt;span class="glit" data-text="Shiny"&gt;Shiny&lt;/span&gt; .textshadow[interactive web application using <i class="fab  fa-r-project fa-2x faa-pulse animated "></i>]
+&lt;br&gt;&lt;br&gt;
+.pull-right[.gray[.textshadow[
+* These slides are best viewed on Chrome. 
+* Firefox is not rendering two columns correctly.
+* Don't even get started with IE.]]]
+&lt;br&gt;
+## .textshadow[**Emi Tanaka**]
+
+
+### .textshadow[June 20, 2018]
+
+&lt;br&gt;
+
+[.textshadow[.font120[<span>
+<i class="fab  fa-twitter faa-float animated " style=" color:white;"></i>
+.white[@statsgen]
+</span>]]](http://twitter.com/statsgen)
+
+&lt;br&gt;&lt;br&gt;&lt;br&gt;
+---
+class: center, middle
+
+background-image: url("figures/beforeS.png")
+background-position: 90% 70%
+background-size: 200px
+
+# <i class="fab  fa-r-project fa-2x "></i> is great!
+
+
+---
+
+class: center, middle
+
+background-image: url("figures/surprise.png")
+background-position: 90% 70%
+background-size: 200px
+
+# <i class="fab  fa-r-project fa-2x "></i> is great!
+
+&lt;br&gt; 
+
+## <i class="ion  ion-sad "></i> But not everyone knows `R`.  
+
+---
+
+class: center, middle
+
+background-image: url("figures/handshake.png")
+background-position: 90% 90%
+background-size: 100px
+
+
+# <i class="fab  fa-r-project fa-2x "></i> is great!
+
+&lt;br&gt; 
+
+## <i class="ion  ion-sad "></i> But not everyone knows `R`.  
+
+
+&lt;br&gt; 
+
+## &lt;span class="glit" data-text="Shiny"&gt;Shiny&lt;/span&gt; can bridge that gap between  non-`R` users and `R` users.
+
+
+---
+
+class: metroheader
+
+.header[What is &lt;span class="glit2"&gt;Shiny&lt;/span&gt;?]
+
+--
+
+## <i class="fas  fa-info-circle "></i> `shiny` is a web application framework for `R` so it can do whatever `R` can do!
+
+&lt;img src="figures/geyser.gif" height="380"&gt;
+.pull-right[&lt;img src="figures/caigexplorer.gif" height="380"&gt;]
+
+---
+
+class: metroheader
+
+.header[Why &lt;span class="glit2"&gt;Shiny&lt;/span&gt;?]
+.columns-2[.font100[
+* It's all done in `R` so you don't need to be a web developer to make an app!
+
+&amp;emsp;&amp;emsp;&amp;emsp;&lt;img src="figures/faketext1.gif" height="520"&gt;
+
+&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;
+
+]]
+
+
+---
+
+class: metroheader
+
+.header[Why &lt;span class="glit2"&gt;Shiny&lt;/span&gt;?]
+.columns-2[.font100[
+* It's all done in `R` so you don't need to be a web developer to make an app!
+
+&amp;emsp;&amp;emsp;&amp;emsp;&lt;img src="figures/faketext1.gif" height="520"&gt;
+
+* Let users easily explore the data. 
+
+&amp;emsp;&amp;emsp;&amp;emsp;&lt;img src="figures/faketext2.gif" height="520"&gt;
+
+]]
+
+---
+
+class: metroheader
+
+.header[How to get started with &lt;span class="glit2"&gt;Shiny&lt;/span&gt;?]
+RStudio &gt; File &gt; New File &gt; Shiny Web App
+.center[![](figures/makeshinyapp.png)]
+
+---
+
+class: metroheader
+
+.header[There are two types of &lt;span class="glit2"&gt;Shiny&lt;/span&gt; developers]
+
+&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&lt;img src="figures/type1.png"&gt;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;.font45[vs.]
+.pull-right[&amp;emsp;&lt;img src="figures/type2.png"&gt;]
+.columns-2[
+`app.R`
+
+```r
+ui &lt;- fluidPage(
+  titlePanel("Old Faithful Geyser Data"),
+  sliderInput("bins", "Number of bins:",
+               min = 1, max = 50,
+               value = 30) ,
+  plotOutput("distPlot")
+)
+
+server &lt;- function(input, output) {
+   output$distPlot &lt;- renderPlot({
+     ggplot(faithful, aes(waiting)) + geom_histogram(bins=input$bins) + theme_bw()
+   })
+}
+```
+&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;
+`ui.R`
+
+```r
+shinyUI(
+  fluidPage(
+    titlePanel("Old Faithful Geyser Data"),
+    sliderInput("bins", "Number of bins:",
+                min = 1, max = 50, value = 30) ,
+    plotOutput("distPlot")
+  )
+)
+```
+`server.R`
+
+```r
+shinyServer(function(input, output) {
+  output$distPlot &lt;- renderPlot({
+    ggplot(faithful, aes(waiting)) + geom_histogram(bins=input$bins) + theme_bw()
+  })
+})
+```
+
+]
+
+
+---
+
+class: center
+
+![](figures/twitter-survey.png)
+--
+
+## Okay, truth is there are more than two types...
+
+![](figures/twitter-response.png)
+
+---
+
+class: columns-2
+background-image: url("figures/geyser-1.png")
+background-position: 85% 80%
+background-size: 400px
+
+.pull-left[
+`ui.R`
+
+```r
+*shinyUI(
+  fluidPage(
+    titlePanel("Old Faithful Geyser Data"),
+    sliderInput("bins", "Number of bins:",
+          min = 1, max = 50, value = 30),
+    plotOutput("distPlot")
+  )
+)
+```
+`server.R`
+
+```r
+shinyServer(function(input, output) {
+  output$distPlot &lt;- renderPlot({
+    ggplot(faithful, aes(waiting)) + 
+      geom_histogram(bins=input$bins) + 
+      theme_bw()
+  })
+})
+```
+&lt;br&gt;
+.content-box-yellow[`shinyUI` register the user-interface with Shiny (no longer required for Shiny 0.10 and beyond).
+
+]
+
+&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;
+]
+
+---
+
+class: columns-2
+background-image: url("figures/geyser-1.png")
+background-position: 85% 80%
+background-size: 400px
+
+.pull-left[
+`ui.R`
+
+```r
+shinyUI(
+* fluidPage(
+    titlePanel("Old Faithful Geyser Data"),
+    sliderInput("bins", "Number of bins:",
+          min = 1, max = 50, value = 30),
+    plotOutput("distPlot")
+  )
+)
+```
+`server.R`
+
+```r
+shinyServer(function(input, output) {
+  output$distPlot &lt;- renderPlot({
+    ggplot(faithful, aes(waiting)) + 
+      geom_histogram(bins=input$bins) + 
+      theme_bw()
+  })
+})
+```
+&lt;br&gt;
+.content-box-yellow[`fluidPage` to let `R` know your about to create a page...
+
+]
+
+&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;
+]
+
+---
+
+class: columns-2
+background-image: url("figures/geyser-1.png")
+background-position: 85% 80%
+background-size: 400px
+
+.pull-left[
+`ui.R`
+
+```r
+shinyUI(
+  fluidPage(
+*   titlePanel("Old Faithful Geyser Data"),
+    sliderInput("bins", "Number of bins:",
+          min = 1, max = 50, value = 30),
+    plotOutput("distPlot")
+  )
+)
+```
+`server.R`
+
+```r
+shinyServer(function(input, output) {
+  output$distPlot &lt;- renderPlot({
+    ggplot(faithful, aes(waiting)) + 
+      geom_histogram(bins=input$bins) + 
+      theme_bw()
+  })
+})
+```
+&lt;br&gt;
+.content-box-yellow[... which contains a title, ...
+
+]
+
+&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;
+]
+
+---
+
+class: columns-2
+background-image: url("figures/geyser-1.png")
+background-position: 85% 80%
+background-size: 400px
+
+.pull-left[
+`ui.R`
+
+```r
+shinyUI(
+  fluidPage(
+    titlePanel("Old Faithful Geyser Data"),
+*   sliderInput("bins", "Number of bins:",
+*         min = 1, max = 50, value = 30),
+    plotOutput("distPlot")
+  )
+)
+```
+`server.R`
+
+```r
+shinyServer(function(input, output) {
+  output$distPlot &lt;- renderPlot({
+    ggplot(faithful, aes(waiting)) + 
+      geom_histogram(bins=input$bins) + 
+      theme_bw()
+  })
+})
+```
+&lt;br&gt;
+.content-box-yellow[... a slider stemming from 1 to 50 with default value 30 contained in `bins`, ...
+
+]
+
+&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;
+]
+
+---
+
+class: columns-2
+background-image: url("figures/geyser-1.png")
+background-position: 85% 80%
+background-size: 400px
+
+.pull-left[
+`ui.R`
+
+```r
+shinyUI(
+  fluidPage(
+    titlePanel("Old Faithful Geyser Data"),
+    sliderInput("bins", "Number of bins:",
+          min = 1, max = 50, value = 30),
+*   plotOutput("distPlot")
+  )
+)
+```
+`server.R`
+
+```r
+shinyServer(function(input, output) {
+  output$distPlot &lt;- renderPlot({
+    ggplot(faithful, aes(waiting)) + 
+      geom_histogram(bins=input$bins) + 
+      theme_bw()
+  })
+})
+```
+&lt;br&gt;
+.content-box-yellow[... and plot `distPlot` output.
+
+]
+
+&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;
+]
+
+---
+
+class: columns-2
+background-image: url("figures/geyser-1.png")
+background-position: 85% 80%
+background-size: 400px
+
+.pull-left[
+`ui.R`
+
+```r
+shinyUI(
+  fluidPage(
+    titlePanel("Old Faithful Geyser Data"),
+    sliderInput("bins", "Number of bins:",
+          min = 1, max = 50, value = 30),
+    plotOutput("distPlot")
+  )
+)
+```
+`server.R`
+
+```r
+shinyServer(function(input, output) {
+* output$distPlot &lt;- renderPlot({
+*   ggplot(faithful, aes(waiting)) + 
+*     geom_histogram(bins=input$bins) + 
+*     theme_bw()
+* })
+})
+```
+&lt;br&gt;
+.content-box-yellow[The `distPlot` output is rendered in the server side with a histogram from `ggplot2`. 
+
+]
+
+&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;
+]
+
+---
+
+class: columns-2
+background-image: url("figures/geyser-1.png")
+background-position: 85% 80%
+background-size: 400px
+
+.pull-left[
+`ui.R`
+
+```r
+shinyUI(
+  fluidPage(
+    titlePanel("Old Faithful Geyser Data"),
+    sliderInput("bins", "Number of bins:",
+          min = 1, max = 50, value = 30),
+    plotOutput("distPlot")
+  )
+)
+```
+`server.R`
+
+```r
+shinyServer(function(input, output) {
+  output$distPlot &lt;- renderPlot({
+    ggplot(faithful, aes(waiting)) + 
+*     geom_histogram(bins=input$bins) + 
+      theme_bw()
+  })
+})
+```
+&lt;br&gt;
+.content-box-yellow[`input$bins` contains the value specified in the user interface. 
+
+]
+
+&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;
+]
+
+---
+
+class: middle, center
+
+# And that's it! 
+
+# You will have the bin-varying histogram &lt;span class="glit"&gt;Shiny&lt;/span&gt; app!
+
+&lt;img src="figures/geyser.gif" height="380"&gt;
+
+---
+
+class: title-slide
+
+&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;
+
+# .textshadow[Thank you!]
+&lt;br&gt;&lt;br&gt;&lt;br&gt;
+
+
+## .textshadow[**Emi Tanaka**]
+
+[.textshadow[.font120[.white[<i class="fab  fa-twitter faa-float animated "></i> @statsgen]]]](http://twitter.com/statsgen)
+
+.textshadow[.font120[.white[<span class="faa-parent animated-hover">
+<i class="fas  fa-envelope faa-shake "></i>
+emi.tanaka@sydney.edu.au
+</span>]]]
+
+[.textshadow[.font120[<span class="faa-parent animated-hover">
+<i class="fas  fa-link faa-burst " style=" color:white;"></i>
+.white[slides at] .gray[bit.ly/sydrladies-shiny]
+</span>]]](bit.ly/sydrladies-shiny)
+
+[.textshadow[.font120[<span class="faa-parent animated-hover">
+<i class="fab  fa-github faa-ring " style=" color:white;"></i>
+.white[code available at] .gray[bit.ly/sydrladies-shiny]
+</span>]]](bit.ly/sydrladies-shiny)
+
+
+
+.footnote[&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;.textshadow[Thanks to Francis Hui, [.white[Sarah Romanes]](http://twitter.com/sarah_romanes) and [.white[Garth Tarr]](http://twitter.com/garthtarr) for inspirations!]]
+    </textarea>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"ratio": "16:9",
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function() {
+  var d = document, s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})();</script>
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+  }
+});
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
