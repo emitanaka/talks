@@ -1,0 +1,127 @@
+.clock {
+  width: 150px;
+  display: inline-block;
+  height: 150px;
+  border-radius: 150px;
+  margin: 40px;
+  position: relative;
+  
+  border: 15px solid #599DA9;
+  background: #e2e0d3;
+  box-shadow: 0 10px 0 rgba(0,0,0,0.2), inset 0 3px 0 rgba(0,0,0,0.1);
+}
+
+.clock:nth-child(2) {
+   border-color: #90b242;
+}
+
+.clock:nth-child(3) {
+   border-color: #efce7d;
+}
+
+.clock:nth-child(3) {
+   border-color: #cb3131;
+}
+.clock:before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 20px;
+  height: 20px;
+  margin-left: -10px;
+  margin-top: -10px;
+  border-radius: 20px;
+}
+
+.clock:before,
+.hand {
+  background: #4c4b50; 
+}
+
+.hand {
+  position: absolute;
+  transform-origin: 100% 50%;
+  top: 50%;
+  left: 20px;
+}
+
+.hour {
+  width: 40px;
+  height: 8px;
+  margin-top: -4px;
+  transform: rotate(45deg)
+}
+
+.minute {
+  width: 45px;
+  height: 6px;
+  margin-top: -3px;
+  left: 15px;
+  transform: rotate(180deg)
+}
+
+.second {
+  width: 50px;
+  height: 4px;
+  margin-top: -2px;
+  left: 10px;
+  transform: rotate(220deg)
+}
+
+
+.hour {
+  animation: spin 500s infinite linear; 
+}
+
+.minute {
+  animation: spin 100s infinite linear; 
+}
+
+.second {
+  animation: spin 3s infinite linear; 
+}
+
+.clock:nth-child(2) .hour {
+  animation-delay: 0.5s; 
+}  
+
+.clock:nth-child(2) .minute {
+  animation-delay: 0.5s;
+}  
+
+.clock:nth-child(2) .second {
+  animation-delay: 0.5s; 
+}  
+
+
+.clock:nth-child(3) .hour {
+  animation-delay: 1s;
+}  
+
+.clock:nth-child(3) .minute {
+  animation-delay: 1s;
+}  
+
+.clock:nth-child(3) .second {
+  animation-delay: 1s;
+}  
+
+
+.clock:nth-child(4) .hour {
+  animation-delay: 1.5s;
+}  
+
+.clock:nth-child(4) .minute {
+  animation-delay: 1.5s; 
+}  
+
+.clock:nth-child(4) .second {
+  animation-delay: 1.5s; 
+}  
+
+
+@keyframes spin {  
+  from {  transform: rotate(0deg);  }  
+  to { transform: rotate(360deg); }
+} 

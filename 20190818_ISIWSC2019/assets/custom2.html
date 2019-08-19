@@ -1,0 +1,39 @@
+<script src="assets/leader-line.min.js"></script>
+<script>
+new LeaderLine(
+  document.getElementById('start'),
+  document.getElementById('draggable'),
+  {dash: {animation: true}}
+);
+</script>
+<script>
+var lines = document.getElementsByClassName('leader-line');
+for(var i=0; i < lines.length; i++) {
+  lines[i].style["z-index"] = 2;
+}
+</script>
+<script src="assets/plain-draggable.min.js"></script>
+<script>
+draggable = new PlainDraggable(document.getElementById('draggable'),
+{    onDrag: function(newPosition) {
+      if (newPosition.left > islandBBox.left && newPosition.left < islandBBox.right &&
+          newPosition.top > islandBBox.top && newPosition.top < islandBBox.bottom) {
+        if (this.left <= islandBBox.left) {
+          newPosition.left = islandBBox.left;
+        } else if (this.left >= islandBBox.right) {
+          newPosition.left = islandBBox.right;
+        }
+        if (this.top <= islandBBox.top) {
+          newPosition.top = islandBBox.top;
+        } else if (this.top >= islandBBox.bottom) {
+          newPosition.top = islandBBox.bottom;
+        }
+      }
+    },
+    onMove: function() {
+      line.position();
+}
+    });
+</script>
+
+

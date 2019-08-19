@@ -1,0 +1,126 @@
+/* chewy-regular - latin */
+@font-face {
+  font-family: 'Chewy';
+  font-style: normal;
+  font-weight: 400;
+  src: url('fonts/chewy-v10-latin-regular.eot'); /* IE9 Compat Modes */
+  src: local('Chewy Regular'), local('Chewy-Regular'),
+       url('fonts/chewy-v10-latin-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('fonts/chewy-v10-latin-regular.woff2') format('woff2'), /* Super Modern Browsers */
+       url('fonts/chewy-v10-latin-regular.woff') format('woff'), /* Modern Browsers */
+       url('fonts/chewy-v10-latin-regular.ttf') format('truetype'), /* Safari, Android, iOS */
+       url('fonts/chewy-v10-latin-regular.svg#Chewy') format('svg'); /* Legacy iOS */
+}
+
+/* open-sans-regular - latin */
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 400;
+  src: url('fonts/open-sans-v16-latin-regular.eot'); /* IE9 Compat Modes */
+  src: local('Open Sans Regular'), local('OpenSans-Regular'),
+       url('fonts/open-sans-v16-latin-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('fonts/open-sans-v16-latin-regular.woff2') format('woff2'), /* Super Modern Browsers */
+       url('fonts/open-sans-v16-latin-regular.woff') format('woff'), /* Modern Browsers */
+       url('fonts/open-sans-v16-latin-regular.ttf') format('truetype'), /* Safari, Android, iOS */
+       url('fonts/open-sans-v16-latin-regular.svg#OpenSans') format('svg'); /* Legacy iOS */
+}
+
+.header, h1, h2, h3, h4, h5, h6 {
+  font-family: 'Chewy', cursive;
+}
+h1 { font-size:38pt!important; }
+h2 { font-size:36pt!important; }
+h3 { font-size:34pt!important; }
+h4 { font-size:32pt!important; }
+h5 { font-size:30pt!important; }
+h6 { font-size:28pt!important; }
+
+.shade_black  {
+    background-color: rgba(0,0,0,0.5);
+    color: white;
+    width: 100%;
+    padding: 0;
+}
+
+.remark-slide-content {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 24pt!important;
+}
+
+/** bullet **/
+
+ul {
+  list-style-image: url('../images/bird.png');
+  margin-left: 1em;
+}
+
+.tab::before {
+  margin-left: 3em;
+}
+
+
+/* this is necessary for printing */
+@media print {
+  .remark-slide-scaler {
+    width: 100% !important;
+    height: 100% !important;
+    transform: scale(1) !important;
+    top: 0 !important;
+    left: 0 !important;
+  }
+}
+
+@page {
+  size: 1024px 768px;
+  margin: 0;
+}
+
+
+.check-box {
+  border-style:solid;
+  padding-left:8px;
+  padding-right:8px;
+  border-width:2px;
+  border-radius: 10px;
+  background-color: white;
+}
+
+.border-box, .border-box-white {
+  border-style:solid;
+  padding:10px;
+  border-width:10px;
+  border-radius: 25px;
+}
+
+.border-box-white { border-color: white; }
+
+.double-border-right {
+  border-right-style: double; 
+  border-right-width:10px; 
+  border-right-color:black;
+}
+
+.border-it {
+  border-style:solid;
+  border-width:4px;
+}
+
+.shade_black > a  {
+  color: white!important;
+}
+
+.shade_black  a, .bg-black a  {
+  color: white!important;
+}
+
+.scroll-box {
+  height: 500px;
+  overflow-y: scroll;
+}
+
+@media print {
+  .has-continuation {
+    display: block !important;
+  }
+}

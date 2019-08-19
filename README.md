@@ -2,4 +2,6 @@
 Talks
 ======
 
-I'll host my talk slide codes here time to time.
+This reposititary contains R Markdown source files for some of my slides. 
+
+For my slides you can find it [here](https://emitanaka.github.io/#talks).
