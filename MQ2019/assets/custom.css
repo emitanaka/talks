@@ -1,0 +1,354 @@
+/* nunito-regular - latin */
+@font-face {
+  font-family: 'Nunito';
+  font-style: normal;
+  font-weight: 400;
+  src: url('fonts/nunito-v11-latin-regular.eot'); /* IE9 Compat Modes */
+  src: local('Nunito Regular'), local('Nunito-Regular'),
+       url('fonts/nunito-v11-latin-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('fonts/nunito-v11-latin-regular.woff2') format('woff2'), /* Super Modern Browsers */
+       url('fonts/nunito-v11-latin-regular.woff') format('woff'), /* Modern Browsers */
+       url('fonts/nunito-v11-latin-regular.ttf') format('truetype'), /* Safari, Android, iOS */
+       url('fonts/nunito-v11-latin-regular.svg#Nunito') format('svg'); /* Legacy iOS */
+}
+/* nunito-600 - latin */
+@font-face {
+  font-family: 'Nunito';
+  font-style: normal;
+  font-weight: 600;
+  src: url('fonts/nunito-v11-latin-600.eot'); /* IE9 Compat Modes */
+  src: local('Nunito SemiBold'), local('Nunito-SemiBold'),
+       url('fonts/nunito-v11-latin-600.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('fonts/nunito-v11-latin-600.woff2') format('woff2'), /* Super Modern Browsers */
+       url('fonts/nunito-v11-latin-600.woff') format('woff'), /* Modern Browsers */
+       url('fonts/nunito-v11-latin-600.ttf') format('truetype'), /* Safari, Android, iOS */
+       url('fonts/nunito-v11-latin-600.svg#Nunito') format('svg'); /* Legacy iOS */
+}
+/* nunito-700 - latin */
+@font-face {
+  font-family: 'Nunito';
+  font-style: normal;
+  font-weight: 700;
+  src: url('fonts/nunito-v11-latin-700.eot'); /* IE9 Compat Modes */
+  src: local('Nunito Bold'), local('Nunito-Bold'),
+       url('fonts/nunito-v11-latin-700.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('fonts/nunito-v11-latin-700.woff2') format('woff2'), /* Super Modern Browsers */
+       url('fonts/nunito-v11-latin-700.woff') format('woff'), /* Modern Browsers */
+       url('fonts/nunito-v11-latin-700.ttf') format('truetype'), /* Safari, Android, iOS */
+       url('fonts/nunito-v11-latin-700.svg#Nunito') format('svg'); /* Legacy iOS */
+}
+/* nunito-800 - latin */
+@font-face {
+  font-family: 'Nunito';
+  font-style: normal;
+  font-weight: 800;
+  src: url('fonts/nunito-v11-latin-800.eot'); /* IE9 Compat Modes */
+  src: local('Nunito ExtraBold'), local('Nunito-ExtraBold'),
+       url('fonts/nunito-v11-latin-800.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('fonts/nunito-v11-latin-800.woff2') format('woff2'), /* Super Modern Browsers */
+       url('fonts/nunito-v11-latin-800.woff') format('woff'), /* Modern Browsers */
+       url('fonts/nunito-v11-latin-800.ttf') format('truetype'), /* Safari, Android, iOS */
+       url('fonts/nunito-v11-latin-800.svg#Nunito') format('svg'); /* Legacy iOS */
+}
+/* nunito-900 - latin */
+@font-face {
+  font-family: 'Nunito';
+  font-style: normal;
+  font-weight: 900;
+  src: url('fonts/nunito-v11-latin-900.eot'); /* IE9 Compat Modes */
+  src: local('Nunito Black'), local('Nunito-Black'),
+       url('fonts/nunito-v11-latin-900.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('fonts/nunito-v11-latin-900.woff2') format('woff2'), /* Super Modern Browsers */
+       url('fonts/nunito-v11-latin-900.woff') format('woff'), /* Modern Browsers */
+       url('fonts/nunito-v11-latin-900.ttf') format('truetype'), /* Safari, Android, iOS */
+       url('fonts/nunito-v11-latin-900.svg#Nunito') format('svg'); /* Legacy iOS */
+}
+
+.header, h1, h2, h3, h4, h5, h6 {
+  font-family: 'Nunito', cursive;
+  margin-block-start: 0;
+  margin-block-end: 0;
+}
+.header{
+  font-weight: 900!important;
+}
+h1 { 
+  font-size:38pt!important; 
+  font-weight: 900;
+}
+h2 { 
+  font-size:30pt!important; 
+  font-weight: 800;
+}
+h3 { 
+  font-size:28pt!important; 
+  font-weight: 700;
+}
+h4 { font-size:26pt!important; }
+h5 { font-size:24pt!important; }
+h6 { font-size:22pt!important; }
+
+.shade_black  {
+    background-color: rgba(0,0,0,0.5);
+    color: white;
+    width: 100%;
+    padding: 0;
+}
+
+.remark-slide-content {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 24pt!important;
+}
+
+/** bullet **/
+
+ul {
+  list-style: none; /* Remove default bullets */
+}
+
+ul li::before {
+  content: "\27A4";  /* Add content: \2022 is the CSS Code/unicode for a bullet */
+  color: red; /* Change the color */
+  font-weight: bold; /* If you want it to be bold */
+  display: inline-block; /* Needed to add space between the bullet and the text */
+  width: 1em; /* Also needed for space (tweak if needed) */
+  margin-left: -1em; /* Also needed for space (tweak if needed) */
+}
+
+/** split slides - should move these to ninjitsu**/
+
+.split-100 >.column:first-of-type {
+  width: 100%; height:100%; position: absolute; top: 0; left: 0;
+}
+.split-80 >.column:first-of-type {
+  width: 80%; height:100%; position: absolute; top: 0; left: 0;
+}
+.split-80 >.column:nth-of-type(2) {
+  width: 20%; height:100%; position: absolute; top: 0; left: 80%;
+}
+.split-85 >.column:first-of-type {
+  width: 85%; height:100%; position: absolute; top: 0; left: 0;
+}
+.split-85 >.column:nth-of-type(2) {
+  width: 15%; height:100%; position: absolute; top: 0; left: 85%;
+}
+
+.split-90 >.column:first-of-type {
+  width: 90%; height:100%; position: absolute; top: 0; left: 0;
+}
+.split-90 >.column:nth-of-type(2) {
+  width: 10%; height:100%; position: absolute; top: 0; left: 90%;
+}
+
+/* this is necessary for printing */
+@media print {
+  .remark-slide-scaler {
+    width: 100% !important;
+    height: 100% !important;
+    transform: scale(1) !important;
+    top: 0 !important;
+    left: 0 !important;
+  }
+}
+
+.item-bg {
+  background-size: cover;
+  border-right-style: solid;
+}
+
+.shade_black > a {
+  color: white!important;
+}
+
+.shade_black  a {
+  color: white!important;
+}
+
+.round_pad {
+  padding: 4px;
+  border-radius: 20px;
+}
+
+.bg-greyish {
+  background-color: rgb(240, 240, 240);
+}
+
+
+table.dataTable thead tr {
+  background-color: gray;
+  color: white;
+}
+
+#mermaidChart0, #mermaidChart1, #mermaidChart2, #mermaidChart3  {
+  max-width: 1000px!important;
+}
+
+
+ div.tip, div.tool {
+    padding: 1em;
+    margin: 1em 0;
+    padding-left: 100px;
+    background-size: 70px;
+    background-repeat: no-repeat;
+    background-position: 15px center;
+    min-height: 120px;
+    color: #1f5386;
+    background-color: #bed3ec;
+    border: dashed 5px #1f5386;
+    width: 70%;
+    display: table;
+    margin: 0 auto;
+  }
+  
+div.tipmin, .note, .note-code {
+    padding: 1em;
+    margin: 1em 0;
+    color: #1f5386;
+    background-color: #ffffcc;
+    border-left: 20px solid #ffeb3b;
+    width: 70%;
+    display: table;
+    margin: 0 auto;
+  }
+.note {
+  background-color: #FFFFE5;
+}
+
+.note-code {
+  background-color: #FDEBFF!important;
+}
+  
+div.tip {
+ background-image: url("../images/blub.png");
+}
+
+.box {
+  width:70%;
+  display: table;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.font-65 {
+  font-size: 0.65em;
+}
+
+.font-70 {
+  font-size: 0.7em;
+}
+
+.font-80 {
+  font-size: 0.8em;
+}
+
+.font-90 {
+  font-size: 0.9em;
+}
+
+.tip > ul li::before {
+  color: #003F7F;
+}
+
+div.tool {
+  background-color: #f3ecdd;
+}
+
+.scroll-400 {
+  overflow-y: scroll;
+  height: 350px;
+}
+
+.code-black {
+  background-color: #e6ffcc;
+  border: solid 10px black;
+  position: relative;
+  padding-top: 1em;
+  padding-bottom: 20px;
+}
+
+.eqn-black {
+  background-color: #ffffcc;
+  border: solid 10px black;
+  position: relative;
+  padding-top: 10px;
+}
+
+.float-left {
+  float: left;
+}
+
+.note-black {
+  background-color: #ffdfe5;
+  border: solid 10px black;
+}
+
+.code-black .remark-code-line {
+  color: black;
+}
+
+
+
+.code-black::after, .eqn-black::after {
+  position: absolute;
+  top:0;
+  left:0;
+  margin-top: -10px;
+  margin-left: -10px;
+  background-color: black;
+  padding-left:20px;
+  font-family: monospace;
+  padding-right:20px;
+  font-weight: 800;
+}
+
+.code-black::after { 
+  content: "code in R";
+  color: #62bb47;
+}
+.eqn-black::after { 
+  content: "equation";
+  color: #ffeb3b;
+}
+
+.code-black .remark-code *, .code-black .remark-code {
+  background-color: transparent!important;
+  font-size: 25px;
+}
+
+.remark-code {
+  font-size: 25px;
+}
+
+pre {
+  display: block;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+.hljs-comment {
+  color: #00264c!important;
+  font-style: normal!important;
+}
+
+.code-black2 .remark-code *, .code-black2 .remark-code {
+  background-color: transparent!important;
+  font-size: 25px;
+}
+
+@media print {
+  .has-continuation {
+    display: block !important;
+  }
+}
+
+.pad10 {
+  padding: 20px;
+}
+
+li{
+  margin: 10px 0;
+}
+
+.bg-black a {
+  color: white!important;
+}

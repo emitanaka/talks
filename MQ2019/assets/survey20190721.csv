@@ -1,0 +1,151 @@
+Timestamp,Have you heard or used any of the R-package below?,Which linear mixed model software do you use most?,What do you find most difficult about fitting a linear mixed model in R?
+3/15/2019 20:48:47,"lme4, nlme, glmm, brms, rstan",glmm,Accessing information on the options available.
+3/15/2019 20:48:49,"lme4, nlme, glmm, brms, rstan, rstanarm",greta ,Interpreting outputs 
+3/15/2019 20:51:04,"lme4, nlme, glmm, brms, rstan",rstanarm,access to estimate quantities
+3/15/2019 20:51:15,"lme4, nlme, glmm, brms, rstan",lme4,
+3/15/2019 20:57:24,lme4,lme4,
+3/15/2019 20:58:38,"lme4, nlme, glmm, rstan, rstanarm",nlme,
+3/15/2019 20:58:52,"lme4, nlme, glmm",lme4, Thinking about fitting generalised linear mixed models. Its both a code thing and a math thing for me
+3/15/2019 20:59:40,"lme4, nlme, glmm, blme, brms, rstan, rstanarm",lme4,I always have to google the syntax for specifying the random effects!
+3/15/2019 21:01:45,"lme4, nlme, MCMCglmm, brms, rstan",nlme,Switching between packages. Similar interface in lme4 and brms is nice.
+3/15/2019 21:01:59,"lme4, nlme",lme4,Model diagnostics
+3/15/2019 21:08:16,"lme4, nlme, MCMCglmm, blme, brms, rstan, rstanarm",lme4,The time it takes for models to converge...and sometimes they don't! Cryptic error messages don't help
+3/15/2019 21:08:31,"lme4, nlme, MCMCglmm, brms, rstan, rstanarm",brms,Convergence :)
+3/15/2019 21:11:51,"lme4, nlme, glmm, brms, rstan",lme4,
+3/15/2019 21:13:59,"lme4, nlme, glmm, MCMCglmm, rstanarm",nlme,non-linear heterogeneous models
+3/15/2019 21:19:51,lme4,lme4,"Honestly, the underlying statistics"
+3/15/2019 21:25:39,"lme4, glmm, rstan",glmm,Preparing the data
+3/15/2019 21:30:25,"lme4, nlme, asreml, MCMCglmm",lme4,Getting the syntax correct for the model I want to fit.
+3/15/2019 21:31:32,"lme4, asreml, MCMCglmm",asreml,
+3/15/2019 21:33:40,lme4,lme4,
+3/15/2019 21:36:29,"lme4, nlme, brms, rstan, rstanarm",rstan,Good parametrization
+3/15/2019 21:36:36,"lme4, nlme, glmm",lme4,Specifying the syntax correctly
+3/15/2019 21:37:12,"lme4, nlme, glmm",lme4,Specifying the syntax correctly
+3/15/2019 21:38:47,"lme4, nlme, glmm, MCMCglmm, brms, rstan, rstanarm",lme4,Assessing convergence and how seriously to take lmer warnings
+3/15/2019 21:50:41,"lme4, nlme, glmm, brms, rstan",lme4,
+3/15/2019 21:55:26,"lme4, glmm, rstan, rstanarm",Template Model Builder (TMB),
+3/15/2019 21:56:47,"lme4, nlme, glmm",lme4,No clear examples and walk throughs for complex models
+3/15/2019 21:59:23,"lme4, nlme, brms, rstan",lme4,selecting appropriate random effects structure; assess convergence
+3/15/2019 22:03:36,"lme4, rstan",lme4,There is no easy consolidated way to see the different coefficients. Doing simple visualizations is difficult. 
+3/15/2019 22:07:39,"lme4, nlme, glmm, MCMCglmm, brms, rstan",lme4,Best way to treat nested random  variables and binomial response variables. 
+3/15/2019 22:10:28,"lme4, brms, rstan, rstanarm",rstan,
+3/15/2019 22:12:32,"lme4, brms, rstan, rstanarm",INLA,
+3/15/2019 22:27:58,"lme4, nlme, glmm, MCMCglmm, brms, rstan",lme4,Knowing how to deal with non-convergence/singular fit issues 
+3/15/2019 22:29:37,"lme4, glmm",lme4,Convergence issues with large complex datasets
+3/15/2019 22:56:49,"lme4, nlme, glmm",lme4,The ranef function is kind of cumbersome. Option to extract conditional means for non-linear models would be nice 
+3/15/2019 23:00:51,"lme4, nlme, glmm",lme4,
+3/15/2019 23:01:36,"lme4, nlme, glmm, MCMCglmm, blme, rstan, rstanarm",brms,
+3/15/2019 23:03:28,"lme4, nlme, glmm, MCMCglmm, rstan",lme4,
+3/15/2019 23:10:46,"lme4, nlme",lme4,Convergence issues in models with large N
+3/15/2019 23:15:57,"lme4, brms, rstan, rstanarm",rstan,Understanding parameters in context of the data|model
+3/15/2019 23:25:40,"lme4, nlme, MCMCglmm, rstan",lme4,Best practices for responding to and dealing with warnings/errors
+3/15/2019 23:35:09,"lme4, nlme, asreml, glmm, MCMCglmm, blme, brms, rstan, rstanarm",lme4,Custom specification of correlation structure.
+3/15/2019 23:40:52,"lme4, nlme, glmm",lme4,working with the object after fitting the model
+3/15/2019 23:41:05,"lme4, nlme, glmm",lme4,Specifying random components
+3/15/2019 23:50:03,"lme4, rstan",lme4,Understanding them :D
+3/15/2019 23:54:20,"lme4, nlme, brms, rstan, rstanarm",rstanarm,Crazy confusing syntax 
+3/16/2019 0:06:32,"lme4, nlme, glmm, MCMCglmm, brms, rstan, rstanarm",gamm4,
+3/16/2019 0:07:43,"lme4, nlme",lme4,"Avoiding convergence issues (rescaling sometimes helps), getting consistent results (sensitive to optimizer settings and lme control parameters), obtaining estimates for dispersion parameter in GLMM"
+3/16/2019 0:27:06,"lme4, nlme",lme4,Specifying complex RE and residual variance structures
+3/16/2019 0:30:47,lme4,lme4,Understand whether the model is specified correctly
+3/16/2019 0:32:10,"lme4, nlme, asreml, MCMCglmm, blme, brms, rstanarm",lme4,Covariance structures (autocorrelation and nonconstant variance of errors)
+3/16/2019 0:42:09,"lme4, nlme, glmm, MCMCglmm",lme4,Diagnostics and comparison between model options
+3/16/2019 0:54:50,"lme4, nlme, glmm, MCMCglmm, rstan, rstanarm",lme4,"Visualizing the results, such as plotting hierarchical group level effects."
+3/16/2019 0:59:43,"lme4, nlme, glmm, MCMCglmm, brms, rstan, rstanarm",rstanarm,Formula interface 
+3/16/2019 1:02:03,"lme4, nlme",lme4,
+3/16/2019 1:12:20,"lme4, nlme, blme, brms, rstan, rstanarm",brms,Visualising posteriors especially random slopes
+3/16/2019 1:18:12,"lme4, nlme",lme4,Remembering how to specify nestedness of random effects.
+3/16/2019 1:23:16,"lme4, nlme, MCMCglmm",nlme,"I use nlme to fit a particular nonlinear mixed model that I call sitar (CRAN package), which is unusual is modelling both y and x. The greatest difficulty lies in getting nlme to converge when fitting the model, as it is not robust and often throws error messages."
+3/16/2019 1:29:55,"lme4, nlme, asreml, glmm, MCMCglmm, brms, rstan, rstanarm",mgcv,optimisation issues
+3/16/2019 1:32:14,"lme4, nlme, asreml, MCMCglmm, rstanarm",MCMCglmm,Different notations for same components in different packages and the different required structures / elements where it isn't always clear what is needed 
+3/16/2019 1:32:54,"lme4, nlme, glmm, MCMCglmm, brms, rstan, rstanarm",brms,Predicting on new values.
+3/16/2019 1:34:10,"lme4, nlme, glmm, rstan, rstanarm",lme4,Figuring out which package/function corresponds to the theoretical mode I am trying to fit
+3/16/2019 1:47:00,"lme4, nlme, glmm, MCMCglmm, brms, rstan, rstanarm",lme4,"Diagnostics (e.g., testing assumptions)"
+3/16/2019 1:51:56,"lme4, nlme, glmm, brms, rstan, rstanarm",rstanarm,Output interpretation of results. They're usually mixed between containing covariance structures/correlations/random effects all merged together without a clear and unified terminology
+3/16/2019 1:53:44,"lme4, nlme, glmm, brms, rstan, rstanarm",lme4,Knowing how to prioritize removing terms when a model doesn't converge; interpreting random effects coefficients; dealing with collinearity; troubleshooting nonnormal residual distributions
+3/16/2019 2:06:05,"lme4, nlme",lme4,Data visualization
+3/16/2019 1:58:54,"lme4, nlme, glmm, blme, rstan",lme4,Poor efficiency with large datasets (relative to lm or sas proc mixed)
+3/16/2019 2:49:03,"lme4, nlme, asreml, glmm, MCMCglmm",lme4,The different symbology used between the different packages
+3/16/2019 2:57:38,"lme4, nlme, glmm, MCMCglmm, brms, rstan, rstanarm",lme4,Clearly getting variance components out of the object
+3/16/2019 2:57:44,"lme4, nlme, asreml, brms, rstan, rstanarm",lme4,Speed + flexibility (i.e easily model space-time correlation structure)
+3/16/2019 5:08:34,"lme4, nlme, glmm, brms",lme4,Model assessment
+3/16/2019 5:41:25,"lme4, nlme, MCMCglmm, brms, rstan, rstanarm",nlme,Defining it and then accessing various pieces for post-processing.
+3/16/2019 5:41:50,"lme4, nlme, glmm, MCMCglmm",lme4,Finding more detailed descriptions with examples (The work of Ben Bolker is an exception)
+3/16/2019 6:55:30,"lme4, nlme, glmm, MCMCglmm",lme4,Bootstrapping to get CIs on model parameters and predicted values
+3/16/2019 9:03:03,"lme4, nlme, glmm, rstan",inla,They are slow with big data.
+3/16/2019 9:24:40,"lme4, nlme, asreml, glmm",asreml,"Understand the output
+"
+3/16/2019 10:53:13,"lme4, nlme, brms, rstan",nlme,"In no particular order, (1) fitting using ""contr.treatment"" and ""contr.sum"" separately, (2) having to try different nAGQ with glmer, (3) deciding which random effects to include (the p-value approach suggested by Pinheiro and Bates seems unsatisfactory), (4) deciding how many predictor variables is too many for a given sample, (5) multiple imputation for clustered or longitudinal data, (6) knowing which p-values, if any, to use (Kenward-Roger, MCMC, etc.)."
+3/16/2019 11:37:02,lme4,lme4,"specifying model structure, interpreting outcomes"
+3/16/2019 11:42:20,"lme4, nlme, brms",lme4,Convergence issues - lme4 seems touchier on these than many other programs 
+3/16/2019 11:58:39,"lme4, brms",brms,
+3/16/2019 12:57:34,"lme4, nlme, asreml, MCMCglmm",asreml,nlme and lme4 are very frustrating with bizarre syntax. asreml has a simple syntax.
+3/16/2019 13:02:21,None of the above,I don't fit linear mixed models,
+3/16/2019 13:12:53,"lme4, nlme, glmm, brms, rstan",lme4,Retrieving expected statistics for my discipline.  
+3/16/2019 13:23:53,"lme4, brms, rstanarm",brms,It's not difficult!
+3/16/2019 13:25:27,"lme4, nlme",lme4,Not enough examples/case studies online. Very few description about model fitting in publications.
+3/16/2019 13:38:33,"lme4, nlme, glmm",lme4,ease of interpretation of variance partitions. THis is across multiple packages
+3/16/2019 14:09:35,"lme4, nlme, glmm, MCMCglmm, brms, rstan",lme4,Convergence for random effect variance and covariance parameters 
+3/16/2019 14:24:35,"lme4, nlme, glmm",lme4,Tidy output. Reliability and dispersion statistics
+3/16/2019 15:31:23,"lme4, nlme, glmm, MCMCglmm, rstan, rstanarm",lme4,Defining the correlation structure
+3/16/2019 15:34:06,"lme4, nlme, brms, rstan, rstanarm",rstan,Specifying covariance structures
+3/16/2019 15:45:31,"lme4, nlme, glmm, brms, rstan",lme4,Too slow
+3/16/2019 15:48:44,"lme4, glmm",lme4,I haven't used them too extensively and for complicated models but once I wanted to provide a specific covariance matrix as input and wasn't able to do so. 
+3/16/2019 15:51:58,"lme4, nlme, rstan",lme4,Formula
+3/16/2019 16:05:56,"lme4, nlme, brms",JAGS,Plotting and interpret the results at  different levels inference.
+3/16/2019 16:22:34,"lme4, nlme, asreml, glmm, MCMCglmm, rstan, rstanarm",lme4,Survey weights
+3/16/2019 16:37:01,"lme4, nlme, MCMCglmm, brms",nlme,Specifying variance or residual structures
+3/16/2019 16:42:51,"lme4, nlme, glmm",lme4,Deciding what random effects require slopes and which just require intercepts.
+3/16/2019 16:46:37,"lme4, glmm",glmm,Exporting results 
+3/16/2019 16:53:24,"lme4, nlme, glmm, brms",lme4,"Putting the summary of the model into a data frame or an object that could be readily graphed (e.g., using ggplot)"
+3/16/2019 17:08:58,"lme4, nlme, glmm, brms, rstan, rstanarm",mgcv,Generating confidence intervals for predicted values
+3/16/2019 17:22:10,"lme4, nlme, glmm, MCMCglmm",lme4,
+3/16/2019 17:25:27,"lme4, nlme, brms, rstan",lme4,Deciding on the random effects structure
+3/16/2019 17:33:23,"lme4, nlme, glmm, MCMCglmm, brms, rstan, rstanarm",lme4,"translating the formula into plain English (and vice versa), interpreting the output"
+3/16/2019 17:58:48,"lme4, brms, rstan, rstanarm",I don't fit linear mixed models,
+3/16/2019 18:20:16,"lme4, nlme, glmm, MCMCglmm, blme, brms, rstan",nlme,I find the postestimation functions really hard. 
+3/16/2019 18:39:03,"lme4, nlme, glmm, brms, rstan, rstanarm",lme4,Dealing with convergence issues
+3/16/2019 18:40:06,"lme4, nlme, MCMCglmm, brms, rstan, rstanarm",lme4,"specifying the covariance matrix, and understanding how to properly formulate the hierarchy of data"
+3/16/2019 19:06:49,"lme4, nlme, asreml, glmm, MCMCglmm, blme, brms, rstan",glmmtmb,predictions / model validation
+3/16/2019 19:30:16,"lme4, nlme, glmm, MCMCglmm, brms, rstan",lme4,Choosing random effects structure
+3/16/2019 19:35:40,"lme4, nlme, glmm",lme4,"As a sociologist, unfortunately I didn't have enough training on this, I self studied the ideas and how it works, but still while interpreting the results, I get puzzled sometimes and have problems understanding the random effects structure and how to interpret it, or the fixed effects interactions and how the final result with multiple of each of those is communicated in article."
+3/16/2019 19:36:36,"lme4, nlme, glmm, MCMCglmm",lme4,Random model structure and getting p-values
+3/16/2019 19:42:21,"lme4, nlme",lme4,
+3/16/2019 19:59:44,"lme4, glmm, brms, rstan, rstanarm",brms,Inconsistent syntax when supplying arguments or build the model formula in different packages. The lfe package (widely used in panel data econometrics) also allows to fit fix and random effects models - one might include the package in the list of packages and the planned improvements to mixed models. 
+3/16/2019 20:18:07,"lme4, nlme, asreml, glmm, MCMCglmm, rstan",nlme,"Model validation, random effects structure, model selection "
+3/16/2019 20:38:38,"lme4, nlme, rstan",lme4,
+3/16/2019 22:18:47,None of the above,PROC MIXED in SAS,"I’m not sure which package is best, most up to date, and provides to most robust estimates "
+3/16/2019 22:50:23,"lme4, nlme, brms",lme4,"Non-convergence issues. I’ve heard that you can manually change defaults for tolerance and that’s supposed to help, but haven’t gotten around to trying it myself before the time I took this survey. Also, nice ways to plot MLMs would be really cool to have!"
+3/16/2019 23:07:37,"lme4, glmm",lme4,What to do when it doesn’t converge; how to treat categorical data; how long it takes
+3/17/2019 0:04:48,"lme4, brms, rstan, rstanarm",brms,"The infrastructure around the fitting. Checking predictions, validating, gaining understanding, iterating model designs, ..."
+3/17/2019 0:23:35,"lme4, nlme, MCMCglmm, blme, brms, rstan, rstanarm",nlme,Specifying correlation structure
+3/17/2019 6:41:49,"lme4, nlme, brms, rstan, rstanarm",lme4,
+3/17/2019 6:56:34,"lme4, nlme, glmm, brms, rstan",lme4,
+3/17/2019 6:58:21,lme4,lme4,"Impact of ordering of terms in need of, and interaction effects with random intercepts"
+3/17/2019 7:52:49,"lme4, nlme, rstan, rstanarm",rstan,
+3/17/2019 14:00:54,"lme4, nlme, rstan",lme4,"Getting p-values, interpreting the output, convergence issues"
+3/17/2019 20:27:46,"lme4, nlme, glmm, MCMCglmm, rstan",lme4,"Documentation, interpretation/access of output objects"
+3/17/2019 20:30:22,"lme4, nlme, asreml, glmm, MCMCglmm, brms, rstan, rstanarm",rstan,
+3/17/2019 22:23:25,"lme4, nlme",nlme,"Prediction, idk all of it"
+3/17/2019 23:56:11,"lme4, brms, rstan, rstanarm",rstanarm,remembering the syntax
+3/18/2019 1:20:17,"lme4, nlme, rstan",lme4,Deriving suitable models from a theory
+3/18/2019 2:31:13,"lme4, glmm, MCMCglmm",lme4,Speed
+3/18/2019 2:37:03,"lme4, nlme, glmm, MCMCglmm, rstan",lme4,Fitting robust estimators 
+3/18/2019 4:54:14,"lme4, nlme",lme4,Getting p values
+3/18/2019 8:25:16,"lme4, nlme, glmm, MCMCglmm, rstan",lme4,"Generalized linear mixed models with correlated errors are often impossible to fit using existing R packages. e.g., a logistic model with ARMA(2,1) errors."
+3/18/2019 8:49:26,"lme4, nlme, glmm, brms, rstan, rstanarm",lme4,Playing with optimizer setting when model doesn't converge
+3/18/2019 9:40:33,"lme4, nlme, asreml, glmm, MCMCglmm, brms, rstan",MCMCglmm,Using MCMCglmm it’s setting priors. Otherwise in general it’s the old fixed vs random effect chestnut followed by interpretation of results. I’m getting better at both the more I do it but still have confidence issues (in myself not the models)
+3/18/2019 11:17:14,"lme4, nlme, rstan",lme4,Difficult to recall the formula syntax and competing terminology (hierarchical versus mixed effects) can make it difficult to search for solutions. 
+3/19/2019 2:04:02,"lme4, nlme, asreml, MCMCglmm, blme, brms, rstan, rstanarm",brms,
+3/19/2019 2:20:57,"lme4, nlme, MCMCglmm, brms, rstan",lme4,
+3/19/2019 2:43:18,"lme4, nlme, asreml, glmm, MCMCglmm, brms, rstan, rstanarm",lme4,
+3/19/2019 4:47:04,"lme4, nlme, glmm, MCMCglmm, blme, brms, rstan, rstanarm",lme4,computing icc values
+3/20/2019 1:26:54,"lme4, nlme, asreml, glmm, MCMCglmm, brms, rstan, rstanarm",brms,"Syntax for nesting vs. interactions (when are they numerically equivalent). Non-linear mixed models with arbitrary formulas (e.g., logistic growth)."
+3/20/2019 8:24:57,"lme4, nlme, glmm, rstan",lme4,"Model doesn't converge, then what?  Output: knowing what is useful?"
+3/21/2019 5:37:42,lme4,lme4,"Fitting and not overfitting, understanding what's going on exactly "
+3/22/2019 16:09:02,"lme4, brms, rstan, rstanarm",lme4,Specifying the right correlation structure and checking that the correlation structure is in the form I want.
+3/23/2019 2:18:50,"lme4, nlme, asreml, glmm, MCMCglmm, brms, rstan, rstanarm",brms,"Ime4 often has convergence failures, and I often need to use hacky workarounds to calculate F tests of interest."
+3/23/2019 14:07:20,"lme4, asreml, glmm, MCMCglmm, rstan, rstanarm",lme4,Specifying variance covariance matrixes 
+4/14/2019 23:50:07,"lme4, nlme",lme4,
+5/13/2019 5:06:46,"lme4, nlme, glmm, MCMCglmm, brms, rstan, rstanarm",brms,
+5/16/2019 23:07:03,"lme4, nlme, asreml, glmm",lme4,Interpretation

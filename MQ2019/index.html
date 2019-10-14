@@ -1,0 +1,2385 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+  <head>
+    <title>Symbolic model formulae for linear mixed models illustrated with the analysis of agricultural data</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Emi Tanaka" />
+    <link href="libs/remark-css-0.0.1/ninjutsu.css" rel="stylesheet" />
+    <link href="libs/font-awesome-animation-1.0/font-awesome-animation-emi.css" rel="stylesheet" />
+    <script src="libs/fontawesome-5.0.13/js/fontawesome-all.min.js"></script>
+    <script src="libs/htmlwidgets-1.3/htmlwidgets.js"></script>
+    <script src="libs/jquery-1.12.4/jquery.min.js"></script>
+    <link href="libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet" />
+    <script src="libs/datatables-binding-0.6/datatables.js"></script>
+    <link href="libs/dt-core-1.10.16/css/jquery.dataTables.min.css" rel="stylesheet" />
+    <link href="libs/dt-core-1.10.16/css/jquery.dataTables.extra.css" rel="stylesheet" />
+    <script src="libs/dt-core-1.10.16/js/jquery.dataTables.min.js"></script>
+    <link href="libs/crosstalk-1.0.0/css/crosstalk.css" rel="stylesheet" />
+    <script src="libs/crosstalk-1.0.0/js/crosstalk.min.js"></script>
+    <script src="libs/d3-3.3.8/d3.min.js"></script>
+    <script src="libs/dagre-0.4.0/dagre-d3.min.js"></script>
+    <link href="libs/mermaid-0.3.0/dist/mermaid.css" rel="stylesheet" />
+    <script src="libs/mermaid-0.3.0/dist/mermaid.slim.min.js"></script>
+    <link href="libs/DiagrammeR-styles-0.2/styles.css" rel="stylesheet" />
+    <script src="libs/chromatography-0.1/chromatography.js"></script>
+    <script src="libs/DiagrammeR-binding-1.0.1/DiagrammeR.js"></script>
+    
+    <link rel="stylesheet" href="assets/animate.css" type="text/css" />
+    <link rel="stylesheet" href="assets/cssgrid.css" type="text/css" />
+    <link rel="stylesheet" href="assets/custom.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+
+
+background-image: url("images/bg1.jpg")
+background-size: cover
+class: hide-slide-number
+
+
+
+
+
+
+:::::::::: { .grid grid: 1fr / 7fr 3fr;} 
+
+::: {.item .shade_black border-right-style: solid; border-right-color: white;}
+
+&lt;br&gt;
+
+# [Symbolic model formulae]{color:#ffc100;} for &lt;br&gt; [linear mixed models]{color:#ffe700;} illustrated with the analysis of [agricultural data]{color:	#e3ff00;}
+
+
+&lt;div class="font_small" style="float:right;vertical-align: middle;display: table-cell;height:2em;"&gt;&lt;a href="https://creativecommons.org/licenses/by-sa/3.0/au/" &gt;Licensed under &lt;img src="images/cc.svg" style="height:2em;" align="middle"/&gt;&lt;img src="images/by.svg" style="height:2em;" align="middle"/&gt;&lt;img src="images/sa.svg" style="height:2em;" align="middle"/&gt;&lt;/a&gt;&lt;/div&gt;
+
+&lt;br&gt;
+
+Presented by Emi Tanaka
+
+School of Mathematics and Statistics&lt;br&gt;
+<span>&lt;i class="fas  fa-envelope faa-float animated "&gt;&lt;/i&gt;</span>  dr.emi.tanaka@gmail.com
+<span>&lt;i class="fab  fa-twitter faa-float animated faa-fast "&gt;&lt;/i&gt;</span>  @statsgen
+
+15th Oct 2019 @ Macquarie Statistics Seminar
+
+:::
+
+::: item 
+
+::: { .bg-yellow  .black .pos width:calc(29.998% - 5px);right:0;bottom:0;padding-left:5px;}
+&lt;i class="fas fa-link"&gt;&lt;/i&gt; The link to these slides will be available at the end.&lt;br&gt;
+&lt;!-- &lt;i class="fas fa-exclamation-circle"&gt;&lt;/i&gt; These slides are viewed best by Chrome and occasionally need to be refreshed if elements did not load properly. See here for &lt;a href="https://www.dropbox.com/s/dsxtrf6r62pevsa/slides.pdf?dl=0" style="color:black!important"/&gt;PDF &lt;i class="fas fa-file-pdf"&gt;&lt;/i&gt;&lt;/a&gt;. --&gt;
+
+:::
+
+:::::::::: 
+
+&lt;img src="assets/USydLogo-white.svg" style="position:absolute; bottom:25%; left:50%;width:200px"&gt;
+
+
+
+---
+
+::: { .grid grid: 1fr / 7fr 3fr ; height:350px; }
+
+::: item 
+
+# Example: trees
+
+Consider `trees` data with measurements of 
+
+* diameter (`Girth`) in inches `\((y)\)`, 
+* `Height` in ft `\((x_1)\)` and 
+* `Volume` in cubic ft `\((x_2)\)`. 
+
+:::
+
+::: item bg-black
+
+&lt;img src="figure/unnamed-chunk-1-1.svg" width="288" style="display: block; margin: auto;" /&gt;
+
+&lt;p&gt;&lt;/p&gt;
+:::
+
+:::
+
+
+::: eqn-black
+
+`$$\log(y_i) = \beta_0 + \beta_1\log(x_{i1}) + \beta_2\log(x_{i2}) + e_i$$`
+
+:::
+
+for `\(i = 1, ..., n\)` with typically i.i.d. assumption `\(e_i \sim N(0, \sigma^2)\)`.
+
+
+
+
+---
+
+class: pad10
+
+&lt;center&gt;
+&lt;img src="images/symbolic_lm.png" height="100%"/&gt;
+&lt;/center&gt;
+
+
+---
+
+::: grid
+
+::: item 
+
+# Symbolic model formulae 
+
+
+* Symbolic model formulae is reminiscent of the mathematical equation (minus the effects).
+
+
+* Allows you to specify the response and the covariates using the column names of the data frame.
+
+
+* Symbolic model formulae makes it more accessible to users to specify the model they want to fit.
+
+:::
+
+::: item bg-greyish
+
+{{content}}
+
+:::
+
+:::
+
+--
+
+# Design matrix input
+
+* This requires users to construct the design matrix prior to specification in the software.
+
+
+* Meaningful column names may be lost in construction of design matrix or transformation.
+
+
+* This effects meaningful output or ability to back-transform / use original scale.
+
+---
+
+::: { .grid grid: 1fr 1fr / 1fr ; height:330px; }
+
+::: item
+
+
+
+
+# Example: herbicide `\(\times\)` population 
+
+* Herbicide type applied (3 levels)
+* Black-grass population (9 levels)
+* Factorial-treatment structure, i.e. 27 levels of treatment
+* Randomised complete block design (5 replicate blocks)
+
+:::
+
+::: item 
+
+&lt;img src="figure/unnamed-chunk-3-1.svg" width="1080" style="display: block; margin: auto;" /&gt;
+
+&lt;p&gt;&lt;/p&gt;
+
+
+:::
+
+:::
+
+
+
+
+---
+
+class: pad10
+
+&lt;center&gt;
+&lt;img src="images/symbolic_lm_factor.png" height="100%"/&gt;
+&lt;/center&gt;
+
+
+
+---
+
+
+class: center middle bg-greyish
+
+::: {.box width:90%; } 
+
+The symbolic formula for linear models is well defined in R. E.g. 
+
+* **Simplification**: 
+    * `A + B + A = A + B` and 
+    * `A:B:A = A:B`
+* **Distributive**: `(A + B):C = A:C + B:C`
+* **Crossing operator**: `A * B = A + B + A:B`
+* **Nesting operator**: `A / B = A + A:B`
+* **Deletion operator**: `A * B - A:B = A + B`
+* **Exponentiation operator**: &lt;br&gt;`(A + B + C)^2 = A + B + C + A:B + A:C + B:C`
+
+
+
+{{content}}
+
+:::
+
+--
+
+What about linear mixed models?
+
+
+---
+
+
+# Linear mixed model R-packages
+
+::: { .grid grid: 1fr / 7fr 3fr; }
+
+::: item 
+
+* (Linear) mixed model specifications are quite inconsistent between R packages unlike linear models.
+
+
+* Biggest difference is in the specification for random effects.
+
+
+* (Unofficial) survey suggests that [`lme4`]{color:#FF934F!important;} is by far the most popular R package to fit linear mixed models.
+
+
+* The next popular *frequentist* package is [`nlme`]{color:#FF934F!important;} followed by [`asreml`]{color:#FF934F!important;}.
+
+
+:::
+
+::: item bg-greyish 
+
+&lt;img src="figure/survey-1.svg" width="360" style="display: block; margin: auto;" /&gt;
+
+:::
+::::
+
+---
+
+class: bg-greyish middle center
+
+::: box 
+
+I will focus on `lme4` and `asreml` R packages
+
+
+But first, let me describe some models used in practice.
+
+:::
+
+---
+
+background-image: url("images/cycle.png")
+background-size: 30%
+background-position: 50%, 50%
+
+&lt;div class="grid"&gt;
+&lt;div class="item item-bg" style="background-image:url('images/cornbreeding1.png');"&gt;
+&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;
+&lt;h1&gt;Selective Breeding&lt;/h1&gt;
+&lt;div class="font_small bottom_abs"&gt;
+Photo from &lt;a href="https://twitter.com/croplifeintl/status/856843732003561473"&gt;CropLife International Twitter&lt;/a&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="item item-bg"&gt;
+&lt;/div&gt;
+&lt;div class="item item-bg" style="background-image:url('images/cornbreeding3.png');"&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+
+---
+
+background-image: url("images/cycle.png")
+background-size: 30%
+background-position: 50%, 50%
+count: false
+
+
+&lt;div class="grid"&gt;
+&lt;div class="item item-bg" style="background-image:url('images/cornbreeding1.png');"&gt;
+&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;
+&lt;h1&gt;Selective Breeding&lt;/h1&gt;
+&lt;div class="font_small bottom_abs"&gt;
+Photo from &lt;a href="https://twitter.com/croplifeintl/status/856843732003561473"&gt;CropLife International Twitter&lt;/a&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="item-bg"&gt;
+&lt;div class="content slideInUp animated slow" style="background-image:url('images/cornbreeding2.png');"&gt;
+&lt;br&gt;&lt;br&gt;
+The aim of selective breeding is to increase &lt;b&gt;genetic gain&lt;/b&gt;.
+&lt;br&gt;&lt;br&gt;
+&lt;div class="shade_black" style="border-radius:10px;border-style:solid;border-color:black;"&gt;
+&lt;img src="images/geneticgainb.png" width="100%" style="filter: invert(1);"/&gt;
+&lt;/div&gt;
+&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;
+&lt;/div&gt;&lt;/div&gt;
+&lt;div class="item item-bg" style="background-image:url('images/cornbreeding3.png');"&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+---
+
+background-color: bg-greyish
+class: hide-slide-number
+
+
+
+
+::: {.grid grid: 1fr / 3fr 7fr; }
+
+::: item center bg-greyish 
+
+&lt;br&gt;&lt;br&gt;
+
+&lt;img src="images/genome.png" width="150px"/&gt;
+:::
+::: item 
+
+# Aim of plant breeding experiments
+
+* Genetic performance is *not* directly observed.
+
+{{content}}
+
+:::
+
+:::
+
+--
+
+
+* The use of *appropriate* &lt;span class="indigo"&gt;**experimental designs**&lt;/span&gt; and &lt;span class="indigo"&gt;**statistical models**&lt;/span&gt; can predict genetic performance.
+
+{{content}}
+
+--
+
+
+* Accurate measures of genetic performance will help **increase genetic gain**.
+
+{{content}}
+
+--
+
+
+* Thus ability to distinguish top genotypes is desirable.
+
+
+---
+
+background-size: cover
+background-image: url('images/narrabri.jpg')
+
+
+:::: { .grid grid: 1fr / 1.8fr 1fr 1fr;}
+
+::: item shade_black
+
+# A Field Trial
+
+* Usually given as a rectangular array.
+
+
+* Here we have a field trial laid out as 3 columns by 6 rows.
+
+
+* Each plot is given a treatment - here one of the 4 genotypes.
+
+
+* There are 3 blocks. 
+
+
+* Yield is measured for each plot.
+
+:::
+
+::: item shade_black
+
+# &amp;nbsp;
+
+&lt;img src="figure/unnamed-chunk-4-1.svg" width="360" style="display: block; margin: auto;" /&gt;
+
+:::
+
+
+
+::::
+
+---
+
+
+
+
+
+
+
+
+::: {.grid grid: 1fr / 2fr 8fr; }
+
+::: item font_small bg-greyish
+
+
+&lt;br&gt;&lt;br&gt;
+
+<div id="htmlwidget-412f6c654e75782ce9e7" style="width:100%;height:480px;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-412f6c654e75782ce9e7">{"x":{"filter":"none","caption":"<caption style=\"caption-side: bottom; text-align: center;\">\n  <em>Unrealistic data to illustrate a point.<\/em>\n<\/caption>","data":[["1","1","1","1","1","1","2","2","2","2","2","2","3","3","3","3","3","3"],["C","C","D","A","C","C","D","B","D","C","D","A","C","D","B","D","D","D"],[4,4,1,4,4,4,1,4,1,4,1,4,4,1,4,1,1,1]],"container":"<table class=\"cell-border stripe compact hover\">\n  <thead>\n    <tr>\n      <th>Block<\/th>\n      <th>Geno<\/th>\n      <th>Yield<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"dom":"tp","columnDefs":[{"className":"dt-right","targets":2}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
+
+
+:::
+::: item
+
+# Simple example: fixed effects case
+
+`$$\texttt{yield}_{ij} = \texttt{block}_i + \texttt{geno}_j + e_{ij}$$`
+
+* Suppose fixed `geno` and `block` effects with constraint that `\(\texttt{geno}_D=0\)` then
+ `$$\hat{\texttt{block}}_1 = \hat{\texttt{block}}_2 =  \hat{\texttt{block}}_3 = 1,$$`  `$$\hat{\texttt{geno}}_A=\hat{\texttt{geno}}_B= \hat{\texttt{geno}}_C = 3.$$`
+
+
+* You cannot distinguish between the genotypes A, B and C.
+
+::: bottom_abs width100 font_small
+
+See Robinson (1991) That BLUP is a Good Thing: The Estimation of Random Effects *Statistical Science*
+
+:::
+
+:::
+
+::::
+
+---
+
+
+::: {.grid grid: 1fr / 3fr 7fr; }
+
+::: item bg-greyish
+
+# &amp;nbsp;
+
+Assume for simplicity that:
+
+`$$\texttt{geno}_i \sim NID(0, 0.1\sigma^2)$$`
+
+`$$\texttt{error}_{ij} \sim NID(0, \sigma^2).$$`
+
+
+
+:::
+::: item
+
+# Simple example: random effects case
+
+
+
+
+
+Then BLUEs and BLUPs from solving Henderson's mixed model equation are:
+:::: grid 
+::: item 
+`$$\texttt{block}_1 = 3.372,\\ \texttt{block}_2 = 2.744,\\ \texttt{block}_3 = 2.392$$`
+:::
+::: item 
+`$$\texttt{geno}_A = 0.157,\\ \texttt{geno}_B = 0.239,\\ \texttt{geno}_C = 0.336,\\\texttt{geno}_D = -0.732.$$`
+:::
+:::::
+
+So `\(\texttt{geno}_C\)` may be the best selection.
+
+:::
+
+::::
+
+---
+
+
+
+::: {.grid grid: 1fr / 3fr 7fr; }
+
+::: item bg-greyish
+
+# &amp;nbsp;
+
+<div id="htmlwidget-5e5698db002d3e065bc5" style="width:300px;height:504px;" class="DiagrammeR html-widget"></div>
+<script type="application/json" data-for="htmlwidget-5e5698db002d3e065bc5">{"x":{"diagram":"\ngraph TB\n  A(<b>A<\/b>)-->C(<b>C<\/b>)\n  B(<b>B<\/b>)-->C\n  B-->D(<b>D<\/b>)\n  style A fill:#d11141;\n  style A stroke:#000;\n  style B fill:#00b159;\n  style B stroke:#000;\n  style C fill:#0084ff;\n  style C stroke:#000;\n  style D fill:#f37735;\n  style D stroke:#000;\n"},"evals":[],"jsHooks":[]}</script>
+
+:::
+
+::: item 
+
+# Are genotypes independent?
+
+
+* We assumed `\(\texttt{geno}_i \sim NID(0, 0.1\sigma^2)\)`.
+
+
+* In practice, there is some **known** relationshional structure between genotypes e.g. via pedigree.
+
+
+
+
+
+
+
+
+
+::::: grid
+::: item 
+&lt;center&gt;
+&lt;img src="images/Amat.png" width = "100%"/&gt;
+&lt;/center&gt;
+:::
+::: item 
+
+::: tipmin 
+Assume now  
+`$$\textbf{geno} \sim N(\boldsymbol{0}, \sigma^2_g\mathbf{A})$$` 
+where `\(\mathbf{A}\)` is given as in the table.
+
+:::
+
+:::
+
+:::::
+
+:::
+
+:::::
+
+---
+
+
+
+::: {.grid grid: 1fr / 3fr 7fr; }
+
+::: item 
+
+# Comparison
+
+<div id="htmlwidget-2655673adbe7cbe2fe98" style="width:300px;height:504px;" class="DiagrammeR html-widget"></div>
+<script type="application/json" data-for="htmlwidget-2655673adbe7cbe2fe98">{"x":{"diagram":"\ngraph TB\n  A(<b>A<\/b>)-->C(<b>C<\/b>)\n  B(<b>B<\/b>)-->C\n  B-->D(<b>D<\/b>)\n  style A fill:#d11141;\n  style A stroke:#000;\n  style B fill:#00b159;\n  style B stroke:#000;\n  style C fill:#0084ff;\n  style C stroke:#000;\n  style D fill:#f37735;\n  style D stroke:#000;\n"},"evals":[],"jsHooks":[]}</script>
+
+:::
+
+::: item 
+
+&lt;br&gt;
+
+<style>html {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
+}
+
+#hctoecdewy .gt_table {
+  display: table;
+  border-collapse: collapse;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  background-color: #FFFFFF;
+  /* table.background.color */
+  width: auto;
+  /* table.width */
+  border-top-style: solid;
+  /* table.border.top.style */
+  border-top-width: 2px;
+  /* table.border.top.width */
+  border-top-color: #A8A8A8;
+  /* table.border.top.color */
+  border-bottom-style: solid;
+  /* table.border.bottom.style */
+  border-bottom-width: 2px;
+  /* table.border.bottom.width */
+  border-bottom-color: #A8A8A8;
+  /* table.border.bottom.color */
+}
+
+#hctoecdewy .gt_heading {
+  background-color: #FFFFFF;
+  /* heading.background.color */
+  border-bottom-color: #FFFFFF;
+}
+
+#hctoecdewy .gt_title {
+  color: #333333;
+  font-size: 125%;
+  /* heading.title.font.size */
+  padding-top: 4px;
+  /* heading.top.padding - not yet used */
+  padding-bottom: 4px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#hctoecdewy .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  /* heading.subtitle.font.size */
+  padding-top: 0;
+  padding-bottom: 4px;
+  /* heading.bottom.padding - not yet used */
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#hctoecdewy .gt_bottom_border {
+  border-bottom-style: solid;
+  /* heading.border.bottom.style */
+  border-bottom-width: 2px;
+  /* heading.border.bottom.width */
+  border-bottom-color: #D3D3D3;
+  /* heading.border.bottom.color */
+}
+
+#hctoecdewy .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#hctoecdewy .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  /* column_labels.background.color */
+  font-size: 16px;
+  /* column_labels.font.size */
+  font-weight: initial;
+  /* column_labels.font.weight */
+  vertical-align: middle;
+  padding: 5px;
+  margin: 10px;
+  overflow-x: hidden;
+}
+
+#hctoecdewy .gt_columns_top_border {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+}
+
+#hctoecdewy .gt_columns_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#hctoecdewy .gt_sep_right {
+  border-right: 5px solid #FFFFFF;
+}
+
+#hctoecdewy .gt_group_heading {
+  padding: 8px;
+  /* row_group.padding */
+  color: #333333;
+  background-color: #FFFFFF;
+  /* row_group.background.color */
+  font-size: 16px;
+  /* row_group.font.size */
+  font-weight: initial;
+  /* row_group.font.weight */
+  border-top-style: solid;
+  /* row_group.border.top.style */
+  border-top-width: 2px;
+  /* row_group.border.top.width */
+  border-top-color: #D3D3D3;
+  /* row_group.border.top.color */
+  border-bottom-style: solid;
+  /* row_group.border.bottom.style */
+  border-bottom-width: 2px;
+  /* row_group.border.bottom.width */
+  border-bottom-color: #D3D3D3;
+  /* row_group.border.bottom.color */
+  vertical-align: middle;
+}
+
+#hctoecdewy .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  /* row_group.background.color */
+  font-size: 16px;
+  /* row_group.font.size */
+  font-weight: initial;
+  /* row_group.font.weight */
+  border-top-style: solid;
+  /* row_group.border.top.style */
+  border-top-width: 2px;
+  /* row_group.border.top.width */
+  border-top-color: #D3D3D3;
+  /* row_group.border.top.color */
+  border-bottom-style: solid;
+  /* row_group.border.bottom.style */
+  border-bottom-width: 2px;
+  /* row_group.border.bottom.width */
+  border-bottom-color: #D3D3D3;
+  /* row_group.border.bottom.color */
+  vertical-align: middle;
+}
+
+#hctoecdewy .gt_striped {
+  background-color: #8080800D;
+}
+
+#hctoecdewy .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#hctoecdewy .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#hctoecdewy .gt_row {
+  padding: 8px;
+  /* row.padding */
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#hctoecdewy .gt_stub {
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 12px;
+}
+
+#hctoecdewy .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  /* summary_row.background.color */
+  padding: 8px;
+  /* summary_row.padding */
+  text-transform: inherit;
+  /* summary_row.text_transform */
+}
+
+#hctoecdewy .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  /* grand_summary_row.background.color */
+  padding: 8px;
+  /* grand_summary_row.padding */
+  text-transform: inherit;
+  /* grand_summary_row.text_transform */
+}
+
+#hctoecdewy .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+}
+
+#hctoecdewy .gt_first_grand_summary_row {
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#hctoecdewy .gt_table_body {
+  border-top-style: solid;
+  /* table_body.border.top.style */
+  border-top-width: 2px;
+  /* table_body.border.top.width */
+  border-top-color: #D3D3D3;
+  /* table_body.border.top.color */
+  border-bottom-style: solid;
+  /* table_body.border.bottom.style */
+  border-bottom-width: 2px;
+  /* table_body.border.bottom.width */
+  border-bottom-color: #D3D3D3;
+  /* table_body.border.bottom.color */
+}
+
+#hctoecdewy .gt_footnotes {
+  border-top-style: solid;
+  /* footnotes.border.top.style */
+  border-top-width: 2px;
+  /* footnotes.border.top.width */
+  border-top-color: #D3D3D3;
+  /* footnotes.border.top.color */
+}
+
+#hctoecdewy .gt_footnote {
+  font-size: 90%;
+  /* footnote.font.size */
+  margin: 0px;
+  padding: 4px;
+  /* footnote.padding */
+}
+
+#hctoecdewy .gt_sourcenotes {
+  border-top-style: solid;
+  /* sourcenotes.border.top.style */
+  border-top-width: 2px;
+  /* sourcenotes.border.top.width */
+  border-top-color: #D3D3D3;
+  /* sourcenotes.border.top.color */
+}
+
+#hctoecdewy .gt_sourcenote {
+  font-size: 90%;
+  /* sourcenote.font.size */
+  padding: 4px;
+  /* sourcenote.padding */
+}
+
+#hctoecdewy .gt_center {
+  text-align: center;
+}
+
+#hctoecdewy .gt_left {
+  text-align: left;
+}
+
+#hctoecdewy .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#hctoecdewy .gt_font_normal {
+  font-weight: normal;
+}
+
+#hctoecdewy .gt_font_bold {
+  font-weight: bold;
+}
+
+#hctoecdewy .gt_font_italic {
+  font-style: italic;
+}
+
+#hctoecdewy .gt_super {
+  font-size: 65%;
+}
+
+#hctoecdewy .gt_footnote_marks {
+  font-style: italic;
+  font-size: 65%;
+}
+</style>
+<div id="hctoecdewy" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;"><table class="gt_table">
+  
+  <tr>
+    <th class="gt_col_heading gt_center gt_columns_bottom_border" rowspan="2" colspan="1" style="font-size: x-large;">Geno</th>
+    <th class="gt_col_heading gt_center gt_columns_bottom_border" rowspan="2" colspan="1" style="font-size: x-large;">Count</th>
+    <th class="gt_col_heading gt_center gt_columns_bottom_border" rowspan="2" colspan="1" style="font-size: x-large;">Mean</th>
+    <th class="gt_col_heading gt_center gt_columns_bottom_border" rowspan="2" colspan="1" style="font-size: x-large;">Fixed</th>
+    <th class="gt_col_heading gt_center gt_columns_top_border gt_column_spanner" rowspan="1" colspan="2">Random</th>
+  </tr>
+  <tr>
+    <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" style="font-size: x-large;">Independent</th>
+    <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" style="font-size: x-large;">Dependent</th>
+  </tr>
+  <body class="gt_table_body">
+    <tr>
+      <td class="gt_row gt_center" style="font-size: x-large;">A</td>
+      <td class="gt_row gt_center" style="font-size: x-large;">2</td>
+      <td class="gt_row gt_right" style="font-size: x-large;">4</td>
+      <td class="gt_row gt_left" style="font-size: x-large; background-color: #E0FFFFFF;">3 (1)</td>
+      <td class="gt_row gt_left" style="font-size: x-large; background-color: #E0FFFFFF;">0.157 (3)</td>
+      <td class="gt_row gt_left" style="font-size: x-large; background-color: #E0FFFFFF;">0.778 (2)</td>
+    </tr>
+    <tr>
+      <td class="gt_row gt_center gt_striped" style="font-size: x-large;">B</td>
+      <td class="gt_row gt_center gt_striped" style="font-size: x-large;">2</td>
+      <td class="gt_row gt_right gt_striped" style="font-size: x-large;">4</td>
+      <td class="gt_row gt_left gt_striped" style="font-size: x-large; background-color: #E0FFFFFF;">3 (1)</td>
+      <td class="gt_row gt_left gt_striped" style="font-size: x-large; background-color: #E0FFFFFF;">0.239 (2)</td>
+      <td class="gt_row gt_left gt_striped" style="font-size: x-large; background-color: #E0FFFFFF;">0.435 (3)</td>
+    </tr>
+    <tr>
+      <td class="gt_row gt_center" style="font-size: x-large;">C</td>
+      <td class="gt_row gt_center" style="font-size: x-large;">6</td>
+      <td class="gt_row gt_right" style="font-size: x-large;">4</td>
+      <td class="gt_row gt_left" style="font-size: x-large; background-color: #E0FFFFFF;">3 (1)</td>
+      <td class="gt_row gt_left" style="font-size: x-large; background-color: #E0FFFFFF;">0.336 (1)</td>
+      <td class="gt_row gt_left" style="font-size: x-large; background-color: #E0FFFFFF;">0.914 (1)</td>
+    </tr>
+    <tr>
+      <td class="gt_row gt_center gt_striped" style="font-size: x-large;">D</td>
+      <td class="gt_row gt_center gt_striped" style="font-size: x-large;">8</td>
+      <td class="gt_row gt_right gt_striped" style="font-size: x-large;">1</td>
+      <td class="gt_row gt_left gt_striped" style="font-size: x-large; background-color: #E0FFFFFF;">0 (4)</td>
+      <td class="gt_row gt_left gt_striped" style="font-size: x-large; background-color: #E0FFFFFF;">-0.732 (4)</td>
+      <td class="gt_row gt_left gt_striped" style="font-size: x-large; background-color: #E0FFFFFF;">-1.602 (4)</td>
+    </tr>
+  </body>
+  
+  
+</table></div>
+
+{{content}}
+
+
+:::
+
+:::::
+
+
+--
+
+Not subjective of this talk:
+
+* A relationship matrix similar to `\(\mathbf{A}\)` can be calculated from **genetic markers**. 
+
+
+
+
+{{content}}
+
+--
+
+
+* These capture **additive** genetic effects and **non-additive** effects may also be included.
+
+
+---
+
+class: middle center bg-greyish
+
+But of course we should all remember that 
+
+::: { .tip width: 50%;}
+**All models are wrong, some are useful.**&lt;br&gt;&lt;br&gt;
+&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;- George Box
+:::
+
+
+---
+
+
+# Fitting fixed effects case in R
+
+
+
+::: { .eqn-black width:70%; }
+`$$\texttt{yield}_{ij} = \texttt{block}_i + \texttt{geno}_j + e_{ij}$$`
+
+where `\(e_{ij} \sim NID(0, \sigma^2)\)` and `\(\texttt{geno}_D =0\)`.
+:::
+
+--- 
+::: {.code-black width:70%;}
+
+```r
+fit &lt;- lm(Yield ~ 0 + Block + Geno)
+```
+
+(Need to ensure that `D` is the first level in `Geno`.)
+
+:::
+
+---
+
+# Fitting uncorrelated random effects case
+
+
+
+::: { .eqn-black width:70%; }
+`$$\texttt{yield}_{ij} = \texttt{block}_i + \texttt{geno}_j + e_{ij}$$`
+
+where `\(\texttt{geno}_j \sim NID(0, \sigma^2_g)\)` and `\(e_{ij} \sim NID(0, \sigma^2)\)`.
+
+(Variance components different to before).
+:::
+
+--- 
+::: {.code-black width:90%;}
+
+```r
+lme_fit &lt;- lme4::lmer(Yield ~ 0 + Block + (1 | Geno))
+asr_fit &lt;- asreml::asreml(Yield ~ 0 + Block, random = ~idv(Geno))
+```
+:::
+
+---
+
+
+::: {.grid grid: 1fr / 7fr 3fr; }
+
+::: item 
+
+# `lme4` (open source)
+
+* Each random effects term is written in the form 
+.center[
+`(expr|factor)`
+]
+which evaluates `expr` with the same rule as the linear model formula but corresponding effects are different for each level of `factor`. 
+
+
+* It is assumed that 
+`$$\texttt{effect terms} \sim NID(\boldsymbol{0}, \mathbf{\Sigma})$$`
+where `\(\mathbf{\Sigma}\)` is an unstructured covariance matrix.
+
+:::
+
+{{content}}
+
+::::
+
+--
+
+::: item bg-cyan animated bounceInRight
+
+## Example
+
+`(`&lt;span class="red"&gt;`1`&lt;/span&gt;`|Geno)`
+
+* &lt;span class="red"&gt;`1`&lt;/span&gt; relates to intercept `\(b_0\)`.
+
+
+* There is a different effect for each of the 4 levels of `Geno`: `\(b_{01}, b_{02}, b_{03}, b_{04}\)`.
+
+
+* It is assumed that 
+
+`$$b_{0i} \sim NID(0, \mathbf{\Sigma}_{1\times 1}).$$`
+
+:::
+
+---
+
+::: {.grid grid: 1fr / 7fr 3fr;}
+
+::: item 
+
+# `asreml`  (commerical product)
+
+
+* Random effects are specified in the argument `random`.
+
+```r
+asreml(y ~ fixed_expr, random = ~random_expr)
+```
+
+
+* The terms in `random_expr` can be wrapped with a "function" that specify the variance structure.
+
+
+* You can specify structure for residual error too by adding `rcov=~ rcov_expr`.
+
+```r
+asreml(y ~ fixed_expr, random=~ random_expr,
+       rcov=~ rcov_expr)
+```
+
+
+:::
+
+{{content}}
+
+
+:::
+
+--
+
+::: item bg-cyan animated bounceInRight
+
+## Example 
+
+`~idv(Geno)`
+
+means that 
+
+`$$var(\texttt{Geno}) = \sigma^2_g \mathbf{I}_4$$`
+
+so it is assumed that 
+
+`$$\texttt{Geno} \sim N(\boldsymbol{0}, \sigma^2_g \mathbf{I}_4).$$`
+
+::: 
+
+---
+
+# Fitting *correlated* random effects case
+
+
+
+::: { .eqn-black width:70%; }
+`$$\texttt{yield}_{ij} = \texttt{block}_i + \texttt{geno}_j + e_{ij}$$`
+
+where `\(\texttt{Geno} \sim N(\boldsymbol{0}, \sigma^2_g\color{red}{\mathbf{A}})\)` and `\(e_{ij} \sim NID(0, \sigma^2)\)`.
+
+:::
+
+--- 
+::: {.code-black width:90%;}
+
+```r
+lme_fit &lt;- pedigreemm::pedigreemm(Yield ~ 0 + Block + (1|Geno),
+                                   pedigree = list(Geno = Ped))
+
+asr_fit &lt;- asreml::asreml(Yield ~ 0 + Block, random = ~giv(Geno), 
+                          ginverse = list(Geno = Ainv))
+```
+:::
+
+---
+
+
+# Example: Chicken Weight 
+
+::: {.grid grid: 1fr / 7fr 3fr; }
+
+
+::: item 
+
+
+&lt;img src="figure/unnamed-chunk-17-1.svg" width="648" style="display: block; margin: auto;" /&gt;
+:::
+
+::: item 
+
+```r
+as_tibble(ChickWeight)
+```
+
+```
+## # A tibble: 578 x 4
+##    weight  Time Chick Diet 
+##     &lt;dbl&gt; &lt;dbl&gt; &lt;ord&gt; &lt;fct&gt;
+##  1     42     0 1     1    
+##  2     51     2 1     1    
+##  3     59     4 1     1    
+##  4     64     6 1     1    
+##  5     76     8 1     1    
+##  6     93    10 1     1    
+##  7    106    12 1     1    
+##  8    125    14 1     1    
+##  9    149    16 1     1    
+## 10    171    18 1     1    
+## # … with 568 more rows
+```
+&lt;p&gt;&lt;/p&gt;
+:::
+
+
+:::
+
+---
+
+
+# Random intercept and random slope model - correlated
+
+::: grid 
+
+::: item 
+
+::: eqn-black
+
+`$$y_{ij} = \alpha_{T(i)}+ \color{red}{\beta_0 + x_{ij}\beta_1}+ \color{purple}{b_{0\color{indigo}{i}}+ x_{ij}b_{1\color{indigo}{i}}} + e_{ij}$$`
+
+assuming for `\(i = 1, ..., \texttt{nlevels(Chick)}\)` and `\(j = 1, ..., \texttt{nlevels(Time}_i\texttt{)}\)` 
+`$$\begin{bmatrix} b_{0i}\\ b_{1i} \end{bmatrix}\sim NID\left( \begin{bmatrix} 0 \\ 0 \end{bmatrix}, \begin{bmatrix} \sigma^2_0 &amp; \sigma_{01}\\ \sigma_{01} &amp; \sigma^2_1 \end{bmatrix} \right)$$`
+
+`$$\text{independent of error }e_{ij} \sim NID(0, \sigma^2).$$`
+
+:::
+
+:::
+
+::: item bg-greyish
+
+* `\(y_{ij}\)` is `\(\texttt{weight}_{ij}\)`; `\(x_{ij}\)` is `\(\texttt{Time}_{ij}\)`;
+* `\(\beta_0, \beta_1\)` are overall intercept and slope of time;
+* `\(b_{0i}, b_{1i}\)` are random intercept and random slope of time for Chick `\(i\)`; 
+* `\(\alpha_{T(i)}\)` is the `Diet` effect where `\(T\)` maps `Chick` to `Diet` with `\(\alpha_1=0\)`.
+
+:::
+
+
+:::
+
+---
+
+# Random intercept and random slope model - correlated
+
+::: grid 
+::: { .item border-right: dashed 4px black; }
+`library(lme4)`
+::: {.code-black}
+
+```r
+lmer(weight ~ Diet + 1 + Time + 
+             (1 + Time | Chick), 
+              data = ChickWeight)
+```
+:::
+
+Here `(Time|Chick)` relates to effects `\(b_{0i}\)` and `\(b_{1i}\)` and
+`$$\begin{bmatrix} b_{0i}\\ b_{1i} \end{bmatrix} \sim NID\left(\boldsymbol{0}_2, \mathbf{\Sigma}_{2\times 2}\right).$$`
+
+:::
+
+::: item 
+`library(asreml)`
+::: code-black
+
+```r
+asreml(weight ~ Diet + 1 + Time,
+  random =~ str(~Chick + Time:Chick,
+                ~us(2):id(50)),
+  data = ChickWeight)
+```
+
+:::
+
+`$$\begin{bmatrix} \boldsymbol{b}_{0}\\\boldsymbol{b}_{1}\end{bmatrix} \sim N\left(\boldsymbol{0}_{100},~~\mathbf{\Sigma}_{2\times 2}\otimes \mathbf{I}_{50}\right).$$`
+
+(note intercept is not fitted as default in `str`)
+
+:::
+:::
+
+---
+
+# Random intercept and random slope model - uncorrelated
+
+::: grid 
+::: { .item border-right: dashed 4px black; }
+`library(lme4)`
+::: {.code-black}
+
+```r
+lmer(weight ~ Diet + 1 + Time + 
+ (1 | Chick) + (0 + Time | Chick), 
+              data = ChickWeight)
+```
+:::
+
+Effects in separate `(.|.)` are uncorrelated so here or can use `(.||.)` if terms are numerical.
+
+:::
+
+::: item 
+`library(asreml)`
+::: code-black
+
+```r
+asreml(weight ~ Diet + 1 + Time,
+  random =~ str(~Chick + Time:Chick,
+                ~diag(2):id(50)),
+  data = ChickWeight)
+```
+
+:::
+
+`$$\begin{bmatrix} \boldsymbol{b}_{0}\\\boldsymbol{b}_{1}\end{bmatrix} \sim N\left(\boldsymbol{0}_{100},\begin{bmatrix}\sigma^2_0 &amp; \color{red}{0} \\
+\color{red}{0} &amp; \sigma^2_1\end{bmatrix}\otimes \mathbf{I}_{50}\right).$$`
+
+:::
+:::
+
+---
+
+class: center middle bg-greyish
+
+::: box 
+
+So which one?
+
+{{content}}
+
+:::
+
+--
+
+`asreml` can easily fit variety of variance structures that are better suited for the analysis of plant breeding trials.
+
+---
+
+# Example: Wheat Yield in South Australia
+
+::: grid
+
+::: item 
+
+&lt;img src="figure/gilmour-1.svg" width="504" style="display: block; margin: auto;" /&gt;
+
+::: bottom_abs font_small
+Gilmour et al. (1997) Accounting for natural and extraneous variation in the analysis of field experiments. *Journal of Agricultural, Biological, and Environmental Statistics* **2** 269-293.
+:::
+
+:::
+::: item 
+
+* A randomised complete block experiment of wheat in South Australia.
+
+
+* The numbers represent the genotype number.
+
+
+* The color represent the yield with darker green higher yield and yellow the lowest. 
+
+
+:::
+
+::::
+
+---
+
+# Spatial Modelling: Local Trend
+
+::: grid
+
+::: item 
+
+&lt;img src="figure/unnamed-chunk-23-1.svg" width="504" style="display: block; margin: auto;" /&gt;
+
+:::
+::: item 
+
+`$$\texttt{yield}_{ijk} = \texttt{block}_i + \texttt{geno}_j + \texttt{error}_{ijk}$$`
+
+
+* We previously assumed `\(\texttt{error}_{ijk} \sim NID(0, \sigma^2)\)`.
+
+**Should it be independent?**
+
+::: tip
+Plots that are geographically closer, should be more similar.
+:::
+
+:::
+
+::::
+
+---
+
+
+
+::: { .grid grid: 1fr / 2fr 8fr; }
+
+::: item bg-greyish
+
+# AR1 `\(\times\)` AR1
+
+&lt;br&gt;
+
+`\(\rho_r, \rho_c\)` are autocorrelation in row, column direction.
+
+
+`\(R, C\)` are the number of rows, columns
+
+
+
+:::
+::: item 
+
+
+&lt;img src="images/ar1xar1.png" width="80%"/&gt;
+
+
+* A popular choice for the variance-covariance structure of the error is the **first-order separable autoregressive structure**. 
+
+
+* Low additional number of parameters to estimate but yet the structure is flexible and anisotropic. 
+
+
+* For example, the correlation of plots that are two rows apart and three column is `\(\rho_r^2\rho_c^3\)`. 
+
+
+:::
+
+::::
+
+---
+
+# AR1 `\(\times\)` AR1 error structure
+
+::: eqn-black 
+
+`$$\texttt{yield}_{ijk} = \texttt{block}_i + \texttt{geno}_j + e_{ijk}$$`
+
+where `\(\texttt{geno} \sim N(\boldsymbol{0},\sigma^2_g \mathbf{A})\)` and  `\(\boldsymbol{e} \sim N(\boldsymbol{0}, \sigma^2 \textbf{AR1} \otimes \textbf{AR1})\)`
+
+:::
+
+--- 
+
+::: code-black
+
+
+```r
+asreml(yield ~ 0 + block, 
+       random =~ giv(geno),
+       rcov =~ ar1v(row):ar1(col),
+       ginverse = list(geno = Ainv))
+```
+
+&lt;p&gt;&lt;/p&gt;
+::::
+
+
+---
+
+
+
+# Removing smooth global trends
+
+::: grid 
+
+::: item 
+
+&lt;img src="figure/ar1xar1_resid-1.svg" width="576" style="display: block; margin: auto;" /&gt;
+::: 
+
+::: item 
+
+* There is clearly a pattern in the column direction indicating there is some effect in relation to the column we have not removed.
+
+
+* We can try incorporating **cubic smoothing spline** indexed by the column number to account for this in the model.
+
+:::
+:::
+
+---
+
+# Cubic smoothing spline
+
+::: eqn-black 
+
+`$$\texttt{yield}_{ijk} = \texttt{block}_i + \underbrace{\mathbf{X}_s\boldsymbol{\beta}_s + \mathbf{Z}_s\boldsymbol{u}_s}_{\text{cubic smoothing spline w.r.t. column}} + \texttt{geno}_j + e_{ijk}$$`
+
+where `\(\texttt{geno} \sim N(\boldsymbol{0},\sigma^2_g \mathbf{A})\)`,   `\(\boldsymbol{e} \sim N(\boldsymbol{0}, \sigma^2 \textbf{AR1} \otimes \textbf{AR1})\)`,  
+&lt;details&gt;
+`$$\mathbf{X}_s = \begin{bmatrix}\boldsymbol{1} &amp; \texttt{col}\end{bmatrix},\quad \mathbf{Z}_s = \mathbf{\Delta}(\mathbf{\Delta}^\top \mathbf{\Delta})^{-1}, \quad \boldsymbol{u}_s \sim N(\boldsymbol{0}, \mathbf{G}_s)\\\Delta_{ii}=\Delta_{i+2, i} = 1,~\Delta_{i+1,i}=-2,~G_{s;i, i + 1}=G_{s;i+ 1, i}=\frac{1}{6},~G_{s;ii} = \frac{2}{3}.$$`
+
+&lt;/details&gt;
+:::
+
+
+--- 
+
+::: code-black
+
+
+```r
+asreml(yield ~ 0 + block + lin(col), random =~ giv(geno) + spl(col),
+       rcov =~ ar1v(row):ar1(col), ginverse = list(geno = Ainv))
+```
+
+&lt;p&gt;&lt;/p&gt;
+::::
+
+--
+
+::: {.bg-white .pos width:50%;top:10px;right:10px;border: solid 2px black;}
+
+&lt;img src="figure/unnamed-chunk-28-1.svg" width="576" style="display: block; margin: auto;" /&gt;
+
+:::
+
+---
+
+# Other extrenous variation?
+
+::: grid
+
+::: item 
+
+&lt;img src="images/field_spray.gif" width = "100%"/&gt;
+
+:::
+
+::: item 
+
+It's somewhat common to see some column or row effects in field trials so inclusion of random column effects or random row effects may be good. 
+
+:::
+
+::: item 
+
+&lt;img src="images/field_harvest.gif" width = "100%"/&gt;
+
+:::
+
+:::::
+
+---
+
+class: center bg-greyish middle
+
+::: box 
+
+Ideally all possible variation will be accounted at the **experimental design** stage but in practice these are often identified during modelling. 
+
+:::
+
+
+---
+
+background-size: cover
+background-image: url('images/narrabri.jpg')
+
+
+
+
+:::: grid
+
+::: item shade_black
+
+# A multi-environment field trial (MET)
+
+* Collection of field trials across time and/or locations.
+
+&lt;img src="figure/unnamed-chunk-29-1.svg" width="1152" style="display: block; margin: auto;" /&gt;
+:::
+
+:::
+
+---
+
+
+
+# Distribution of genotype-by-site effects
+
+`$$\texttt{yield}_{ijk} = \{\texttt{peripheral}\} + \texttt{site}_j + \color{green}{\texttt{geno}_i:\texttt{site}_{j}} + \texttt{error}_{ijk}$$`
+
+
+`$$\begin{bmatrix}\texttt{geno}_1:\texttt{site}_{1}\\
+\texttt{geno}_1:\texttt{site}_2\\
+\texttt{geno}_1:\texttt{site}_3\\
+\texttt{geno}_1:\texttt{site}_4\\
+\texttt{geno}_1:\texttt{site}_5\\
+\vdots\\
+\texttt{geno}_{235}:\texttt{site}_7\\
+\end{bmatrix}\sim N\left(\begin{bmatrix}
+0\\
+0\\
+0\\
+0\\
+0\\
+\vdots \\
+0
+\end{bmatrix}, {\qquad\LARGE ???\qquad}\right)$$`
+
+---
+
+# Assume separable process
+
+::: font-80
+
+`$$Var\begin{bmatrix}\texttt{geno}_1:\texttt{site}_{1}\\
+\texttt{geno}_1:\texttt{site}_2\\
+\texttt{geno}_1:\texttt{site}_3\\
+\texttt{geno}_1:\texttt{site}_4\\
+\texttt{geno}_1:\texttt{site}_5\\
+\vdots\\
+\texttt{geno}_{235}:\texttt{site}_7\\
+\end{bmatrix} = \underbrace{Var \begin{bmatrix}
+\texttt{geno}_1\\
+\texttt{geno}_2\\
+\texttt{geno}_3\\
+\texttt{geno}_4\\
+\texttt{geno}_5\\
+\vdots\\
+\texttt{geno}_{235}\\
+\end{bmatrix}}_{Var(\textbf{geno})}\otimes \underbrace{Var\begin{bmatrix}\texttt{site}_1\\\texttt{site}_2\\\texttt{site}_3\\\texttt{site}_4\\\texttt{site}_5\\\texttt{site}_6\\\texttt{site}_7\end{bmatrix}}_{Var(\textbf{site})}$$`
+
+:::
+
+We can assume variance-covariance structure for `\(Var(\textbf{geno})\)` as before. 
+
+---
+
+# MET Model (1) Scaled identity
+
+::: { .grid grid: 1fr / 8fr 2fr; }
+::: item 
+::: font-80
+`$$Var\begin{bmatrix}
+\texttt{site}_1\\
+\texttt{site}_2\\
+\texttt{site}_3\\
+\texttt{site}_4\\
+\texttt{site}_5\\
+\texttt{site}_6\\
+\texttt{site}_7
+\end{bmatrix} = \begin{bmatrix}
+\color{green}{\sigma^2_{g}} &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 \\
+0 &amp; \color{green}{\sigma^2_{g}} &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 \\
+0  &amp; 0 &amp; \color{green}{\sigma^2_{g}} &amp; 0 &amp; 0 &amp; 0 &amp; 0 \\
+0  &amp; 0 &amp; 0 &amp; \color{green}{\sigma^2_{g}} &amp; 0 &amp; 0 &amp; 0 \\
+0  &amp; 0 &amp; 0 &amp; 0 &amp; \color{green}{\sigma^2_{g}} &amp; 0 &amp; 0 \\
+0  &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; \color{green}{\sigma^2_{g}} &amp; 0 \\
+0  &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; \color{green}{\sigma^2_{g}}  \\
+\end{bmatrix}$$`
+:::
+Should we constrain these to be the same?
+:::
+:::
+
+::: {.code-black .pos width:40%;top:5px;right:5px;}
+```r
+random=~ giv(geno):id(site)
+```
+:::
+
+::: {.eqn-black .pos width:43%;bottom:5px;right:5px;}
+`$$\texttt{geno:site} \sim N(\boldsymbol{0}, \sigma^2_g \mathbf{A}\otimes \mathbf{I}_7)$$`
+:::
+
+
+---
+
+# MET Model (2) Diagonal structure
+
+::: { .grid grid: 1fr / 8fr 2fr; }
+::: item 
+::: font-80
+`$$Var\begin{bmatrix}
+\texttt{site}_1\\
+\texttt{site}_2\\
+\texttt{site}_3\\
+\texttt{site}_4\\
+\texttt{site}_5\\
+\texttt{site}_6\\
+\texttt{site}_7
+\end{bmatrix} = \begin{bmatrix}
+\sigma^2_{\color{green}{1}} &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 \\
+0 &amp; \sigma^2_{\color{green}{2}} &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 \\
+0  &amp; 0 &amp; \sigma^2_{\color{green}{3}} &amp; 0 &amp; 0 &amp; 0 &amp; 0 \\
+0  &amp; 0 &amp; 0 &amp; \sigma^2_{\color{green}{4}} &amp; 0 &amp; 0 &amp; 0 \\
+0  &amp; 0 &amp; 0 &amp; 0 &amp; \sigma^2_{\color{green}{5}} &amp; 0 &amp; 0 \\
+0  &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; \sigma^2_{\color{green}{6}} &amp; 0 \\
+0  &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; \sigma^2_{\color{green}{7}}  \\
+\end{bmatrix}$$`
+:::
+
+Allow different parameterisation by site.
+
+:::
+:::
+
+&lt;div class="shade_black" style="width:40%; position: absolute; top: 4%; right:2%;border-radius: 12px;" &gt;
+&lt;img src="figure/unnamed-chunk-30-1.svg" width="504" style="display: block; margin: auto;" /&gt;
+&lt;/div&gt;
+
+::: {.code-black .pos width:40%;bottom:5px;right:5px;}
+```r
+random=~ giv(geno):diag(site)
+```
+:::
+
+
+
+---
+
+
+# MET Model (2) Geno across site
+
+::: { .grid grid: 1fr / 7fr 3fr; }
+::: item 
+::: font-80
+`$$Var\begin{bmatrix}
+\texttt{site}_1\\
+\texttt{site}_2\\
+\texttt{site}_3\\
+\texttt{site}_4\\
+\texttt{site}_5\\
+\texttt{site}_6\\
+\texttt{site}_7
+\end{bmatrix} = \begin{bmatrix}
+\sigma^2_1 &amp; \color{green}{0} &amp; \color{green}{0} &amp; \color{green}{0} &amp; \color{green}{0} &amp; \color{green}{0} &amp; \color{green}{0} \\
+\color{green}{0} &amp; \sigma^2_2 &amp; \color{green}{0} &amp; \color{green}{0} &amp; \color{green}{0} &amp; \color{green}{0} &amp; \color{green}{0} \\
+\color{green}{0}  &amp; \color{green}{0} &amp; \sigma^2_3 &amp; \color{green}{0} &amp; \color{green}{0} &amp; \color{green}{0} &amp; \color{green}{0} \\
+\color{green}{0}  &amp; \color{green}{0} &amp; \color{green}{0} &amp; \sigma^2_4 &amp; \color{green}{0} &amp; \color{green}{0} &amp; \color{green}{0} \\
+\color{green}{0}  &amp; \color{green}{0} &amp; \color{green}{0} &amp; \color{green}{0} &amp; \sigma^2_5 &amp; \color{green}{0} &amp; \color{green}{0} \\
+\color{green}{0}  &amp; \color{green}{0} &amp; \color{green}{0} &amp; \color{green}{0} &amp; \color{green}{0} &amp; \sigma^2_6 &amp; \color{green}{0} \\
+\color{green}{0}  &amp; \color{green}{0} &amp; \color{green}{0} &amp; \color{green}{0} &amp; \color{green}{0} &amp; \color{green}{0} &amp; \sigma^2_7  \\
+\end{bmatrix}$$`
+:::
+
+::: item 
+So same genotype across site is uncorrelated. 
+
+
+E.g. `\(cov(\texttt{geno}_1:\texttt{site}_1, \texttt{geno}_1:\texttt{site}_2) = 0\)`.
+::: 
+:::
+:::
+
+::: {.code-black .pos width:40%;bottom:5px;right:5px;}
+```r
+random=~ giv(geno):diag(site)
+```
+:::
+
+
+
+
+---
+
+
+# MET Model (3) Unstructured
+
+::: { .grid grid: 1fr / 8fr 2fr; }
+::: item 
+::: font-80
+`$$Var\begin{bmatrix}
+\texttt{site}_1\\
+\texttt{site}_2\\
+\texttt{site}_3\\
+\texttt{site}_4\\
+\texttt{site}_5\\
+\texttt{site}_6\\
+\texttt{site}_7
+\end{bmatrix} = \begin{bmatrix}
+\sigma^2_{1} &amp; \sigma_{12}  &amp; \sigma_{13}  &amp; \sigma_{14}  &amp; \sigma_{15}  &amp; \sigma_{16}  &amp; \sigma_{17} \\
+\sigma_{12}  &amp; \sigma^2_{2} &amp; \sigma_{23}  &amp; \sigma_{24}  &amp; \sigma_{25}  &amp; \sigma_{26}  &amp; \sigma_{27} \\
+\sigma_{13}  &amp; \sigma_{23}  &amp; \sigma^2_{3} &amp; \sigma_{34}  &amp; \sigma_{35}  &amp; \sigma_{36}  &amp; \sigma_{37} \\
+\sigma_{14}  &amp; \sigma_{24}  &amp; \sigma_{34}  &amp; \sigma^2_{4} &amp; \sigma_{45}  &amp; \sigma_{46}  &amp; \sigma_{47} \\
+\sigma_{15}  &amp; \sigma_{25}  &amp; \sigma_{35}  &amp; \sigma_{45}  &amp; \sigma^2_{5} &amp; \sigma_{56}  &amp; \sigma_{57} \\
+\sigma_{16}  &amp; \sigma_{26}  &amp; \sigma_{36}  &amp; \sigma_{46}  &amp; \sigma_{56}  &amp; \sigma^2_{6} &amp; \sigma_{67} \\
+\sigma_{17}  &amp; \sigma_{27}  &amp; \sigma_{37}  &amp; \sigma_{47}  &amp; \sigma_{57}  &amp; \sigma_{67} &amp; \sigma^2_{7}  \\
+\end{bmatrix}$$`
+:::
+
+Now say `\(cov(\texttt{geno}_1:\texttt{site}_1, \texttt{geno}_1:\texttt{site}_2) = Var(\texttt{geno}_1)\cdot \sigma_{12}\)`.
+:::
+
+:::
+
+::: {.code-black .pos width:40%;bottom:5px;right:5px;}
+```r
+random=~ giv(geno):us(site)
+```
+:::
+
+---
+
+# Which `lme4` model is equivalent to `asreml` model?
+
+&lt;center&gt;
+&lt;pre&gt;lmer(yield ~ site + (site - 1 | gen))&lt;/pre&gt;
+&lt;/center&gt;
+&lt;br&gt;
+
+::: {.grid grid: 220px 220px / 1fr 1fr;}
+
+::: { .item .code-black2 border: solid 3px black;background-color: #e6ffcc; }
+## A) 
+```r
+asreml(yield ~ site, 
+      random=~ id(gen):diag(site))
+```
+
+::: 
+
+::: { .item .code-black2 border: solid 3px black;background-color: #ffffcc; }
+## B) 
+```r
+asreml(yield ~ site, 
+      random=~ id(gen):us(site))
+```
+
+:::
+
+::: { .item .code-black2 border: solid 3px black;background-color: #ffffcc; }
+## C) 
+```r
+asreml(yield ~ site, 
+      random=~ idv(gen):id(site))
+```
+
+::: 
+
+::: { .item .code-black2 border: solid 3px black;background-color: #e6ffcc; }
+
+
+## D) 
+
+None of the others.
+
+:::
+
+:::
+
+---
+
+## Explanation `lmer(yield ~ site + (site - 1 | gen))`
+
+::: grid 
+
+::: item 
+
+* Recall that `site` is a factor with 6 levels.
+
+
+* `~ site - 1` in mathematical notation is
+`$$z_{1}u_1 + z_{2}u_2 + z_{3}u_3+ z_{4}u_4 +  z_{5}u_5 + z_{6}u_6$$`
+where `\(z_i = \begin{cases}1\quad\text{if  observation is in site } i\\0 \quad\text{otherwise.}\end{cases}\)`  
+
+
+* `(site - 1 | gen)` means that random effects are `\((u_{1j}, u_{2j}, u_{3j}, u_{4j}, u_{5j}, u_{6j})^\top\)` for genotype `\(j = 1, ..., n\)`.
+
+:::
+
+::: item bg-greyish
+
+* Recall the effect terms within LHS are correlated such that 
+`$$\begin{bmatrix} u_{1j}\\ u_{2j}\\ \vdots \\  u_{6j} \end{bmatrix}\sim NID\left(\boldsymbol{0}, \mathbf{\Sigma}_{6\times 6}\right)$$`
+where `\(\mathbf{\Sigma}_{6\times 6}\)` is a `\(6\times 6\)` unstructured covariance matrix.
+
+
+:::
+
+:::
+
+---
+
+class: center middle bg-greyish
+
+::: tip 
+
+In practice, the separable model and unstructured for `\(Var(\textbf{site})\)` works well. 
+
+:::
+
+--
+
+But what if we have too many sites?
+
+--
+
+::: tip 
+
+In practice, the separable model and **factor-analytic structure** `\((\mathbf{\Lambda}\mathbf{\Lambda}^\top + \mathbf{\Psi})\)`  for `\(Var(\textbf{site})\)` works well. 
+
+:::
+
+&lt;img src="images/cross.png" width="300px" class="pos animated jackInTheBox" style="top:10%;left:40%;"/&gt;
+
+--
+
+::: { .code-black .pos top:50px; left:25%;width:50%;height:160px;padding-top:60px;}
+
+
+```r
+asreml(yield ~ site, 
+       random=~ id(gen):fa(site))
+```
+&lt;p&gt;&lt;/p&gt;
+:::
+
+---
+
+class: center middle bg-greyish
+
+# Summary
+
+::: box
+
+* In practice, there may be even more models we consider in the analysis of plant breeding data, e.g. taking into account
+  * genetic data; 
+  * multi-phase experiments; 
+  * multi-trait data; 
+  * temporal components;
+  * and so on.
+
+
+* Hence it is **critical that software is flexible to allow practitioners to fit variety of models**.
+
+:::
+
+
+---
+
+class: center middle bg-greyish
+
+
+
+::: box
+
+* Most research efforts for effective analysis are based on enhancing a (statistical) method.
+
+
+* But in this talk alone we needed to be able to fit
+  * crossed random effects 
+  * known covariance structures 
+  * unstructured variance structure
+  * diagnoal variance structure
+  * cubic splines and 
+  * separable models.
+  
+  
+* These **variance structures are complex and care is needed by the practitioner to even fit the desired model**, let alone the difficulty already in identifying the appropriate model.
+
+:::
+
+
+---
+
+background-image: url("images/bg1.jpg")
+background-size: cover
+
+
+
+::: {.grid grid: 1fr / 8fr 2fr; }
+
+::: item shade_black
+
+That concludes the review of the **symbolic model formulae for linear mixed models illustrating with analysis of agricultural data**... no time for part 2 sorry (please invite me back next year).
+
+:::
+
+::::
+
+---
+
+count: false
+
+background-image: url("images/bg1.jpg")
+background-size: cover
+
+
+
+::: {.grid grid: 1fr / 8fr 2fr; }
+
+::: item shade_black
+
+That concludes the review of the **symbolic model formulae for linear mixed models illustrating with analysis of agricultural data**... no time for part 2 sorry (please invite me back next year).
+
+
+
+
+# Thanks!
+
+<span>&lt;i class="fas  fa-link faa-none animated "&gt;&lt;/i&gt;</span> These slides, made using [xaringan](https://github.com/yihui/xaringan) R-package, can be found at
+.center[
+[emitanaka.org/slides/MQ2019](https://emitanaka.org/slides/MQ2019)
+]
+&lt;p&gt;
+
+<span>&lt;i class="fas  fa-envelope faa-float animated "&gt;&lt;/i&gt;</span> &amp;nbsp;dr.emi.tanaka@gmail.com
+<span>&lt;i class="fab  fa-twitter faa-float animated faa-fast "&gt;&lt;/i&gt;</span> &amp;nbsp;@statsgen
+
+
+
+
+
+:::
+
+::: item 
+
+:::
+
+:::::
+
+---
+
+class: bg-black white hide-slide-number
+
+# Session Information
+
+:::: scroll-400
+
+
+
+
+```r
+devtools::session_info()
+```
+
+```
+## ─ Session info ──────────────────────────────────────────────────────────
+##  setting  value                       
+##  version  R version 3.6.0 (2019-04-26)
+##  os       macOS Mojave 10.14.6        
+##  system   x86_64, darwin15.6.0        
+##  ui       RStudio                     
+##  language (EN)                        
+##  collate  en_AU.UTF-8                 
+##  ctype    en_AU.UTF-8                 
+##  tz       Australia/Sydney            
+##  date     2019-10-14                  
+## 
+## ─ Packages ──────────────────────────────────────────────────────────────
+##  package      * version    date       lib
+##  anicon         0.1.0      2019-05-28 [1]
+##  asreml       * 3.0        2019-05-28 [1]
+##  assertthat     0.2.1      2019-03-21 [1]
+##  backports      1.1.4      2019-04-10 [1]
+##  brew           1.0-6      2011-04-13 [1]
+##  broom          0.5.2      2019-04-07 [1]
+##  callr          3.3.1      2019-07-18 [1]
+##  cellranger     1.1.0      2016-07-27 [1]
+##  checkmate      1.9.4      2019-07-04 [1]
+##  cli            1.1.0      2019-03-19 [1]
+##  codetools      0.2-16     2018-12-24 [1]
+##  colorspace     1.4-1      2019-03-18 [1]
+##  crayon         1.3.4      2017-09-16 [1]
+##  crosstalk      1.0.0      2016-12-21 [1]
+##  desc           1.2.0      2018-05-01 [1]
+##  desplot        1.5        2019-04-03 [1]
+##  devtools       2.0.2      2019-04-08 [1]
+##  DiagrammeR     1.0.1      2019-04-22 [1]
+##  digest         0.6.21     2019-09-20 [1]
+##  downloader     0.4        2015-07-09 [1]
+##  dplyr        * 0.8.3      2019-07-04 [1]
+##  DT             0.6        2019-05-09 [1]
+##  evaluate       0.14       2019-05-28 [1]
+##  fansi          0.4.0      2018-10-05 [1]
+##  forcats      * 0.4.0      2019-02-17 [1]
+##  formatR        1.7        2019-06-11 [1]
+##  fs             1.3.1      2019-05-06 [1]
+##  generics       0.0.2      2018-11-29 [1]
+##  ggplot2      * 3.2.1      2019-08-10 [1]
+##  ggtext       * 0.1.0      2019-09-11 [1]
+##  glue           1.3.1.9000 2019-07-12 [1]
+##  gridExtra      2.3        2017-09-09 [1]
+##  gridtext       0.1.0      2019-09-10 [1]
+##  gt           * 0.1.0      2019-09-04 [1]
+##  gtable         0.3.0      2019-03-25 [1]
+##  haven          2.1.0      2019-02-19 [1]
+##  hms            0.5.1      2019-08-23 [1]
+##  htmltools      0.3.6      2017-04-28 [1]
+##  htmlwidgets    1.3        2018-09-30 [1]
+##  httpuv         1.5.2      2019-09-11 [1]
+##  httr           1.4.1      2019-08-05 [1]
+##  icon           0.1.0      2019-05-28 [1]
+##  igraph         1.2.4.1    2019-04-22 [1]
+##  influenceR     0.1.0      2015-09-03 [1]
+##  inline         0.3.15     2018-05-18 [1]
+##  janeaustenr    0.1.5      2017-06-10 [1]
+##  jsonlite       1.6        2018-12-07 [1]
+##  knitr        * 1.25       2019-09-18 [1]
+##  labeling       0.3        2014-08-23 [1]
+##  later          0.8.0      2019-02-11 [1]
+##  lattice      * 0.20-38    2018-11-04 [1]
+##  lazyeval       0.2.2      2019-03-15 [1]
+##  lifecycle      0.1.0      2019-08-01 [1]
+##  loo            2.1.0      2019-03-13 [1]
+##  lubridate      1.7.4      2018-04-11 [1]
+##  magrittr       1.5        2014-11-22 [1]
+##  Matrix         1.2-17     2019-03-22 [1]
+##  matrixStats    0.55.0     2019-09-07 [1]
+##  memoise        1.1.0      2017-04-21 [1]
+##  mime           0.7        2019-06-11 [1]
+##  modelr         0.1.4      2019-02-18 [1]
+##  munsell        0.5.0      2018-06-12 [1]
+##  nlme           3.1-140    2019-05-12 [1]
+##  packrat        0.5.0      2018-11-14 [1]
+##  pillar         1.4.2      2019-06-29 [1]
+##  pkgbuild       1.0.3      2019-03-20 [1]
+##  pkgconfig      2.0.3      2019-09-22 [1]
+##  pkgload        1.0.2      2018-10-29 [1]
+##  plyr           1.8.4      2016-06-08 [1]
+##  prettyunits    1.0.2      2015-07-13 [1]
+##  processx       3.4.1      2019-07-18 [1]
+##  promises       1.0.1      2018-04-13 [1]
+##  ps             1.3.0      2018-12-21 [1]
+##  purrr        * 0.3.2      2019-03-15 [1]
+##  quoter         0.1.0      2019-07-28 [1]
+##  R6             2.4.0      2019-02-14 [1]
+##  RColorBrewer * 1.1-2      2014-12-07 [1]
+##  Rcpp           1.0.2      2019-07-25 [1]
+##  rdat           0.1.0      2019-08-31 [1]
+##  readr        * 1.3.1      2018-12-21 [1]
+##  readxl         1.3.1      2019-03-13 [1]
+##  remotes        2.0.4      2019-04-10 [1]
+##  reshape2       1.4.3      2017-12-11 [1]
+##  rgexf          0.15.3     2015-03-24 [1]
+##  rlang          0.4.0.9000 2019-08-03 [1]
+##  rmarkdown      1.14       2019-07-12 [1]
+##  Rook           1.1-1      2014-10-20 [1]
+##  rprojroot      1.3-2      2018-01-03 [1]
+##  rstan          2.19.2     2019-07-09 [1]
+##  rstudioapi     0.10       2019-03-19 [1]
+##  rvest          0.3.4      2019-05-15 [1]
+##  sass           0.1.2.1    2019-09-04 [1]
+##  scales         1.0.0      2018-08-09 [1]
+##  servr          0.13       2019-03-04 [1]
+##  sessioninfo    1.1.1      2018-11-05 [1]
+##  shiny          1.3.2      2019-04-22 [1]
+##  SnowballC      0.6.0      2019-01-15 [1]
+##  StanHeaders    2.19.0     2019-09-07 [1]
+##  statquotes     0.2.2      2017-08-29 [1]
+##  stringi        1.4.3      2019-03-12 [1]
+##  stringr      * 1.4.0      2019-02-10 [1]
+##  testthat       2.2.1      2019-07-25 [1]
+##  tibble       * 2.1.3      2019-06-06 [1]
+##  tidyr        * 1.0.0      2019-09-11 [1]
+##  tidyselect     0.2.5      2018-10-11 [1]
+##  tidytext       0.2.2      2019-07-29 [1]
+##  tidyverse    * 1.2.1      2017-11-14 [1]
+##  tokenizers     0.2.1      2018-03-29 [1]
+##  usethis        1.5.0      2019-04-07 [1]
+##  utf8           1.1.4      2018-05-24 [1]
+##  vctrs          0.2.0.9000 2019-08-03 [1]
+##  viridis        0.5.1      2018-03-29 [1]
+##  viridisLite    0.3.0      2018-02-01 [1]
+##  visNetwork     2.0.8      2019-08-28 [1]
+##  withr          2.1.2      2018-03-15 [1]
+##  wordcloud      2.6        2018-08-24 [1]
+##  xaringan       0.9        2019-03-06 [1]
+##  xfun           0.9        2019-08-21 [1]
+##  XML            3.98-1.20  2019-06-06 [1]
+##  xml2           1.2.0      2018-01-24 [1]
+##  xtable         1.8-4      2019-04-21 [1]
+##  yaml           2.2.0      2018-07-25 [1]
+##  zeallot        0.1.0      2018-01-28 [1]
+##  source                              
+##  Github (emitanaka/anicon@377aece)   
+##  local                               
+##  CRAN (R 3.6.0)                      
+##  CRAN (R 3.6.0)                      
+##  CRAN (R 3.6.0)                      
+##  CRAN (R 3.6.0)                      
+##  CRAN (R 3.6.0)                      
+##  CRAN (R 3.6.0)                      
+##  CRAN (R 3.6.0)                      
+##  CRAN (R 3.6.0)                      
+##  CRAN (R 3.6.0)                      
+##  CRAN (R 3.6.0)                      
+##  CRAN (R 3.6.0)                      
+##  CRAN (R 3.6.0)                      
+##  CRAN (R 3.6.0)                      
+##  CRAN (R 3.6.0)                      
+##  CRAN (R 3.6.0)                      
+##  CRAN (R 3.6.0)                      
+##  CRAN (R 3.6.0)                      
+##  CRAN (R 3.6.0)                      
+##  CRAN (R 3.6.0)                      
+##  CRAN (R 3.6.0)                      
+##  CRAN (R 3.6.0)                      
+##  CRAN (R 3.6.0)                      
+##  CRAN (R 3.6.0)                      
+##  CRAN (R 3.6.0)                      
+##  CRAN (R 3.6.0)                      
+##  CRAN (R 3.6.0)                      
+##  CRAN (R 3.6.0)                      
+##  Github (clauswilke/ggtext@c3baa4f)  
+##  Github (tidyverse/glue@423b7e5)     
+##  CRAN (R 3.6.0)                      
+##  Github (clauswilke/gridtext@382955c)
+##  Github (rstudio/gt@f67bf7f)         
+##  CRAN (R 3.6.0)                      
+##  CRAN (R 3.6.0)                      
+##  CRAN (R 3.6.0)                      
+##  CRAN (R 3.6.0)                      
+##  CRAN (R 3.6.0)                      
+##  CRAN (R 3.6.0)                      
+##  CRAN (R 3.6.0)                      
+##  Github (ropenscilabs/icon@a510f88)  
+##  CRAN (R 3.6.0)                      
+##  CRAN (R 3.6.0)                      
+##  CRAN (R 3.6.0)                      
+##  CRAN (R 3.6.0)                      
+##  CRAN (R 3.6.0)                      
+##  CRAN (R 3.6.0)                      
+##  CRAN (R 3.6.0)                      
+##  CRAN (R 3.6.0)                      
+##  CRAN (R 3.6.0)                      
+##  CRAN (R 3.6.0)                      
+##  CRAN (R 3.6.0)                      
+##  CRAN (R 3.6.0)                      
+##  CRAN (R 3.6.0)                      
+##  CRAN (R 3.6.0)                      
+##  CRAN (R 3.6.0)                      
+##  CRAN (R 3.6.0)                      
+##  CRAN (R 3.6.0)                      
+##  CRAN (R 3.6.0)                      
+##  CRAN (R 3.6.0)                      
+##  CRAN (R 3.6.0)                      
+##  CRAN (R 3.6.0)                      
+##  CRAN (R 3.6.0)                      
+##  CRAN (R 3.6.0)                      
+##  CRAN (R 3.6.0)                      
+##  CRAN (R 3.6.0)                      
+##  CRAN (R 3.6.0)                      
+##  CRAN (R 3.6.0)                      
+##  CRAN (R 3.6.0)                      
+##  CRAN (R 3.6.0)                      
+##  CRAN (R 3.6.0)                      
+##  CRAN (R 3.6.0)                      
+##  CRAN (R 3.6.0)                      
+##  local                               
+##  CRAN (R 3.6.0)                      
+##  CRAN (R 3.6.0)                      
+##  CRAN (R 3.6.0)                      
+##  local                               
+##  CRAN (R 3.6.0)                      
+##  CRAN (R 3.6.0)                      
+##  CRAN (R 3.6.0)                      
+##  CRAN (R 3.6.0)                      
+##  CRAN (R 3.6.0)                      
+##  Github (r-lib/rlang@b0905db)        
+##  CRAN (R 3.6.0)                      
+##  CRAN (R 3.6.0)                      
+##  CRAN (R 3.6.0)                      
+##  CRAN (R 3.6.0)                      
+##  CRAN (R 3.6.0)                      
+##  CRAN (R 3.6.0)                      
+##  Github (rstudio/sass@4f3d406)       
+##  CRAN (R 3.6.0)                      
+##  CRAN (R 3.6.0)                      
+##  CRAN (R 3.6.0)                      
+##  CRAN (R 3.6.0)                      
+##  CRAN (R 3.6.0)                      
+##  CRAN (R 3.6.0)                      
+##  CRAN (R 3.6.0)                      
+##  CRAN (R 3.6.0)                      
+##  CRAN (R 3.6.0)                      
+##  CRAN (R 3.6.0)                      
+##  CRAN (R 3.6.0)                      
+##  CRAN (R 3.6.0)                      
+##  CRAN (R 3.6.0)                      
+##  CRAN (R 3.6.0)                      
+##  CRAN (R 3.6.0)                      
+##  CRAN (R 3.6.0)                      
+##  CRAN (R 3.6.0)                      
+##  CRAN (R 3.6.0)                      
+##  Github (r-lib/vctrs@11c34ae)        
+##  CRAN (R 3.6.0)                      
+##  CRAN (R 3.6.0)                      
+##  CRAN (R 3.6.0)                      
+##  CRAN (R 3.6.0)                      
+##  CRAN (R 3.6.0)                      
+##  CRAN (R 3.6.0)                      
+##  CRAN (R 3.6.0)                      
+##  CRAN (R 3.6.0)                      
+##  CRAN (R 3.6.0)                      
+##  CRAN (R 3.6.0)                      
+##  CRAN (R 3.6.0)                      
+##  CRAN (R 3.6.0)                      
+## 
+## [1] /Library/Frameworks/R.framework/Versions/3.6/Resources/library
+```
+
+&lt;p&gt;&lt;/p&gt;
+:::
+
+
+These slides are licensed under &lt;br&gt;&lt;center&gt;&lt;a href="https://creativecommons.org/licenses/by-sa/3.0/au/"&gt;&lt;img src="images/cc.svg" style="height:2em;"/&gt;&lt;img src="images/by.svg" style="height:2em;"/&gt;&lt;img src="images/sa.svg" style="height:2em;"/&gt;&lt;/a&gt;&lt;/center&gt;
+
+You can find the source files for my talks at https://github.com/emitanaka/talks
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="libs/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLanguage": "r",
+"highlightLines": true,
+"highlightSpans": false,
+"countIncrementalSlides": false,
+"slideNumberFormat": "%current%/%total%",
+"navigation": {
+"scroll": false,
+"touch": true,
+"click": false
+},
+"ratio": "16:9"
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();</script>
+<script src="assets/pandoc.js"></script>
+<script src="assets/cssgrid.js"></script>
+<script src="libs/countdown-0.2.0/countdown.js"></script>
+
+<script>
+(function() {
+  var ele = document.getElementById("MathJax-Span-26");
+  ele.style.color = #fff;
+})();
+</script>
+
+<script>
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'assets/mathjax-local/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
