@@ -1,0 +1,153 @@
+---
+title: "My Research Highlights?"
+author: "Emi Tanaka"
+email: "emi.tanaka@sydney.edu.au"
+date: "29th Oct 2019 @ Monash EBS Retreat"
+length: "10 minutes"
+output:
+  xaringan::moon_reader:
+    css:
+      - ninjutsu 
+      - "assets/animate.css"
+      - "assets/cssgrid.css"
+      - "assets/custom.css"
+      - "assets/monash_logo.css"
+      #- "assets/Monash.Bootstrap.min.css"
+    self_contained: false 
+    seal: false 
+    chakra: 'libs/remark-latest.min.js'
+    beforeInit: 
+    - "assets/custom.js"
+    lib_dir: libs
+    includes:
+      in_header: "assets/custom.html"
+      # before_body: 
+      after_body: 
+      - "assets/remarkjs_extended.html"
+      - "assets/timer.html"
+      #- "assets/popup.html"
+      # includes
+    mathjax: "assets/mathjax-local/MathJax.js?config=TeX-AMS-MML_HTMLorMML"
+    nature:
+      highlightStyle: github 
+      highlightLanguage: r 
+      highlightLines: true
+      highlightSpans: false 
+      countIncrementalSlides: false
+      slideNumberFormat: '%current%/%total%'
+      navigation:
+        scroll: false 
+        touch: true
+        click: false
+      ratio: '16:9'
+---
+
+```{r external, child="scripts/setup.Rmd", include=FALSE}
+```
+```{r titleslide, child="scripts/titleslide.Rmd"}
+```
+
+---
+
+```{r monash-titleslide, child="scripts/monash-titleslide.Rmd"}
+```
+
+---
+
+class: bg-black center-items
+
+::: {.grid grid: 1fr 1fr 1fr / 1fr 1fr 1fr; padding-top:20px;}
+
+
+::: item
+<a href='http://emitanaka.org/slides/MonashEBSRetreat2019/notavailable.html'><img align='middle' class='slide' src='images/talk1.png' width='80%'></a>
+:::
+::: item
+<a href='https://bit.ly/choosemaths2019'><img align='middle' class='slide' src='images/talk2.png' width='80%'></a>
+:::
+::: item
+<a href='https://bit.ly/ecosta2019'><img align='middle' class='slide' src='images/talk3.png' width='80%'></a>
+:::
+::: item
+<a href='http://emitanaka.org/slides/MonashEBSRetreat2019/notavailable.html'><img align='middle' class='slide' src='images/talk4.png' width='80%'></a>
+:::
+::: item
+<a href='https://bit.ly/tanaka-rssds2019'><img align='middle' class='slide' src='images/talk5.png' width='80%'></a>
+:::
+::: item
+<a href='https://bit.ly/tanaka-isiwsc2019'><img align='middle' class='slide' src='images/talk6.png' width='80%'></a>
+:::
+::: item
+<a href='https://bit.ly/tanaka-sia2019'><img align='middle' class='slide' src='images/talk7.png' width='80%'></a>
+:::
+::: item
+<a href='https://emitanaka.org/slides/ANU2019'><img align='middle' class='slide' src='images/talk8.png' width='80%'></a>
+:::
+::: item
+<a href='https://emitanaka.org/slides/MQ2019'><img align='middle' class='slide' src='images/talk9.png' width='80%'></a>
+:::
+:::
+
+---
+
+
+# Symbolic Formulae for Linear Models
+<br>
+<center>
+<img src="images/symbolic_lm.png" height = "510px"/>
+</center>
+
+---
+
+# Symbolic Formulae for Linear Models (factor)
+<br>
+<center>
+<img src="images/symbolic_lm_factor.png" height = "510px"/>
+</center>
+
+---
+
+# Symbolic Formulae for Linear Mixed Models 
+<br>
+<center>
+<img src="images/symbolic_lmm.png" height = "510px"/>
+</center>
+
+---
+
+# Symbolic Formulae for Linear Mixed Models 
+<br>
+<center>
+<img src="images/symbolic_lmm2.png" height = "510px"/>
+</center>
+
+---
+
+class: pad10 bg-indigo white
+
+# Summary 
+
+* Symbolic formulae (usually) resembles corresponding model equation.
+--
+
+* Do you have a great method for fitting a statistical model? <br> Make it accessible for practitioners to use your method!
+--
+
+* Consider reading (and citing) review and discussion from our paper:
+
+.center[
+
+**Symbolic Formulae for Linear Mixed Models**
+
+by E. Tanaka and F.K.C. Hui 
+
+<i class="fas fa-link"></i> [Submitted version](https://github.com/emitanaka/paper-symlmm/blob/master/paper_symlmm.pdf)
+
+]
+
+
+---
+
+```{r endslide, child="scripts/endslide.Rmd"}
+```
+

@@ -1,0 +1,61 @@
+background-image: url("images/bg2.jpg")
+background-size: cover
+class: hide-slide-number
+
+
+:::::::::: { .grid grid: 1fr / 3fr 1fr; }
+
+::: {.item .shade_black border-right-style: solid; border-right-color: white;}
+
+<h1>Thanks!</h1>
+
+These slides are made using `xaringan` R-package and can be found at.
+
+.center[
+https://emitanaka.org/slides/MonashEBSRetreat2019
+]
+
+with source code of my slides at
+
+.center[
+https://github.com/emitanaka/talks
+]
+
+<br><br>
+
+`r rmarkdown::metadata$author`
+
+`r anicon::faa("envelope", animate="float")`  emi.tanaka@monash.edu<br>
+`r anicon::faa("twitter", animate="float", speed="fast")`  @statsgen
+
+:::
+
+::: item 
+
+
+:::
+
+:::::::::: 
+
+---
+
+
+class: bg-black white
+
+# Session Information
+
+:::: scroll-350
+
+
+```{r}
+devtools::session_info()
+```
+
+<p></p>
+:::
+
+
+These slides are licensed under <br><center><a href="https://creativecommons.org/licenses/by-sa/3.0/au/"><img src="images/cc.svg" style="height:2em;"/><img src="images/by.svg" style="height:2em;"/><img src="images/sa.svg" style="height:2em;"/></a></center>
+
+
+

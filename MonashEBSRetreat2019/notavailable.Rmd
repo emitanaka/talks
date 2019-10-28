@@ -1,0 +1,41 @@
+---
+title: "My Research Highlights?"
+author: "Emi Tanaka"
+email: "emi.tanaka@sydney.edu.au"
+date: "29th Oct 2019 @ Monash EBS Retreat"
+length: "10 minutes"
+output:
+  xaringan::moon_reader:
+    self_contained: false 
+    seal: false 
+    chakra: 'libs/remark-latest.min.js'
+    beforeInit: 
+    - "assets/custom.js"
+    lib_dir: libs
+    includes:
+      in_header: "assets/custom.html"
+      # before_body: 
+      after_body: 
+      - "assets/remarkjs_extended.html"
+      - "assets/timer.html"
+      #- "assets/popup.html"
+      # includes
+    mathjax: "assets/mathjax-local/MathJax.js?config=TeX-AMS-MML_HTMLorMML"
+    nature:
+      highlightStyle: github 
+      highlightLanguage: r 
+      highlightLines: true
+      highlightSpans: false 
+      countIncrementalSlides: false
+      slideNumberFormat: '%current%/%total%'
+      navigation:
+        scroll: false 
+        touch: true
+        click: false
+      ratio: '16:9'
+---
+
+
+class: middle center
+
+# This talk is not available online. Sorry!

@@ -1,0 +1,43 @@
+background-image: url("images/bg1.jpg")
+background-size: cover
+class: hide-slide-number animated pulse fast 
+
+:::::::::: { .grid  .white grid: 1fr / 3fr 1fr;} 
+
+::: {.item .shade_black  border-right-style: solid; border-right-color: white;}
+
+<br><br>
+
+# `r rmarkdown::metadata$title`
+
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+Presented by `r rmarkdown::metadata$author`
+
+.animated.fadeIn.slow.delay-1s[Department of Econometrics and Business Statistics] <br>
+`r anicon::faa("envelope", animate="float")`  emi.tanaka@.animated.fadeIn.slow.delay-1s[monash.edu]
+`r anicon::faa("twitter", animate="float", speed="fast")`  @statsgen
+
+`r rmarkdown::metadata$date`
+
+:::
+
+<div class="transition monash-m-new delay-1s" style="clip-path:url(#swipe__clip-path);">
+<div class="background-image" style="background-image:url('images/large.png');background-position: center;background-size:cover;margin-left:3px;">
+<svg class="clip-svg absolute">
+<defs>
+<clipPath id="swipe__clip-path" clipPathUnits="objectBoundingBox">
+<polygon points="0.5745 0, 0.5 0.33, 0.42 0, 0 0, 0 1, 0.27 1, 0.27 0.59, 0.37 1, 0.634 1, 0.736 0.59, 0.736 1, 1 1, 1 0, 0.5745 0" />
+</clipPath>
+</defs>	
+</svg>
+</div>
+</div>
+
+::::

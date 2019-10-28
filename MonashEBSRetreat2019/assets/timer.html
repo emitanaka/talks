@@ -1,0 +1,19 @@
+<script>
+
+var allContents = document.getElementsByClassName('remark-slide-content');
+function move_timer(e) {
+    var currentSlide = slideshow.getCurrentSlideIndex();
+    //left arrow keypress 
+    if (e.keyCode==37) {
+      var content = allContents[currentSlide - 1];
+    } else {
+      var content = allContents[currentSlide + 1];
+    }
+    var timer = document.getElementById('countdown');
+    content.appendChild(timer);
+};
+
+
+document.addEventListener('keydown', move_timer)
+
+</script>

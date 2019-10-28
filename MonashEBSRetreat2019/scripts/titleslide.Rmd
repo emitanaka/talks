@@ -1,0 +1,54 @@
+background-image: url("images/bg1.jpg")
+background-size: cover
+class: hide-slide-number
+
+
+:::::::::: { .grid grid: 1fr / 3fr 1fr;} 
+
+::: {.item .shade_black border-right-style: solid; border-right-color: white;}
+
+<br><br>
+
+# `r rmarkdown::metadata$title`
+
+## <span style="color:`r rmarkdown::metadata$color_theme`">`r rmarkdown::metadata$subtitle`</span>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+Presented by `r rmarkdown::metadata$author`
+
+School of Mathematics and Statistics<br>
+`r anicon::faa("envelope", animate="float")`  `r rmarkdown::metadata$email`
+`r anicon::faa("twitter", animate="float", speed="fast")`  @statsgen
+
+`r rmarkdown::metadata$date`
+
+
+::: item 
+
+
+
+:::::::::: 
+
+<img src="assets/USydLogo-white.svg" style="position:absolute; bottom:20%; left:50%;width:200px">
+
+
+```{r, echo = FALSE}
+countdown::countdown(10, 
+                     id = "countdown",
+                     font_size = "0.5em",
+                     color_running_background = "transparent",
+                     color_background = "transparent",
+                     color_finished_background = "red",
+                     color_border = "transparent",
+                     color_running_border = "transparent",
+                     color_finished_border = "transparent"
+                     
+                     )
+```
+
