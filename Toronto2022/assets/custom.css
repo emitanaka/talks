@@ -1,0 +1,68 @@
+#title-slide .author {
+  font-size: 80px!important;
+}
+#title-slide .author:after {
+  content: url('../images/monash-stacked-blue-rgb.png') ;
+  display: block;
+
+  /***
+    display: block;
+    content: "";
+    height: 200px;
+    background: transparent url('../images/monash-one-line-black-rgb.png') no-repeat;
+  
+
+    ***/
+}
+
+.box {
+  margin-top: 10px;
+  margin-right: 10px;
+  border: 5px solid #006DAE;
+  padding: 10px;
+  font-size: 26px;
+  background-color: #E6E6E6;
+}
+
+.font-small {
+  font-size: 1.2rem;
+}
+
+.info-box {
+  margin-top: 10px;
+  margin-right: 10px;
+  border-left: 10px solid #006DAE;
+  padding-left: 20px;
+  padding-right: 10px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background-color: #e8f4f8;
+}
+
+.fa-ul {
+    list-style-type: none!important;
+    margin-left: var(--fa-li-margin, 2.5em)!important;
+    padding-left: 0!important;
+}
+
+.circle {
+    border-radius: 50%;
+    width: 1em;
+    line-height: 1em;
+    padding: 3px;
+    display: inline-block;
+    background: black;
+    color: white;
+    text-align: center;
+    font-weight: bold;
+    font-family: 'Roboto Condensed', sans-serif;
+}
+
+.story {
+  background-color: black;
+  color: white;
+  font-size: 0.3em;
+  padding: 10px;
+  font-family: 'Roboto Condensed', sans-serif;
+  vertical-align: middle;
+}

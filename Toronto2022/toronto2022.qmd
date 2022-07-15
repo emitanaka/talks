@@ -1,0 +1,678 @@
+---
+title: "An anthology of <Br>experimental designs"
+author: "Emi Tanaka"
+institute: "Department of Econometrics and Business Statistics"
+format: 
+  revealjs:
+    #incremental: true
+    logo: images/monash-one-line-black-rgb.png
+    #footer: "`emitanaka.org/slides/toronto2022`"
+    slide-number: true
+    multiplex: true
+    theme: [simple, assets/monash.scss]
+    show-slide-number: all
+    controls: true
+    width: 1280
+    height: 720
+    css: [assets/syntax-highlight.css, assets/custom.css, assets/pacman.css]
+    header-includes: |
+      <link rel="stylesheet" href="/assets/fontawesome-free-6.1.1-web/css/font-awesome.min.css">
+      <script defer src="/assets/fontawesome-free-6.1.1-web/js/all.min.js"></script>
+execute:
+  echo: true
+---
+
+---
+
+
+
+## Take-away message [1]{.circle} <i class="fa-brands fa-r-project" style="height:120px;vertical-align:middle;"></i> <img src="images/edibble.png" height="120px" style="vertical-align:middle;"> 
+
+
+
+* `edibble` is an <a href="https://lifecycle.r-lib.org/articles/stages.html#experimental" style="color:black">experimental</a> R-package I have been developing to *plan*, **_design_**, and *simulate* **experiments**
+
+::: info-box
+
+`edibble` stands for **e**xperimental **d**esign table (or `t`**`ibble`**)  
+
+ <ul >
+    <li><i class="fa-solid fa-bullseye"></i>aims to provide the experimental design in table format</li>
+    <li><i class="fa-brands fa-github"></i>[github.com/emitanaka/edibble](https://github.com/emitanaka/edibble)  </li>
+    <li><i class="fa-solid fa-bowl-food"></i>commonly misspelled as edible (perhaps because of autocorrect)</li>
+</ul>
+
+
+:::
+
+
+
+
+---
+
+## Take-away message [2]{.circle} <i class="fa-brands fa-r-project" style="height:120px;vertical-align:middle;"></i> <img src="images/deggust.png" height="120px"  style="vertical-align:middle;">
+
+
+
+* `deggust` is a work-in-progress R-package I am developing to **_easily_ visualise** edibble experimental designs
+
+
+
+
+::: info-box
+
+`deggust` alludes to the **d**esign of **e**xperiments as **gg**plot object  
+<ul >
+    <li><i class="fa-solid fa-bullseye"></i> aims to provide a ggplot object</li>
+    <li><i class="fa-brands fa-github"></i>[github.com/emitanaka/deggust](https://github.com/emitanaka/deggust)    </li>
+    <li><i class="fa-solid fa-bowl-food"></i>deggust, a play on the verb "degust", is to savour the edibble designs to fully appreciate it</li>
+</ul>
+
+:::
+
+
+
+
+---
+
+## Take-away message [3]{.circle} <img src="images/edibble.png" height="120px"  style="vertical-align:middle;"> <img src="images/deggust.png" height="120px"  style="vertical-align:middle;">
+
+* The `edibble` system and its (future) extensions signficiantly **reframe** the way that the experimental designs are constructed from standard, often recipe-driven, approach
+* I refer this programming language agnostic system to as<br> **"The Grammar of Experimental Designs"**
+
+::: info-box
+
+ A work-in-progress book "The Grammar of Experimental Designs" can be found at 
+
+<center>
+<i class="fa-solid fa-book"></i> [https://emitanaka.org/edibble-book](https://emitanaka.org/edibble-book)
+</center>
+
+:::
+
+
+
+
+# Experimental design<br> short stories  {background-color="#006dae"}
+
+
+Giesbrecht, Francis G. and Gumpertz, Marcia L. (2004) Planning, Construction, and Statistical Analysis of Comparative Experiments.
+
+
+
+Bailey, Rosemary (2008) Design of Comparative Experiments.
+
+
+
+Lawson, John (2015) Design and Analysis of Experiments with R.
+
+
+# [STORY 1]{.story} [🌱 The folklore of fervent field experiments]{style="float:right;text-align:right;"} {background-color="#027eb6"}
+
+---
+
+
+
+## [STORY 1]{.story} 🌱 The folklore of fervent field experiments {auto-animate=true auto-animate-easing="ease-in-out"}
+
+
+:::::: {.columns}
+
+
+
+:::::: {.column width="37%"}
+
+::: box
+
+Consider a field experiment in agriculture where <span class="fragment highlight-red" fragment-index=2>plot</span> are laid in out as <span class="fragment highlight-red" fragment-index=1>6 rows by 8 columns</span> (each also called strip). There are <span class="fragment highlight-blue" fragment-index=3>4 modes of seedbed preparation and 3 crop varieties</span> that are of the interest to the researcher. The <span class="fragment highlight-blue" fragment-index=4>mode of seedbed preparation is assigned randomly to the whole columns</span>, and the <span class="fragment highlight-blue" fragment-index=5>crop variety is assigned randomly to the whole row</span>. This experimental design is called a **strip-plot design**.  
+
+:::
+
+::::::
+
+:::::: {.column width="63%"}
+
+::: {.fragment .fade-in}
+
+::: {data-id="box1"}
+
+```{r des}
+#| echo: true
+#| eval: true
+#| code-line-numbers: "|2|3-5|6-7|8-9|10|11|"
+library(edibble)
+df1 <- design("Strip-plot experiment") %>%
+  set_units(row = 6,
+            col = 8,
+            plot = crossed_by(row, col)) %>%
+  set_trts(seedbed = 4,
+           variety = 3) %>% 
+  allot_trts(seedbed ~ col,
+             variety ~ row) %>%
+  assign_trts("random", seed = 20220324) %>%
+  serve_table()
+
+df1
+```
+:::
+
+:::
+
+:::::
+
+::::::
+
+
+---
+
+
+## [STORY 1]{.story} 🌱 The folklore of fervent field experiments {auto-animate=true auto-animate-easing="ease-in-out"}
+
+
+
+:::: {.columns}
+
+
+
+::: {.column width="55%"}
+
+
+::: {data-id="box1"}
+
+```{r}
+#| code-line-numbers: "13"
+library(edibble)
+df1 <- design("Strip-plot experiment") %>%
+  set_units(row = 6,
+            col = 8,
+            plot = crossed_by(row, col)) %>%
+  set_trts(seedbed = 4,
+           variety = 3) %>% 
+  allot_trts(seedbed ~ col,
+             variety ~ row) %>%
+  assign_trts("random", seed = 20220324) %>%
+  serve_table()
+
+df1
+```
+:::
+
+:::
+
+
+
+::: {.column width="45%"}
+
+
+```{r des1, fig.height = 7}
+#| code-line-numbers: "1-2|3-6|"
+library(deggust)
+autoplot(df1) +
+  theme(text = element_text(size = 30),
+        axis.text.x = element_text(size = 24),
+        axis.text.y = element_text(size = 24),
+        plot.margin = margin(20, 20, 20, 20))
+```
+
+
+
+:::
+
+:::
+
+---
+
+
+## [STORY 1]{.story} 🌱 The folklore of fervent field experiments {auto-animate=true auto-animate-easing="ease-in-out"}
+
+
+:::::: {.columns}
+
+
+
+:::::: {.column width="37%"}
+
+::: box
+
+Consider a field experiment in agriculture where plot are laid in out as 6 rows by 8 columns (each also called strip). There are 4 modes of seedbed preparation and 3 crop varieties that are of the interest to the researcher. The mode of seedbed preparation is assigned randomly to the whole columns, and the crop variety is assigned randomly to the whole row. <span style='color:red'>If fertility gradients are suspected then the strips can be grouped into sets (i.e. introduce blocking factors in one or more directions)</span>. This variation is called a **strip-block design**.  
+
+:::
+
+::::::
+
+:::::: {.column width="63%"}
+
+::: {.fragment .fade-in}
+
+::: {data-id="box2"}
+
+```{r}
+#| echo: true
+#| eval: true
+#| code-line-numbers: "|3,5"
+library(edibble)
+df2 <- design("Strip-block experiment") %>%
+  set_units(block = 2,
+            row = 6,
+            col = nested_in(block, 4),
+            plot = crossed_by(row, col)) %>%
+  set_trts(seedbed = 4,
+           variety = 3) %>% 
+  allot_trts(seedbed ~ col,
+             variety ~ row) %>%
+  assign_trts("random", seed = 20220324) %>%
+  serve_table()
+
+df2
+```
+:::
+
+:::
+
+:::::
+
+::::::
+
+
+---
+
+
+## [STORY 1]{.story} 🌱 The folklore of fervent field experiments {auto-animate=true auto-animate-easing="ease-in-out"}
+
+
+
+:::: {.columns}
+
+
+
+::: {.column width="55%"}
+
+
+::: {data-id="box2"}
+
+```{r}
+#| code-line-numbers: "13"
+library(edibble)
+df2 <- design("Strip-block experiment") %>%
+  set_units(block = 2,
+            row = 6,
+            col = nested_in(block, 4),
+            plot = crossed_by(row, col)) %>%
+  set_trts(seedbed = 4,
+           variety = 3) %>% 
+  allot_trts(seedbed ~ col,
+             variety ~ row) %>%
+  assign_trts("random", seed = 20220324) %>%
+  serve_table()
+
+df2
+```
+:::
+
+:::
+
+
+
+::: {.column width="45%"}
+
+
+```{r des2, fig.height = 7}
+#| code-line-numbers: "1-2"
+library(deggust)
+autoplot(df2) +
+  theme(text = element_text(size = 30),
+        axis.text.x = element_text(size = 24),
+        axis.text.y = element_text(size = 24),
+        plot.margin = margin(20, 20, 20, 20))
+```
+:::
+
+:::
+
+---
+
+## [STORY 1]{.story} 🌱 The folklore of fervent field experiments {auto-animate=true auto-animate-easing="ease-in-out"}
+
+
+
+:::: {.columns}
+
+
+
+::: {.column width="55%"}
+
+
+::: {data-id="box2"}
+
+```{r}
+#| code-line-numbers: "3-6"
+library(edibble)
+df3 <- design("Strip-block experiment 2") %>%
+  set_units(blockr = 2,
+            blockc = 2,
+            row = nested_in(blockr, 3),
+            col = nested_in(blockc, 4),
+            plot = crossed_by(row, col)) %>%
+  set_trts(seedbed = 4,
+           variety = 3) %>% 
+  allot_trts(seedbed ~ col,
+             variety ~ row) %>%
+  assign_trts("random", seed = 20220324) %>%
+  serve_table()
+
+df3
+```
+:::
+
+:::
+
+
+
+::: {.column width="45%"}
+
+
+```{r des3, fig.height = 7}
+#| code-line-numbers: "6,9-11"
+library(deggust)
+ggplot(df3, aes(col, row)) + 
+  geom_tile(aes(fill = blockr)) +
+  scale_fill_manual(values = c("grey10", "grey80")) +
+  ggnewscale::new_scale_fill() + 
+  geom_unit_node(aes(fill = seedbed)) +
+  scale_fill_viridis_d() +
+  ggnewscale::new_scale_fill() + 
+  geom_unit_node(aes(fill = variety), 
+                 shape = "square", 
+                 width = 0.5, height = 0.5) +
+  theme(text = element_text(size = 30),
+        axis.text.x = element_text(size = 24),
+        axis.text.y = element_text(size = 24),
+        plot.margin = margin(20, 20, 20, 20))
+```
+:::
+
+:::
+
+
+# [STORY 2]{.story} [👕 The horrifying tale of dirty laundry]{style="float:right;text-align:right;"} {background-color="#027eb6"}
+
+---
+
+
+## [STORY 2]{.story} 👕 The horrifying tale of dirty laundry {auto-animate=true auto-animate-easing="ease-in-out"}
+
+
+:::::: {.columns}
+
+:::::: {.column width="50%"}
+
+::: box
+
+A manufacturer of household appliances wants to find the best combination of wash temperature and drying temperature to produce unwrinkled cotton sheets at the end of the laundry session. He wants to compare <span class="fragment highlight-blue" fragment-index=1>four different wash temperatures and three different drying temperatures</span>. He uses <span class="fragment highlight-red" fragment-index=2>eight similar washing machines and six similar dryers</span>. First, <span class="fragment highlight-red" fragment-index=3>48 cotton sheets are randomly allocated to the washing machines, six per machine.</span> The <span class="fragment highlight-blue" fragment-index=4>wash temperatures are randomly allocated to the washing machines so that two machines are run at each temperature.</span> After the wash, the <span class="fragment highlight-red" fragment-index=5>six sheets in each machine are randomly allocated to the dryers, one per dryer.</span> Then the <span class="fragment highlight-blue" fragment-index=6>drying temperatures are randomly allocated to the dryers</span> so that two machines are run at each temperature. After the drying, all <span class="fragment highlight-red" fragment-index=7>48 sheets are scored by experts for how wrinkled they are</span>.
+
+
+:::
+
+::::::
+
+:::::: {.column width="50%"}
+
+::: {.fragment .fade-in}
+
+::: {data-id="box3"}
+
+```{r}
+#| echo: true
+#| eval: true
+#| code-line-numbers: "|3-4|5-7|8-9|10|11-12|13|14|15|"
+library(edibble)
+dat1 <- design("Laundry", seed = 1) %>%
+  set_trts(wash_temp = 4,
+           dry_temp = 3) %>% 
+  set_units(washer = 8,
+            dryer = 6,
+            sheet = 48) %>% 
+  allot_units(washer ~ sheet,
+              dryer ~ washer/sheet) %>% 
+  assign_units("random") %>% 
+  allot_trts(wash_temp ~ washer,
+              dry_temp ~ dryer) %>% 
+  assign_trts("random") %>% 
+  set_rcrds(score = sheet) %>% 
+  serve_table()
+
+dat1
+```
+:::
+
+:::
+
+:::::
+
+::::::
+
+
+---
+
+## [STORY 2]{.story} 👕 The horrifying tale of dirty laundry {auto-animate=true auto-animate-easing="ease-in-out"}
+
+
+
+:::: {.columns}
+
+
+
+::: {.column width="55%"}
+
+
+::: {data-id="box3"}
+
+```{r}
+#| code-line-numbers: "17"
+library(edibble)
+dat1 <- design("Laundry", seed = 1) %>%
+  set_trts(wash_temp = 4,
+           dry_temp = 3) %>% 
+  set_units(washer = 8,
+            dryer = 6,
+            sheet = 48) %>% 
+  allot_units(washer ~ sheet,
+              dryer ~ washer/sheet) %>% 
+  assign_units("random") %>% 
+  allot_trts(wash_temp ~ washer,
+              dry_temp ~ dryer) %>% 
+  assign_trts("random") %>% 
+  set_rcrds(score = sheet) %>% 
+  serve_table()
+
+dat1
+```
+:::
+
+:::
+
+
+
+::: {.column width="45%"}
+
+
+```{r des4, fig.height = 7}
+#| code-line-numbers: "1-2"
+library(deggust)
+autoplot(dat1) +
+  theme(text = element_text(size = 30),
+        axis.text.x = element_text(size = 24),
+        axis.text.y = element_text(size = 24),
+        plot.margin = margin(20, 20, 20, 20))
+```
+:::
+
+:::
+
+. . . 
+
+
+<div style="position:absolute; bottom:5px;right:10px;">This is in fact a strip-plot design!</div>
+
+---
+
+## [STORY 2]{.story} 👕 The horrifying tale of dirty laundry {auto-animate=true auto-animate-easing="ease-in-out"}
+
+
+
+:::: {.columns}
+
+::: {.column width="55%"}
+
+
+::: {data-id="box3"}
+
+```{r}
+#| code-line-numbers: "2,5-7|11"
+library(edibble)
+dat2 <- design("Laundry", seed = 1) %>%
+  set_trts(wash_temp = 4,
+           dry_temp = 3) %>% 
+  set_units(washer = 8,
+            dryer = 6,
+            sheet = crossed_by(washer, dryer)) %>% 
+  allot_trts(wash_temp ~ washer,
+              dry_temp ~ dryer) %>% 
+  assign_trts("random") %>% 
+  set_rcrds(score = sheet) %>% 
+  serve_table()
+
+dat2
+```
+:::
+
+:::
+
+
+
+::: {.column width="45%"}
+
+
+```{r des5, fig.height = 7}
+#| code-line-numbers: "1-2"
+library(deggust)
+autoplot(dat2) +
+  theme(text = element_text(size = 30),
+        axis.text.x = element_text(size = 24),
+        axis.text.y = element_text(size = 24),
+        plot.margin = margin(20, 20, 20, 20))
+```
+:::
+
+:::
+
+
+# Setting and simulating records with expectations {background-color="#006dae"}
+
+---
+
+## `edibble` records 
+
+* Records are intended variables, e.g. responses, that will be measured or observed
+
+. . . 
+
+* You can **set expectations** of the record (plausible values) and **simulate records**, censoring values (default as missing) outside of expectations, or **export data with data validation**
+
+```{r}
+#| code-line-numbers: "2|3|"
+dat2 %>% 
+  expect_rcrds(score >= 1, score <= 10) %>% 
+  simulate_rcrds(score = sim_normal(mean = 3, sd = 4))
+```
+
+
+# [STORY 3]{.story} [🍪 The legend of the scrumptious cookie]{style="float:right;text-align:right;"} {background-color="#027eb6"}
+
+---
+
+## [STORY 3]{.story} 🍪 The legend of the scrumptious cookie {auto-animate=true auto-animate-easing="ease-in-out"}
+
+
+
+
+::: box
+
+Recipes  for  chocolate  and  orange  cookies  include  exactly the same ingredients up to the point where the syrup was added to the batch. However, after the cookies were baked, the chocolate cookies had an appealing round  and  plump  appearance,  while  the  orange  cookies  spread  during  the baking process and became thin, flat, and unappealing. A factorial experiment was devised to determine if there was a way to change the process of making the orange cookies that would reduce the spreading during baking. The factors that were chosen to be varied were A: the amount of shortening in the dough batch (80% of what the recipe called for or 100%), B: the baking temperature (below,  at,  or  above  the  temperature  called  for  by  the  recipe),  and C:  the temperature  of  the  cookie  sheet  upon  which  the  cookies  were  placed  to  be baked (hot out of the oven, or cooled to room temperature). The cookie-making process consists of the two steps: 1. mix cookie dough batch, and 2. bake cookies. Factor A is related to step 1, factors B and C to step 2. The amount of shortening was a hard-to-vary factor because each time it was changed it required making a new batch of cookie dough, while the baking temperature and tray temperature were easy to vary. Once  a  batch  of  dough  was  made,  there  was  enough  to  make  six  trays  of cookies, and all six combinations of baking temperature and tray temperature could be tested within each dough batch. First, plan to make four batches of cookie dough and randomly assign two batches to use 80% of the recipe recommended amount of shortening and two batches to receive the full amount of shortening recommended by the recipe. Next, bake six trays of cookies from each batch of dough and completely randomize the six combinations of bake temperature and tray temperature to the six trays of cookies within each batch. 
+
+:::
+
+---
+
+## [STORY 3]{.story} 🍪 The legend of the scrumptious cookie {auto-animate=true auto-animate-easing="ease-in-out"}
+
+:::: {.columns}
+
+::: {.column width="60%"}
+
+```{r}
+#| echo: true
+#| eval: true
+#| code-line-numbers: "|3-5|6-7|8-9|"
+library(edibble)
+des <- design("Cookie recipe", seed = 2022) %>%
+  set_trts(shortening = c("80%", "100%"),
+           baking_temp = c("below", "at", "above"),
+           tray_temp = c("hot", "room temp")) %>% 
+  set_units(batch = 4,
+            tray = nested_in(batch, 6)) %>% 
+  allot_trts(shortening ~ batch,
+             baking_temp:tray_temp ~ tray) %>% 
+  assign_trts("random") %>% 
+  serve_table()
+
+des
+```
+
+:::
+
+::: {.column width="40%"}
+
+
+::: {.fragment .fade-in}
+
+```{r des6, fig.height = 7}
+#| code-line-numbers: "1-2"
+library(deggust)
+autoplot(des) +
+  theme(text = element_text(size = 30),
+        axis.text.x = element_text(size = 24),
+        axis.text.y = element_text(size = 24),
+        plot.margin = margin(20, 20, 20, 20))
+```
+
+
+:::
+
+:::
+
+:::
+
+
+
+---
+
+
+## {background-color="#006dae"}
+
+<div class='pac-man'></div>
+
+<br>
+
+* _Experiments are human endeavours_ and the `edibble` system aims to better **capture user's intention or understanding** 
+
+
+
+  
+ <ul >
+    <li><i class="fa-brands fa-github"></i>[github.com/emitanaka/edibble](https://github.com/emitanaka/edibble)  </li>
+    <li><i class="fa-brands fa-github"></i>[github.com/emitanaka/deggust](https://github.com/emitanaka/deggust)  </li>
+<li><i class="fa-solid fa-book"></i> [emitanaka.org/edibble-book](https://emitanaka.org/edibble-book)</li>
+<li><i class="fa-solid fa-link"></i>
+[emitanaka.org/slides/toronto2022](https://emitanaka.org/slides/toronto2022)</li>
+</ul>
