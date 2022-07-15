@@ -1,0 +1,1892 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Grammar of Experimental Design</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Emi Tanaka" />
+    <script src="lib/header-attrs-2.6/header-attrs.js"></script>
+    <link href="lib/remark-css-0.0.1/ninjutsu.css" rel="stylesheet" />
+    
+    <!--
+    <script defer src="assets/all.min.js"></script>
+
+    Need below to enable css contents
+
+    <script>
+      window.FontAwesomeConfig = {
+        searchPseudoElements: true
+      }
+    </script>
+
+    -->
+    <link rel="stylesheet" href="assets/font-awesome-all.css" type="text/css" />
+    <link rel="stylesheet" href="assets/tachyons-addon.css" type="text/css" />
+    <link rel="stylesheet" href="assets/animate.css" type="text/css" />
+    <link rel="stylesheet" href="assets/fira-code.css" type="text/css" />
+    <link rel="stylesheet" href="assets/boxes.css" type="text/css" />
+    <link rel="stylesheet" href="assets/table.css" type="text/css" />
+    <link rel="stylesheet" href="assets/styles.css" type="text/css" />
+    <link rel="stylesheet" href="assets/monash-brand.css" type="text/css" />
+    <link rel="stylesheet" href="assets/monash-fonts.css" type="text/css" />
+    <link rel="stylesheet" href="assets/slide-types.css" type="text/css" />
+    <link rel="stylesheet" href="assets/custom.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+
+
+
+
+
+
+class: middle center hide-slide-number monash-bg-gray80
+
+
+
+
+
+.info-box.w-50.bg-white[
+These slides are viewed best by Chrome or Firefox and occasionally need to be refreshed if elements did not load properly. See &lt;a href="edibble-slides.pdf"&gt;here for the PDF &lt;i class="fas fa-file-pdf"&gt;&lt;/i&gt;&lt;/a&gt;. 
+]
+
+&lt;br&gt;
+
+.white[Press the **right arrow** to progress to the next slide!]
+
+
+
+---
+
+
+background-size: cover
+class: title-slide
+count: false
+
+# .monash-blue[Grammar of Experimental Design]
+
+&lt;br&gt;
+
+&lt;h2 style="font-weight:900!important;"&gt;実験計画法の「文法」&lt;/h2&gt;
+
+.bottom_abs.width100[
+
+Presenter: *Emi Tanaka*
+
+&lt;i class="fas fa-university"&gt;&lt;/i&gt; Department of Econometrics and Business Statistics, &lt;Br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Monash University, Melbourne, Australia
+
+&lt;i class="fas fa-envelope"&gt;&lt;/i&gt;  emi.tanaka@monash.edu
+
+&lt;a href="https://twitter.com/statsgen" style="color:black"&gt;&lt;i class="fab fa-twitter"&gt;&lt;/i&gt; @statsgen&lt;/a&gt;
+
+&lt;i class="fas fa-calendar-alt"&gt;&lt;/i&gt; 23 Jan 2021 @ TokyoR
+
+&lt;br&gt;
+
+]
+
+
+---
+
+class: footer-slide
+layout: true
+name: footer
+
+
+.footnote.monash-black.f4[
+&lt;i class="fas fa-link"&gt;&lt;/i&gt; スライドは &lt;a href="https://emitanaka.org/slides/TokyoR2021" style="color:#6F7C4D!important;"&gt;emitanaka.org/slides/TokyoR2021&lt;/a&gt;
+]
+
+---
+
+
+# A little about me 
+
+# 自己紹介
+
+* オーストラリア育ちの日本語がイマイチなJapanese-Australianです🇯🇵🇦🇺
+--
+
+* ５年前に統計学の博士号を取得しました🎓
+--
+
+* Monash大学で働くため２０２０年１月シドニーからメルボルンへ引っ越しました📦
+--
+
+
+&lt;center&gt;
+&lt;img src="images/monash-sign.jpg" alt="monash sign" width="20%"&gt;
+　私のオフィスからの見晴らしです&lt;i class="fas fa-arrow-right"&gt;&lt;/i&gt;　
+&lt;img src="images/office-corridor-view.jpg" alt="office corridor view" width="20%"&gt;
+
+&lt;/center&gt;
+
+
+---
+
+# その研究内容一つとは
+
+&lt;br&gt;&lt;br&gt;
+
+.f1.center[
+.animated.bounce[
+.monash-blue[&lt;b&gt;&lt;i class="fas fa-project-diagram"&gt;&lt;/i&gt; Grammar of Experimental Design&lt;/b&gt;]
+
+実験計画法の「文法」
+]
+
+{{content}}
+]
+
+--
+
+&lt;br&gt;&lt;br&gt;
+
+「文法」とはどういう意味なのでしょうか？
+
+
+---
+
+# 内容
+
+&lt;br&gt;
+
+.f1[
+
+.circle.monash-bg-blue.white[1] &lt;b&gt;&lt;i class="fas fa-chart-bar"&gt;&lt;/i&gt; Grammar of Graphics&lt;/b&gt; .f3[グラフィクスの文法]
+&lt;br&gt;&lt;br&gt;
+
+.circle.monash-bg-blue.white[2] &lt;b&gt;&lt;i class="fas fa-wrench"&gt;&lt;/i&gt; Grammar of Data Manipulation&lt;/b&gt; .f3[データ操作の文法]&lt;Br&gt;
+&lt;br&gt;
+
+
+.circle.monash-bg-blue.white[3] .monash-blue2[&lt;b&gt;&lt;i class="fas fa-project-diagram"&gt;&lt;/i&gt; Grammar of Experimental Design&lt;/b&gt;] .f3[実験計画法の文法]
+
+
+]
+
+---
+
+class: transition  animated slideInLeft
+
+# .circle-big[1] 
+
+# Grammar of Graphics
+
+&lt;img src="images/ggplot2-hex.png" width="150px"&gt;
+
+
+.f3.center.w-100[
+
+Wickham (2016) ggplot2: Elegant Graphics for Data Analysis. *Springer-Verlag New York*
+
+Wilkinson (2005) The Grammar of Graphics. *Statistics and Computing. Springer, 2nd edition.*&lt;br&gt;&lt;br&gt;
+]
+
+
+---
+
+
+class: middle 
+
+まずはデーターから
+
+.f-headline[
+👩🏻‍🏫
+]
+
+.measure.f2.pa3[
+一般的なオーストラリアの大学で働いてる学者は時間を以下のように分けるよう期待されています：
+* 40％教育、
+* 40％研究と
+* 20％その他。
+]
+
+---
+
+# この二つのプロットの違いとは？
+
+
+.flex[
+.w-50[
+&lt;img src="images/unnamed-chunk-3-1.png" width="360" style="display: block; margin: auto;" /&gt;
+
+]
+.w-50[
+
+&lt;img src="images/unnamed-chunk-4-1.png" width="482.4" style="display: block; margin: auto;" /&gt;
+
+
+]
+]
+
+---
+
+name: base-plot
+class: font_smaller
+
+# Base R
+
+.flex.h-80[
+.w33.br[
+
+```r
+df
+```
+
+```
+##       duty perc
+## 1 Teaching   40
+## 2 Research   40
+## 3    Other   20
+```
+
+```r
+tibble::as_tibble(df)
+```
+
+```
+## # A tibble: 3 x 2
+##   duty      perc
+##   &lt;chr&gt;    &lt;dbl&gt;
+## 1 Teaching    40
+## 2 Research    40
+## 3 Other       20
+```
+]
+.w33.br[
+
+
+```r
+barplot(as.matrix(df$perc),
+        legend = df$duty)
+```
+
+&lt;img src="images/barplot-1.png" width="288" style="display: block; margin: auto;" /&gt;
+
+
+]
+.w33[
+
+
+```r
+pie(df$perc, labels = df$duty)
+```
+
+&lt;img src="images/pie-1.png" width="432" style="display: block; margin: auto;" /&gt;
+
+
+]
+]
+
+.footnote.monash-black.f4[
+&lt;i class="fas fa-book"&gt;&lt;/i&gt; R Core Team (2020) R: A Language and Environment for Statistical Computing https://www.R-project.org/
+&lt;br&gt;&lt;br&gt;
+]
+
+&lt;div class="show-on-hover" style="padding:10px;position:absolute;bottom: 40px; right: 10px;"&gt;
+&lt;a href="#edibble" style="font-size:12pt"&gt;&lt;i class="fas fa-caret-right"&gt;&lt;/i&gt; edibble&lt;/a&gt;
+&lt;/div&gt;
+
+--
+
+.absolute.bottom-3.left-1[
+.info-box.w-60[
+Single purpose functions to generate "named plots"
+]]
+
+---
+
+# `ggplot2`
+
+
+.flex.h-80[
+.w-33.br[
+
+```r
+df
+```
+
+```
+##       duty perc
+## 1 Teaching   40
+## 2 Research   40
+## 3    Other   20
+```
+
+```r
+tibble::as_tibble(df)
+```
+
+```
+## # A tibble: 3 x 2
+##   duty      perc
+##   &lt;chr&gt;    &lt;dbl&gt;
+## 1 Teaching    40
+## 2 Research    40
+## 3 Other       20
+```
+]
+.w-33.br.f4[
+
+
+```r
+ggplot(df, aes(x = "", # dummy
+               y = perc, 
+               fill = duty)) + 
+  geom_col()
+```
+
+&lt;img src="images/ggbarplot-1.png" width="360" style="display: block; margin: auto;" /&gt;
+
+
+]
+.w-33.f4[
+
+
+{{content}}
+
+]
+]
+
+--
+
+
+```r
+ggplot(df, aes(x = "", # dummy
+               y = perc, 
+               fill = duty)) + 
+  geom_col() + 
+* coord_polar(theta = "y")
+```
+
+&lt;img src="images/ggpie-1.png" width="360" style="display: block; margin: auto;" /&gt;
+
+--
+
+.absolute.bottom-2.left-1[
+.info-box.w-60[
+**stacked barplot**と**pie chart**の違いはcoordinate systemが**Cartesian coordinate**から**polar coordinate**と変わった
+]]
+
+
+---
+
+# &lt;i class="fas fa-puzzle-piece"&gt;&lt;/i&gt; ポテトフィールド研究・このプロットはどうコードする？
+
+
+.flex[
+.overflow-scroll.h---500.w-33[
+
+
+```r
+data(cochran.crd,
+     package = "agridat")
+
+cochran.crd
+```
+
+```
+##    inf trt row col
+## 1    9  F3   4   1
+## 2   12   O   4   2
+## 3   18  S6   4   3
+## 4   10 F12   4   4
+## 5   24  S6   4   5
+## 6   17 S12   4   6
+## 7   30  S3   4   7
+## 8   16  F6   4   8
+## 9   10   O   3   1
+## 10   7  S3   3   2
+## 11   4 F12   3   3
+## 12  10  F6   3   4
+## 13  21  S3   3   5
+## 14  24   O   3   6
+## 15  29   O   3   7
+## 16  12  S6   3   8
+## 17   9  F3   2   1
+## 18   7 S12   2   2
+## 19  18  F6   2   3
+## 20  30   O   2   4
+## 21  18  F6   2   5
+## 22  16 S12   2   6
+## 23  16  F3   2   7
+## 24   4 F12   2   8
+## 25   9  S3   1   1
+## 26  18   O   1   2
+## 27  17 S12   1   3
+## 28  19  S6   1   4
+## 29  32   O   1   5
+## 30   5 F12   1   6
+## 31  26   O   1   7
+## 32   4  F3   1   8
+```
+
+]
+.w-33.h-50[
+
+&lt;img src="images/field1-1.png" width="288" style="display: block; margin: auto;" /&gt;
+&lt;img src="images/field2-1.png" width="288" style="display: block; margin: auto;" /&gt;
+
+]
+.h-50.w-33.f6[
+
+{{content}}
+
+]
+]
+
+.footnote.monash-black.f6[
+&lt;i class="fas fa-book"&gt;&lt;/i&gt; Kevin Wright (2020). agridat: Agricultural Datasets. R
+  package version 1.17.&lt;br&gt;
+&lt;i class="fas fa-book"&gt;&lt;/i&gt; W.G. Cochran and G. Cox, 1957. Experimental Designs, 2nd ed. John Wiley, New York.
+&lt;br&gt;&lt;br&gt;&lt;br&gt;
+]
+
+--
+
+
+```r
+ggplot(cochran.crd, 
+       aes(x = col, 
+           y = row, 
+*          fill = inf)) +
+  geom_tile(color = "black", size = 1.2) + 
+* scale_fill_gradient(low = "gold",
+*                     high = "firebrick4") +
+  theme(text = element_text(size = 20))
+```
+
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+
+
+```r
+ggplot(cochran.crd, 
+       aes(x = col, 
+           y = row, 
+*          fill = trt)) +
+  geom_tile(color = "black", size = 1.2) +
+* scale_fill_viridis_d() +
+  theme(text = element_text(size = 20))
+```
+
+
+
+---
+
+class: transition  animated slideInLeft
+
+# .circle-big[2] 
+
+# Grammar of &lt;br&gt;Data Manipulation
+
+&lt;img src="images/dplyr-hex.png" width="150px"&gt;
+
+.center.f3.w-100[
+Wickham, François, Henry &amp; Müller (2020) dplyr: A Grammar of Data Manipulation. R-package version 1.0.0.
+]
+
+---
+
+# このコードは何をしてる？アウトプットは何を期待しますか？
+
+.flex.h-80[
+.w-50.h---500.overflow-scroll.br[
+.f4[
+
+```r
+tapply(cochran.crd$inf, cochran.crd$trt, mean)
+```
+
+```
+##    F12     F3     F6      O    S12     S3     S6 
+##  5.750  9.500 15.500 22.625 14.250 16.750 18.250
+```
+
+```r
+tapply(cochran.crd$inf, cochran.crd$trt, sd)
+```
+
+```
+##       F12        F3        F6         O       S12        S3        S6 
+##  2.872281  4.932883  3.785939  8.365533  4.856267 10.781929  4.924429
+```
+
+```r
+tapply(cochran.crd$inf, cochran.crd$trt, 
+       function(x) c(avg = mean(x), sd = sd(x)))
+```
+
+```
+## $F12
+##      avg       sd 
+## 5.750000 2.872281 
+## 
+## $F3
+##      avg       sd 
+## 9.500000 4.932883 
+## 
+## $F6
+##       avg        sd 
+## 15.500000  3.785939 
+## 
+## $O
+##       avg        sd 
+## 22.625000  8.365533 
+## 
+## $S12
+##       avg        sd 
+## 14.250000  4.856267 
+## 
+## $S3
+##      avg       sd 
+## 16.75000 10.78193 
+## 
+## $S6
+##       avg        sd 
+## 18.250000  4.924429
+```
+]
+]
+.w-50.f4[
+{{content}}
+]
+]
+
+--
+
+
+```r
+library(dplyr)
+cochran.crd %&gt;% 
+  group_by(trt) %&gt;% 
+  summarise(avg = mean(inf),
+             sd = sd(inf))
+```
+
+```
+## # A tibble: 7 x 3
+##   trt     avg    sd
+## * &lt;fct&gt; &lt;dbl&gt; &lt;dbl&gt;
+## 1 F12    5.75  2.87
+## 2 F3     9.5   4.93
+## 3 F6    15.5   3.79
+## 4 O     22.6   8.37
+## 5 S12   14.2   4.86
+## 6 S3    16.8  10.8 
+## 7 S6    18.2   4.92
+```
+
+--
+
+.absolute.bottom-3.right-1[
+.info-box.w-60[
+右の方が意図が分かりやすいです
+]]
+
+
+---
+
+class: transition animated slideInLeft
+
+# .circle-big[3] 
+
+# Grammar of &lt;br&gt;Experimental Design
+
+&lt;img src="images/edibble-hex.png" width="150px"&gt;
+
+&lt;i class="fas fa-wrench"&gt;&lt;/i&gt; Work-In-Progress
+
+---
+
+
+# 実験計画法の一般的なコース &lt;br&gt;.font_small[(例えばシドニー大学2017-2019)]
+
+
+
+教える内容：
+
+* Completely Randomised Design
+* Randomised Complete Block Design
+* Latin Square Design
+* Balanced Incomplete Block Design
+* Factorial Design
+* &lt;strike&gt; 2&lt;/strike&gt;&lt;sup&gt;k&lt;/sup&gt;&lt;strike&gt; Factorial Design&lt;/strike&gt; .font_small[(２０１８年以降取り除いた)]
+* Split-plot Design .font_small[(私が２０１８年に追加した)]
+
+---
+
+
+# Completely Randomised Design (CRD)
+
+.grid[
+
+.item[ 
+
+&lt;br&gt;
+
+&lt;center&gt;
+&lt;img src="images/crd-eg1.png" width = "300px"/&gt;
+&lt;/center&gt;
+
+]
+
+.item[ 
+
+* `\(t\)` treatments randomised to `\(n\)` units
+
+&lt;br&gt;
+
+.model-box[
+
+`$$\scriptsize \texttt{observation} = \texttt{mean} + \texttt{treatment} + \texttt{error}$$`
+
+.font_small[(with constraints and distributional assumptions)]
+
+&lt;br&gt;
+&lt;center&gt;
+&lt;img src="images/crd-eg1-anova.png" width = "700px"/&gt;
+&lt;/center&gt;
+
+]
+
+
+
+
+
+
+
+]
+
+]
+
+---
+
+# Randomised Complete Block Design (RCBD)
+
+.grid[
+
+.item[ 
+
+
+&lt;br&gt;
+
+&lt;center&gt;
+&lt;img src="images/rcbd-eg1.png" width = "300px"/&gt;
+&lt;/center&gt;
+
+]
+
+.item[ 
+
+* `\(b\)` blocks of size `\(t\)`
+* `\(t\)` treatments randomised to `\(t\)` units within each block
+
+
+.model-box[
+
+`$$\scriptsize \texttt{observation} = \texttt{mean} + \texttt{treatment} + \texttt{block} + \texttt{error}$$`
+
+
+&lt;center&gt;
+&lt;img src="images/rcbd-eg1-anova.png" width = "850px"/&gt;
+&lt;/center&gt;
+
+
+]
+
+]
+
+]
+
+---
+
+# Latin Square Design (LSD)
+
+.grid[
+
+.item[ 
+
+
+&lt;br&gt;
+
+&lt;center&gt;
+&lt;img src="images/lsd-eg1.png" width = "300px"/&gt;
+&lt;/center&gt;
+
+]
+
+.item[ 
+
+* two orthogonal blocks of size `\(t\)`
+* `\(t\)` treatments randomised to units such that every treatment appears exactly once in each block
+
+
+.model-box[
+
+`$$\scriptsize \texttt{observation} = \texttt{mean} + \texttt{treatment} + \texttt{row} + \texttt{column} + \texttt{error}$$`
+
+
+&lt;center&gt;
+&lt;img src="images/lsd-eg1-anova.png" width = "850px"/&gt;
+&lt;/center&gt;
+
+]
+
+]
+
+]
+
+---
+
+# Balanced Incomplete Block Design (BIBD)
+ 
+.grid[
+
+.item[ 
+
+
+&lt;br&gt;
+
+&lt;center&gt;
+&lt;img src="images/bibd-eg1.png" width = "300px"/&gt;
+&lt;/center&gt;
+
+]
+
+.item[ 
+
+* `\(b\)` blocks of size `\(k &lt; t\)`
+* `\(t\)` treatments randomised to units within each block such that every pair of treatment appears the same number of times across blocks
+
+
+.model-box[
+
+`$$\scriptsize \texttt{observation} = \texttt{mean} + \texttt{block} + \texttt{treatment} + \texttt{error}$$`
+
+
+&lt;center&gt;
+&lt;img src="images/bibd-eg1-anova.png" width = "850px"/&gt;
+&lt;/center&gt;
+
+]
+
+]
+
+]
+
+---
+
+# Factorial Design 
+
+.grid[
+
+.item[ 
+
+
+&lt;br&gt;
+
+&lt;center&gt;
+&lt;img src="images/factorial-eg1.png" width = "300px"/&gt;
+&lt;/center&gt;
+
+]
+
+.item[ 
+
+* `\(ab = t\)` treatments randomised to `\(n\)` units
+* treatment is every combination of two factors A and B
+
+
+.model-box[
+
+`$$\scriptsize \texttt{observation} = \texttt{mean} + \texttt{A} + \texttt{B} + \texttt{A:B} + \texttt{error}$$`
+
+&lt;center&gt;
+&lt;img src="images/factorial-eg1-anova-top.png" width = "850px"/&gt;
+&lt;details style="font-size:4pt"&gt;&lt;summary&gt;&lt;/summary&gt;
+&lt;img src="images/factorial-eg1-anova-middle.png" width = "850px"/&gt;
+&lt;/details&gt;
+&lt;img src="images/factorial-eg1-anova-bottom.png" width = "850px"/&gt;
+&lt;/center&gt;
+]
+
+]
+
+]
+
+---
+
+# Split-plot Design 
+
+.grid[
+
+.item[ 
+
+&lt;br&gt;
+
+&lt;center&gt;
+&lt;img src="images/split-plot-eg1.png" width = "300px"/&gt;
+&lt;/center&gt;
+
+]
+
+&lt;div class="item" style="font-size: 0.85em"&gt;
+
+&lt;ul&gt;
+&lt;li&gt; \(n_1\) whole plots consisting of \(b\) sub plots&lt;/li&gt;
+&lt;li&gt;in total there are \(n\) sub plots&lt;/li&gt;
+&lt;li&gt;treatment factor A is randomised to whole plots&lt;/li&gt;
+&lt;li&gt;treatment factor B is randomised to sub plots within each whole plot&lt;/li&gt;
+&lt;/ul&gt;
+
+.model-box[
+
+`$$\scriptsize \texttt{observation} = \texttt{mean} + \texttt{A} + \texttt{WP} + \texttt{B} + \texttt{A:B} + \texttt{error}$$`
+
+&lt;center&gt;
+&lt;img src="images/split-plot-eg1-anova.png" width = "850px"/&gt;
+&lt;/center&gt;
+]
+
+&lt;/div&gt;
+
+]
+
+
+
+
+---
+
+class: transition center middle
+
+
+# CRAN Task View of &lt;Br&gt;Design of Experiments
+
+
+
+
+contains
+
+# 📦 .yellow[224 R-packages ]
+
+
+.font_small[as of 2021-01-21]
+
+
+.font_small[(Please note that there may be some webscrapping error)]
+
+---
+
+
+# ダウンロードされたR-packagesトップ１０
+
+
+&lt;img src="images/top10_2019-1.png" width="432" style="display: block; margin: auto;" /&gt;
+.center[
+.f2[`AlgDesign` and `agricolae` are the most downloaded]
+
+.f3[(data from `cranlogs` from 2015-01-01 to 2020-12-31)]
+]
+
+---
+
+class: font_small
+
+# `agricolae::design.crd`
+
+**Completely randomised design** for `\(t = 3\)` treatments with `\(2\)` replicates each
+&lt;pre&gt;&lt;code&gt;
+trt &lt;- c("A", "B", "C")
+agricolae::.bg-yellow[design.crd](trt = trt, r = 2) %&gt;% glimpse()
+&lt;/code&gt;&lt;/pre&gt;
+
+.overflow-scroll.h---340[
+
+```
+## List of 2
+##  $ parameters:List of 7
+##   ..$ design: chr "crd"
+##   ..$ trt   : chr [1:3] "A" "B" "C"
+##   ..$ r     : num [1:3] 2 2 2
+##   ..$ serie : num 2
+##   ..$ seed  : int -912486386
+##   ..$ kinds : chr "Super-Duper"
+##   ..$       : logi TRUE
+##  $ book      :'data.frame':	6 obs. of  3 variables:
+##   ..$ plots: num [1:6] 101 102 103 104 105 106
+##   ..$ r    : int [1:6] 1 1 1 2 2 2
+##   ..$ trt  : chr [1:6] "C" "A" "B" "C" ...
+```
+]
+
+
+
+&lt;div class="plot-box" style="position:absolute;top: 35%; right: 50px;"&gt;
+
+&lt;img src="images/ggcrd-1.png" width = "300px"&gt;
+
+&lt;/div&gt;
+
+---
+
+
+# `agricolae::design.rcbd`
+
+**Randomised complete block design** for `\(t =3\)` treatments with `\(2\)` blocks
+
+&lt;pre&gt;&lt;code&gt;
+trt &lt;- c("A", "B", "C")
+agricolae::.bg-yellow[design.rcbd](trt = trt, r = 2) %&gt;% glimpse()
+&lt;/code&gt;&lt;/pre&gt;
+
+.overflow-scroll.h---340[
+
+```
+## List of 3
+##  $ parameters:List of 7
+##   ..$ design: chr "rcbd"
+##   ..$ trt   : chr [1:3] "A" "B" "C"
+##   ..$ r     : num 2
+##   ..$ serie : num 2
+##   ..$ seed  : int 307607791
+##   ..$ kinds : chr "Super-Duper"
+##   ..$       : logi TRUE
+##  $ sketch    : chr [1:2, 1:3] "A" "B" "C" "A" ...
+##  $ book      :'data.frame':	6 obs. of  3 variables:
+##   ..$ plots: num [1:6] 101 102 103 201 202 203
+##   ..$ block: Factor w/ 2 levels "1","2": 1 1 1 2 2 2
+##   ..$ trt  : Factor w/ 3 levels "A","B","C": 1 3 2 2 1 3
+```
+]
+
+
+
+
+&lt;div class="plot-box" style="position:absolute;bottom: 100px; right: 50px;"&gt;
+
+&lt;br&gt;
+
+&lt;img src="images/ggrcbd-1.png" width = "300px"&gt;
+
+&lt;/div&gt;
+
+
+---
+
+
+# `agricolae::design.lsd()`
+
+**Latin square design** for `\(t = 3\)` treatments
+
+&lt;pre&gt;&lt;code&gt;
+trt &lt;- c("A", "B", "C")
+agricolae::.bg-yellow[design.lsd](trt = trt) %&gt;% glimpse()
+&lt;/code&gt;&lt;/pre&gt;
+
+.overflow-scroll.h---340[
+
+```
+## List of 3
+##  $ parameters:List of 7
+##   ..$ design: chr "lsd"
+##   ..$ trt   : chr [1:3] "A" "B" "C"
+##   ..$ r     : int 3
+##   ..$ serie : num 2
+##   ..$ seed  : int -1850343865
+##   ..$ kinds : chr "Super-Duper"
+##   ..$       : logi TRUE
+##  $ sketch    : chr [1:3, 1:3] "B" "C" "A" "A" ...
+##  $ book      :'data.frame':	9 obs. of  4 variables:
+##   ..$ plots: num [1:9] 101 102 103 201 202 203 301 302 303
+##   ..$ row  : Factor w/ 3 levels "1","2","3": 1 1 1 2 2 2 3 3 3
+##   ..$ col  : Factor w/ 3 levels "1","2","3": 1 2 3 1 2 3 1 2 3
+##   ..$ trt  : Factor w/ 3 levels "A","B","C": 2 1 3 3 2 1 1 3 2
+```
+]
+
+
+
+&lt;div class="plot-box" style="position:absolute;top: 100px; right: 50px;"&gt;
+
+&lt;br&gt;
+
+
+&lt;img src="images/gglsd-1.png" width = "300px"&gt;
+
+&lt;/div&gt;
+
+
+---
+
+
+# `agricolae::design.bib()`
+
+**Balanced incomplete block design** for `\(t = 3\)` treatments with block size of `\(2\)`
+
+&lt;pre&gt;&lt;code&gt;
+trt &lt;- c("A", "B", "C")
+agricolae::.bg-yellow[design.bib](trt = trt, k = 2) %&gt;% glimpse()
+&lt;/code&gt;&lt;/pre&gt;
+
+.overflow-scroll.h---340[
+
+```
+## [1] "No improvement over initial random design."
+## 
+## Parameters BIB
+## ==============
+## Lambda     : 1
+## treatmeans : 3
+## Block size : 2
+## Blocks     : 3
+## Replication: 2 
+## 
+## Efficiency factor 0.75 
+## 
+## &lt;&lt;&lt; Book &gt;&gt;&gt;
+```
+
+```
+## List of 4
+##  $ parameters:List of 6
+##   ..$ design: chr "bib"
+##   ..$ trt   : chr [1:3] "A" "B" "C"
+##   ..$ k     : num 2
+##   ..$ serie : num 2
+##   ..$ seed  : int -1016006533
+##   ..$ kinds : chr "Super-Duper"
+##  $ statistics:'data.frame':	1 obs. of  6 variables:
+##   ..$ lambda    : num 1
+##   ..$ treatmeans: int 3
+##   ..$ blockSize : num 2
+##   ..$ blocks    : int 3
+##   ..$ r         : num 2
+##   ..$ Efficiency: num 0.75
+##  $ sketch    : chr [1:3, 1:2] "C" "A" "C" "B" ...
+##  $ book      :'data.frame':	6 obs. of  3 variables:
+##   ..$ plots: num [1:6] 101 102 201 202 301 302
+##   ..$ block: Factor w/ 3 levels "1","2","3": 1 1 2 2 3 3
+##   ..$ trt  : Factor w/ 3 levels "A","B","C": 3 2 1 2 3 1
+```
+]
+
+
+
+
+&lt;div class="plot-box" style="position:absolute;top: 200px; right: 50px;"&gt;
+
+&lt;br&gt;
+
+&lt;img src="images/ggbibd-1.png" width="300px"&gt;
+
+&lt;/div&gt;
+
+
+---
+
+class: font_small
+
+# `agricolae::design.ab()`
+
+**Factorial design** for `\(t = 3 \times 2\)` treatments with `\(2\)` replication for each treatment
+
+&lt;pre&gt;&lt;code&gt;
+agricolae::.bg-yellow[design.ab](trt = c(3, 2), r = 2, design = "crd") %&gt;% glimpse()
+&lt;/code&gt;&lt;/pre&gt;
+
+.overflow-scroll.h---340[
+
+```
+## List of 2
+##  $ parameters:List of 8
+##   ..$ design : chr "factorial"
+##   ..$ trt    : chr [1:6] "1 1" "1 2" "2 1" "2 2" ...
+##   ..$ r      : num [1:6] 2 2 2 2 2 2
+##   ..$ serie  : num 2
+##   ..$ seed   : int 1354866747
+##   ..$ kinds  : chr "Super-Duper"
+##   ..$        : logi TRUE
+##   ..$ applied: chr "crd"
+##  $ book      :'data.frame':	12 obs. of  4 variables:
+##   ..$ plots: num [1:12] 101 102 103 104 105 106 107 108 109 110 ...
+##   ..$ r    : int [1:12] 1 1 1 1 1 1 2 2 2 2 ...
+##   ..$ A    : chr [1:12] "1" "2" "1" "2" ...
+##   ..$ B    : chr [1:12] "1" "2" "2" "1" ...
+```
+]
+
+Note *not* A/B testing!
+
+
+
+
+&lt;div class="plot-box" style="position:absolute;top: 200px; right: 50px;"&gt;
+
+&lt;br&gt;
+
+
+&lt;img src="images/ggfac-1.png" width="300px"&gt;
+
+&lt;br&gt;
+
+&lt;/div&gt;
+
+
+
+---
+
+class: font_small
+
+# `agricolae::design.split()`
+
+**Split-plot design** for `\(t = 2 \times 4\)` treatments with `\(2\)` replication for each treatment
+
+&lt;pre&gt;&lt;code&gt;
+trt1 &lt;- c("I", "R"); trt2 &lt;- LETTERS[1:4]
+agricolae::.bg-yellow[design.split](trt1 = trt1, trt2 = trt2, r = 2, design = "crd") %&gt;% 
+    glimpse()
+&lt;/code&gt;&lt;/pre&gt;
+
+.overflow-scroll.h---300[
+
+```
+## List of 2
+##  $ parameters:List of 8
+##   ..$ design : chr "split"
+##   ..$        : logi TRUE
+##   ..$ trt1   : chr [1:2] "I" "R"
+##   ..$ applied: chr "crd"
+##   ..$ r      : num [1:2] 2 2
+##   ..$ serie  : num 2
+##   ..$ seed   : int -2020346385
+##   ..$ kinds  : chr "Super-Duper"
+##  $ book      :'data.frame':	16 obs. of  5 variables:
+##   ..$ plots : num [1:16] 101 101 101 101 102 102 102 102 103 103 ...
+##   ..$ splots: Factor w/ 4 levels "1","2","3","4": 1 2 3 4 1 2 3 4 1 2 ...
+##   ..$ r     : int [1:16] 1 1 1 1 2 2 2 2 1 1 ...
+##   ..$ trt1  : chr [1:16] "I" "I" "I" "I" ...
+##   ..$ trt2  : chr [1:16] "D" "B" "A" "C" ...
+```
+]
+
+
+
+
+&lt;div class="plot-box" style="position:absolute;top: 300px; right: 200px;"&gt;
+
+
+&lt;img src="images/split-plot-graph-1.png" width="300px"&gt;
+
+&lt;/div&gt;
+
+
+---
+
+name: edibble
+
+# 実験計画法の文法とは
+
+* Base R プロット覚えてますか？ &lt;a href="#base-plot" style="font-size:12pt"&gt;&lt;i class="fas fa-caret-right"&gt;&lt;/i&gt; base plot&lt;/a&gt;
+--
+
+* 🤔 "named experimental design" functions (`agricolae::design.crd`, etc.) are like "named statistical graphic" functions (`pie`, `barplot`)
+--
+
+* 💡&lt;i class="fas fa-wrench"&gt;&lt;/i&gt; このコンセプトが `edibble` R-packageのもとです &lt;br&gt;https://github.com/emitanaka/edibble
+--
+
+
+名前の元
+* `tibble` R-package とは modern reimagining of the `data.frame`
+* `edibble` とは **e**xperimental **d**esign t**ibble**
+
+.absolute.right-3.bottom-3[
+&lt;img src="images/edibble-hex.png" height="300px"&gt;
+]
+
+.footnote.f4.monash-black[
+Müller &amp; Wickham (2020) tibble: Simple Data Frames. *R package version 3.0.3*
+&lt;br&gt;&lt;br&gt;
+]
+
+---
+
+
+# `edibble` プロトタイプ
+
+
+.flex[
+.w-50[
+
+* Consider a field experiment with 32 plots
+
+]
+.w-50.f4[
+
+```r
+library(edibble)
+start_design(name = "cochran.crd") %&gt;% 
+* set_units(plot = 32)
+```
+
+```
+## cochran.crd
+## └─plot (32 levels)
+```
+]
+]
+
+---
+
+count: false
+
+# `edibble` プロトタイプ
+
+
+.flex[
+.w-50[
+
+* Consider a field experiment with 32 plots
+* There are 7 different treatments
+
+]
+.w-50.f4[
+
+```r
+library(edibble)
+start_design(name = "cochran.crd") %&gt;% 
+  set_units(plot = 32) %&gt;% 
+* set_trts(trt = c("F12", "F3", "F6", "O",
+*                  "S12", "S3", "S6"))
+```
+
+```
+## cochran.crd
+## ├─plot (32 levels)
+## └─trt (7 levels)
+```
+
+
+
+]
+]
+
+---
+
+count: false
+
+# `edibble` プロトタイプ
+
+
+.flex[
+.w-50[
+
+* Consider a field experiment with 32 plots
+* There are 7 different treatments
+* Allocate treatments to plots
+
+]
+.w-50.f4[
+
+```r
+library(edibble)
+start_design(name = "cochran.crd") %&gt;% 
+  set_units(plot = 32) %&gt;% 
+  set_trts(trt = c("F12", "F3", "F6", "O", 
+                   "S12", "S3", "S6")) %&gt;% 
+* allocate_trts(trt ~ plot)
+```
+
+```
+## cochran.crd
+## ├─plot (32 levels)
+## └─trt (7 levels)
+```
+
+
+
+]
+]
+
+---
+
+count: false
+
+# `edibble` プロトタイプ
+
+
+.flex[
+.w-50[
+
+* Consider a field experiment with 32 plots
+* There are 7 different treatments
+* Allocate treatments to plots
+* Randomise treatments to plots
+
+]
+.w-50.f4[
+
+```r
+library(edibble)
+start_design(name = "cochran.crd") %&gt;% 
+  set_units(plot = 32) %&gt;% 
+  set_trts(trt = c("F12", "F3", "F6", "O", 
+                   "S12", "S3", "S6")) %&gt;% 
+  allocate_trts(~ plot) %&gt;% 
+* randomise_trts()
+```
+
+```
+## cochran.crd
+## ├─plot (32 levels)
+## └─trt (7 levels)
+```
+
+
+
+]
+]
+
+---
+
+count: false
+
+# `edibble` プロトタイプ
+
+.flex[
+.w-50[
+
+* Consider a field experiment with 32 plots
+* There are 7 different treatments
+* Allocate treatments to plots
+* Randomise treatments to plots
+* The result is a **completely randomised design**
+
+]
+.w-50.h---500.f4.overflow-scroll[
+
+```r
+library(edibble)
+start_design(name = "cochran.crd") %&gt;% 
+  set_units(plot = 32) %&gt;% 
+  set_trts(trt = c("F12", "F3", "F6", "O", 
+                   "S12", "S3", "S6")) %&gt;% 
+  allocate_trts(~ plot) %&gt;% 
+  randomise_trts() %&gt;% 
+* serve_table()
+```
+
+```
+## # An edibble: 32 x 2
+##    plot       trt     
+##    &lt;unit(32)&gt; &lt;trt(7)&gt;
+##  1 plot1      F6      
+##  2 plot2      O       
+##  3 plot3      F6      
+##  4 plot4      S12     
+##  5 plot5      S3      
+##  6 plot6      F12     
+##  7 plot7      S6      
+##  8 plot8      S6      
+##  9 plot9      O       
+## 10 plot10     F12     
+## # … with 22 more rows
+```
+
+
+
+]
+]
+
+
+
+---
+
+
+
+# `edibble` プロトタイプ
+
+
+.flex[
+.w-50[
+
+* Consider a field experiment with 2 blocks each with 16 plots
+* There are 7 different treatments
+* Allocate treatments to plots
+* Randomise treatments to plots within blocks
+* Resulting design is a **randomised block design**
+
+&lt;br&gt;
+
+前の実験研究法とどう違うか分かりますか？
+
+]
+.w-50.h---500.overflow-scroll.f4[
+
+```r
+library(edibble)
+start_design(name = "cochran.crd") %&gt;% 
+* set_units(block = c("B1", "B2"),
+*           plot = nested_in(block, 16)) %&gt;%
+  set_trts(trt = c("F12", "F3", "F6", "O", 
+                   "S12", "S3", "S6")) %&gt;% 
+  allocate_trts(~ plot) %&gt;% 
+  randomise_trts() %&gt;% 
+  serve_table() 
+```
+
+```
+## # An edibble: 32 x 3
+##    block     plot       trt     
+##    &lt;unit(2)&gt; &lt;unit(32)&gt; &lt;trt(7)&gt;
+##  1 B1        plot1      S3      
+##  2 B1        plot2      F6      
+##  3 B1        plot3      F3      
+##  4 B1        plot4      S12     
+##  5 B1        plot5      F12     
+##  6 B1        plot6      F3      
+##  7 B1        plot7      O       
+##  8 B1        plot8      F6      
+##  9 B1        plot9      F12     
+## 10 B1        plot10     O       
+## # … with 22 more rows
+```
+]]
+
+---
+
+# `edibble` ユニット・ストラクチャー
+
+
+
+```r
+start_design("complex unit structure") %&gt;% 
+  set_units(city = c("tokyo", "nagano", "sydney", "melbourne", "washington"),
+            school = nested_in(city, 
+                               "tokyo"  ~ 4,
+                               "sydney" ~ 1,
+                                      . ~ 2)) %&gt;% 
+  serve_table()
+```
+.h---240.overflow-scroll[
+
+```
+## # An edibble: 11 x 2
+##    city       school    
+##    &lt;unit(5)&gt;  &lt;unit(11)&gt;
+##  1 tokyo      school1   
+##  2 tokyo      school2   
+##  3 tokyo      school3   
+##  4 tokyo      school4   
+##  5 nagano     school5   
+##  6 nagano     school6   
+##  7 sydney     school7   
+##  8 melbourne  school8   
+##  9 melbourne  school9   
+## 10 washington school10  
+## 11 washington school11
+```
+]
+
+---
+
+# `edibble` トリートメント・ストラクチャー
+
+
+```r
+des &lt;- start_design(name = "Effective teaching") %&gt;%
+    set_units(class = 4,
+              student = nested_in(class, 30)) %&gt;%
+    set_trts(style = c("flipped", "traditional"),
+             exam = c("take-home", "open-book", "closed-book")) %&gt;%
+    allocate_trts(style ~ class,
+                  exam ~ student) %&gt;%
+    randomise_trts()
+
+print(serve_table(des), n = 120)
+```
+.h---150.overflow-scroll[
+
+```
+## # An edibble: 120 x 4
+##     class     student     style       exam       
+##     &lt;unit(4)&gt; &lt;unit(120)&gt; &lt;trt(2)&gt;    &lt;trt(3)&gt;   
+##   1 class1    student1    traditional open-book  
+##   2 class1    student2    traditional open-book  
+##   3 class1    student3    traditional take-home  
+##   4 class1    student4    traditional take-home  
+##   5 class1    student5    traditional closed-book
+##   6 class1    student6    traditional closed-book
+##   7 class1    student7    traditional closed-book
+##   8 class1    student8    traditional take-home  
+##   9 class1    student9    traditional closed-book
+##  10 class1    student10   traditional open-book  
+##  11 class1    student11   traditional closed-book
+##  12 class1    student12   traditional closed-book
+##  13 class1    student13   traditional closed-book
+##  14 class1    student14   traditional open-book  
+##  15 class1    student15   traditional open-book  
+##  16 class1    student16   traditional take-home  
+##  17 class1    student17   traditional open-book  
+##  18 class1    student18   traditional take-home  
+##  19 class1    student19   traditional open-book  
+##  20 class1    student20   traditional take-home  
+##  21 class1    student21   traditional open-book  
+##  22 class1    student22   traditional closed-book
+##  23 class1    student23   traditional open-book  
+##  24 class1    student24   traditional open-book  
+##  25 class1    student25   traditional take-home  
+##  26 class1    student26   traditional closed-book
+##  27 class1    student27   traditional closed-book
+##  28 class1    student28   traditional take-home  
+##  29 class1    student29   traditional take-home  
+##  30 class1    student30   traditional take-home  
+##  31 class2    student31   flipped     closed-book
+##  32 class2    student32   flipped     open-book  
+##  33 class2    student33   flipped     take-home  
+##  34 class2    student34   flipped     open-book  
+##  35 class2    student35   flipped     open-book  
+##  36 class2    student36   flipped     open-book  
+##  37 class2    student37   flipped     open-book  
+##  38 class2    student38   flipped     open-book  
+##  39 class2    student39   flipped     open-book  
+##  40 class2    student40   flipped     take-home  
+##  41 class2    student41   flipped     closed-book
+##  42 class2    student42   flipped     closed-book
+##  43 class2    student43   flipped     take-home  
+##  44 class2    student44   flipped     take-home  
+##  45 class2    student45   flipped     take-home  
+##  46 class2    student46   flipped     closed-book
+##  47 class2    student47   flipped     closed-book
+##  48 class2    student48   flipped     closed-book
+##  49 class2    student49   flipped     take-home  
+##  50 class2    student50   flipped     closed-book
+##  51 class2    student51   flipped     closed-book
+##  52 class2    student52   flipped     take-home  
+##  53 class2    student53   flipped     take-home  
+##  54 class2    student54   flipped     open-book  
+##  55 class2    student55   flipped     open-book  
+##  56 class2    student56   flipped     take-home  
+##  57 class2    student57   flipped     open-book  
+##  58 class2    student58   flipped     closed-book
+##  59 class2    student59   flipped     take-home  
+##  60 class2    student60   flipped     closed-book
+##  61 class3    student61   flipped     closed-book
+##  62 class3    student62   flipped     closed-book
+##  63 class3    student63   flipped     open-book  
+##  64 class3    student64   flipped     closed-book
+##  65 class3    student65   flipped     take-home  
+##  66 class3    student66   flipped     open-book  
+##  67 class3    student67   flipped     open-book  
+##  68 class3    student68   flipped     take-home  
+##  69 class3    student69   flipped     take-home  
+##  70 class3    student70   flipped     take-home  
+##  71 class3    student71   flipped     open-book  
+##  72 class3    student72   flipped     take-home  
+##  73 class3    student73   flipped     take-home  
+##  74 class3    student74   flipped     take-home  
+##  75 class3    student75   flipped     closed-book
+##  76 class3    student76   flipped     take-home  
+##  77 class3    student77   flipped     open-book  
+##  78 class3    student78   flipped     closed-book
+##  79 class3    student79   flipped     closed-book
+##  80 class3    student80   flipped     take-home  
+##  81 class3    student81   flipped     open-book  
+##  82 class3    student82   flipped     open-book  
+##  83 class3    student83   flipped     open-book  
+##  84 class3    student84   flipped     closed-book
+##  85 class3    student85   flipped     open-book  
+##  86 class3    student86   flipped     closed-book
+##  87 class3    student87   flipped     closed-book
+##  88 class3    student88   flipped     closed-book
+##  89 class3    student89   flipped     take-home  
+##  90 class3    student90   flipped     open-book  
+##  91 class4    student91   traditional closed-book
+##  92 class4    student92   traditional take-home  
+##  93 class4    student93   traditional take-home  
+##  94 class4    student94   traditional take-home  
+##  95 class4    student95   traditional take-home  
+##  96 class4    student96   traditional closed-book
+##  97 class4    student97   traditional closed-book
+##  98 class4    student98   traditional open-book  
+##  99 class4    student99   traditional open-book  
+## 100 class4    student100  traditional take-home  
+## 101 class4    student101  traditional closed-book
+## 102 class4    student102  traditional take-home  
+## 103 class4    student103  traditional open-book  
+## 104 class4    student104  traditional open-book  
+## 105 class4    student105  traditional open-book  
+## 106 class4    student106  traditional open-book  
+## 107 class4    student107  traditional take-home  
+## 108 class4    student108  traditional closed-book
+## 109 class4    student109  traditional open-book  
+## 110 class4    student110  traditional take-home  
+## 111 class4    student111  traditional closed-book
+## 112 class4    student112  traditional closed-book
+## 113 class4    student113  traditional open-book  
+## 114 class4    student114  traditional open-book  
+## 115 class4    student115  traditional closed-book
+## 116 class4    student116  traditional take-home  
+## 117 class4    student117  traditional closed-book
+## 118 class4    student118  traditional take-home  
+## 119 class4    student119  traditional closed-book
+## 120 class4    student120  traditional open-book
+```
+
+]
+
+---
+
+# Recording variables in `edibble` ・記録
+
+.f4[
+
+```r
+out &lt;- des %&gt;% 
+    record_vars(student = c(mark, gender),
+                  class = teacher) %&gt;%
+    expect_vars(mark = to_be_numeric(with_value(between = c(0, 100))),
+              gender = to_be_factor(levels = c("female", "male", "other", "unknown"))) %&gt;% 
+    serve_table()
+
+out
+```
+
+.h---240.overflow-scroll[
+
+
+```
+## # An edibble: 120 x 7
+##    class     student     style       exam          mark gender teacher
+##    &lt;unit(4)&gt; &lt;unit(120)&gt; &lt;trt(2)&gt;    &lt;trt(3)&gt;    &lt;rcrd&gt; &lt;rcrd&gt;  &lt;rcrd&gt;
+##  1 class1    student1    traditional open-book        ■      ■       ■
+##  2 class1    student2    traditional open-book        ■      ■       x
+##  3 class1    student3    traditional take-home        ■      ■       x
+##  4 class1    student4    traditional take-home        ■      ■       x
+##  5 class1    student5    traditional closed-book      ■      ■       x
+##  6 class1    student6    traditional closed-book      ■      ■       x
+##  7 class1    student7    traditional closed-book      ■      ■       x
+##  8 class1    student8    traditional take-home        ■      ■       x
+##  9 class1    student9    traditional closed-book      ■      ■       x
+## 10 class1    student10   traditional open-book        ■      ■       x
+## # … with 110 more rows
+```
+
+]]
+
+---
+
+# `edibble` アウトプット
+
+
+```r
+export_design(out, file = "design.xlsx")
+```
+
+
+.center[
+&lt;img class="ba" src="images/output.png" height="400px"&gt; &amp;nbsp;&amp;nbsp;&amp;nbsp; &lt;img class="ba" src="images/output2.png" height="400px"&gt;
+]
+
+---
+
+class: middle center
+
+
+.f1[実験計画は重要です!]
+
+&lt;br&gt;
+
+.f1[`edibble`の目的は実験計画を容易にする事です]
+
+.f1[[&lt;i class="fas fa-link"&gt;&lt;/i&gt; edibble.emitanaka.org](https://edibble.emitanaka.org/)]
+
+--
+
+&lt;br&gt;
+
+.f1[🚧 `edibble`は開発中です]
+
+&lt;br&gt;
+
+.f1[コメントとフィードバックを歓迎します！]
+
+
+
+
+---
+
+layout: false
+background-size: cover
+class: title-slide
+background-image: url("images/bg-03.png")
+
+
+This slide is made using the `xaringan` R-package and found at
+
+&lt;br&gt;
+
+.w-80.center[
+[emitanaka.org/slides/TokyoR2021](https://emitanaka.org/slides/TokyoR2021)
+
+{{content}}
+
+]
+
+
+
+.bottom_abs.width100[
+
+*Emi Tanaka*
+
+&lt;i class="fas fa-university"&gt;&lt;/i&gt; Department of Econometrics and Business Statistics, &lt;Br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Monash University, Melbourne, Australia
+
+&lt;i class="fas fa-envelope"&gt;&lt;/i&gt;  emi.tanaka@monash.edu
+
+&lt;a href="https://twitter.com/statsgen" style="color:black"&gt;&lt;i class="fab fa-twitter"&gt;&lt;/i&gt; @statsgen&lt;/a&gt;
+
+
+&lt;br&gt;
+
+]
+
+--
+
+&lt;br&gt;
+
+Thank you!
+
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="lib/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "magula",
+"highlightLanguage": "r",
+"highlightLines": true,
+"highlightSpans": false,
+"countIncrementalSlides": false,
+"slideNumberFormat": "%current%/%total%",
+"navigation": {
+"scroll": false,
+"touch": true,
+"click": false
+},
+"ratio": "16:9"
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'lib/mathjax-local/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
