@@ -1,0 +1,748 @@
+---
+pagetitle: "The Genesis of Experimentation"
+author: "Emi Tanaka"
+date: "28th July 2022"
+host: "Ihaka Lecture"
+institute: "Monash University"
+strip-comments: true
+format: 
+  revealjs:
+    logo: images/monash-one-line-black-rgb.png
+    slide-number: true
+    multiplex: true
+    theme: assets/monash.scss
+    show-slide-number: all
+    controls: true
+    width: 1280
+    height: 720
+    css: [assets/custom.css, assets/pacman.css, assets/tachyons-addon.css]
+    include-after: |
+      <link rel="stylesheet" href="assets/syntax-highlight.css">
+      <link rel="stylesheet" href="assets/fontawesome-free-6.1.1-web/css/all.min.css">
+      <script src="assets/fontawesome-free-6.1.1-web/js/all.min.js"></script>
+callout-icon: false
+execute:
+  echo: true
+---
+
+
+## {#title-slide background="images/wales-planet-effect-bg.jpg"}
+
+```{r setup, include = FALSE}
+library(tidyverse)
+actor_shell <- function(fn, wo) {
+  force(fn)
+  force(wo)
+  function(w, flip = FALSE, other = "") {
+    w <- ifelse(missing(w), wo, w)
+    glue::glue('<img src="images/stickman/{fn}" {other} width="{w}" class="{ifelse(flip, "img-hor", "")}">')
+  }
+}
+domain <- actor_shell("domain1.svg", "100px")
+stat <- actor_shell("statistician1.svg", "120px")
+analyst <- actor_shell("statistician2.svg", "100px")
+tech <- actor_shell("technician1.svg", "220px")
+tech2 <- actor_shell("technician2.svg", "100px")
+actor1 <- actor_shell("actor1.svg", "120px")
+actor2 <- actor_shell("actor2.svg", "120px")
+
+rotating_text <- function(x, align = "center") {
+  glue::glue('
+<div style="overflow: hidden; height: 1.2em;">
+<ul class="content__container__list {align}" style="text-align: {align}">
+<li class="content__container__list__item">{x[1]}</li>
+<li class="content__container__list__item">{x[2]}</li>
+<li class="content__container__list__item">{x[3]}</li>
+<li class="content__container__list__item">{x[4]}</li>
+</ul>
+</div>')
+}
+
+fa_list <- function(x, incremental = FALSE) {
+  icons <- names(x)
+  fragment <- ifelse(incremental, "fragment", "")
+  items <- glue::glue('<li class="{fragment}"><span class="fa-li"><i class="{icons}"></i></span> {x}</li>')
+  paste('<ul class="fa-ul">', 
+        paste(items, collapse = "\n"),
+        "</ul>", sep = "\n")
+}
+
+```
+
+
+::: title-box
+
+<h2>`r rmarkdown::metadata$pagetitle` </h2>
+
+👩🏻‍💻 [`r rmarkdown::metadata$author` @ `r rmarkdown::metadata$institute`]{.author}  
+
+
+`r rotating_text(c('<i class="fa-solid fa-envelope"></i> emi.tanaka@monash.edu', '<i class="fa-brands fa-twitter"></i> @statsgen', '<i class="fa-brands fa-github"></i> github.com/emitanaka', '<i class="fa-solid fa-globe"></i> emitanaka.org'))`
+
+
+:::
+
+
+<br><br>
+
+::: {.absolute .bottom-0 .monash-white .w-100}
+
+[`r rmarkdown::metadata$date`]{.monash-white .fl} [`r rmarkdown::metadata$host`]{.fr .monash-white} 
+
+:::
+
+
+
+
+
+# [Which vaccines are effective against COVID-19?]{.strokeme} {background-image="images/mask-worksplace.jpeg"}
+
+
+
+## {auto-animate=true}
+
+::: {.fragment .fade-up fragment-index=1}
+
+<h2>The [Originator]{.monash-blue2} of an Experiment</h2>
+
+:::
+
+::: flex
+
+::: w-20
+
+`r domain(w = "200px")`
+
+:::
+
+::: w-80 
+
+<Br><br>
+
+::: f3
+
+`r rotating_text(c('[**What diet** lowers insulin?]{.speech}', '[**Is the lockout laws effective** to reduce alcohol-fuelled violence?]{.speech}', '[**Which brand** of washing powder is most effective for cleaning clothes?]{.speech}', '[**How much fertilizer** should you use for optimal crop yield?]{.speech}'), align = 'left!important')`
+
+:::
+
+
+<br><br> 
+
+::: {.fragment .fade-up fragment-index=1}
+
+The [**"domain expert"**]{.monash-blue2} drives the experimental objective and has the intricate knowledge about the subject area
+
+:::
+
+:::
+
+
+:::
+
+::: {.absolute .bottom-0 .f5}
+
+Stick person images by <a href="https://pixabay.com/users/openclipart-vectors-30363/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=151793">OpenClipart-Vectors</a> from <a href="https://pixabay.com/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=151793">Pixabay</a>
+:::
+
+
+## The [Designer]{.monash-ruby2} of the Experiment {auto-animate=true}
+
+::: flex
+
+
+::: w-80 
+
+[Let there be an **experimental design**!]{.speech .f3 .fr}
+
+<br><br>
+
+The [**"statistican"**]{.monash-ruby2} creates the experimental design layout after taking into account the statistical and practical constraints.
+
+:::
+
+::: w-20
+
+`r stat(w = "100%", flip = TRUE)`
+
+:::
+
+:::
+
+
+## The [Executor]{.monash-green2} of the Experiment {auto-animate=true}
+
+::: flex
+
+::: w-60 
+
+<br><br>
+
+The [**"technician"**]{.monash-green2} carries out the experiment and collects the data.
+
+:::
+
+::: w-40
+
+`r tech2(w = "200px", flip = TRUE)`
+
+:::
+
+:::
+
+
+
+
+
+## The [Digester]{.monash-red2} of the Experiment {auto-animate=true}
+
+::: flex
+
+::: w-80 
+
+<br><br>
+
+The [**"analyst"**]{.monash-red2} analyses the data after the data is collected.
+
+:::
+
+::: w-20
+
+`r analyst(w = "200px", flip = TRUE)`
+
+:::
+
+:::
+
+
+
+## The actors are purely illustrative {auto-animate=true}
+
+
+`r domain(w = "200px", other = 'data-id="person3"')` `r stat(w = "280px", flip = TRUE, other = 'data-id="person2"')` `r tech2(w = "200px", flip = TRUE, other = 'data-id="person1"')` `r analyst(w = "200px", flip = TRUE, other = 'data-id="person2"')`
+
+
+
+## [Roles]{.monash-blue} may be fuzzy {auto-animate=true}
+
+In practice:
+
+* multiple people can take on each role, 
+* one person can take on multiple roles, and/or 
+* a person in the role may not specialise in that role.
+
+
+
+<center>
+
+`r tech(w = "200px", other = 'data-id="person1"')`
+`r actor1(w = "150px", other = 'data-id="person2"')`
+`r actor2(w = "200px", other = 'data-id="person3"')`
+
+</center>
+
+
+
+
+## [Communications]{.monash-blue} may be fuzzy {auto-animate=true}
+
+
+<center>
+````{=html}
+```{r, results = "asis", echo = FALSE}
+cat(readLines("images/comm-model-id.svg")[c(-1, -2)], "\n")
+```
+````
+</center>
+
+
+
+
+
+
+## What diet works best for lowering insulin? {auto-animate=true}
+
+<div class="control-diet" data-id="trt1">Control</div>
+<div class="sugar-diet" data-id="trt2">High-sugar</div>
+
+`r fa_list(c("fa-solid fa-crosshairs fa-pulse" = "_Process:_ Measure insulin level after 4 weeks of subjects under either the control or high-sugar diet", "fa-solid fa-cubes" = "_Design:_ Randomise treatments (control or high-sugar diet) to subjects"))`
+
+
+
+
+
+
+
+## What diet works best for lowering insulin? {auto-animate=true}
+
+<div class="fat-diet">High-fat</div>
+<div class="control-diet" data-id="trt1">Control</div>
+<div class="sugar-diet" data-id="trt2">High-sugar</div>
+
+`r fa_list(c("fa-solid fa-spinner fa-pulse" = "In practice, experiments can be modified in consultation", "fa-solid fa-layer-group" = "We need to take into account the _experimental structure_ for appropriate randomisation and/or optimisation"), incremental = TRUE)`
+
+
+::: fragment  
+::: {.callout-important .f1}
+
+## Proposition
+
+<i class="fa-solid fa-comments"></i> **_Communication_** is key to get the most out of the experimental data
+:::
+:::
+
+
+
+
+
+
+# Design of the (Internal) Domain Specific Language {auto-animate=true}
+
+::: incremental 
+
+* Domain Specific Language (**DSL**) is a computer language specialised in a particular application domain. <span style="font-size:20pt;"><i class="fa-solid fa-circle-info"></i> Source: [Wikipedia](https://en.wikipedia.org/wiki/Domain-specific_language)</span>
+* R is one of the most popular DSL for statistics. <span style="font-size:20pt;"><i class="fa-solid fa-circle-info"></i> As suggested by the [TIOBE index](https://www.tiobe.com/tiobe-index/)</span>
+
+:::
+
+
+
+
+## Experimental design R-packages {auto-animate=true}
+
+::: incremental
+* <i class="fa-solid fa-circle-info"></i> An R-package is an **internal DSL**
+* There are **over 100 R-packages for the design and analysis of experiments**. (In contrast, say Python has only a handful of packages with limited designs of experiments.)
+* Widely used R-packages for constructing the design of experiments often are **recipe-based functions** with context stripped away. <br><span style="font-size:20pt;"><i class="fa-solid fa-file-pdf"></i> More details in Tanaka & Amaliah (2022) Current state and prospects of R-packages for the design of experiments. [arxiv.org/abs/2206.07532](https://arxiv.org/abs/2206.07532)</span>
+
+:::
+
+
+
+
+
+## `agricolae` package {auto-animate=true}
+
+"Recipe"-based experimental designs
+
+```{r, eval = FALSE}
+#| code-line-numbers: "|1|3-4|5-6|1,8|10-11|12-13"
+diets <- c("Control", "High-sugar", "High-fat")
+
+# Completely Randomised Design
+agricolae::design.crd(trt = diets, r = 10) 
+# Randomised Complete Block Design
+agricolae::design.rcbd(trt = diets, r = 10) 
+
+exercise <- c("Yes", "No")
+
+# Factorial design
+agricolae::design.ab(trt = c(length(diets), length(exercise)), r = 10) 
+# Split-plot design
+agricolae::design.split(trt1 = diets, trt2 = exercise, r = 10) 
+```
+
+
+
+## `AlgDesign` package  {auto-animate=true}
+
+"Recipe"-based optimal designs
+
+```{r, eval = FALSE}
+#| code-line-numbers: "|1-3|5-9|11-15"
+diets <- c("Control", "High-sugar", "High-fat")
+exercise <- c("Yes", "No")
+data <- expand.grid(trt1 = diets, trt2 = exercise, rep = 1:10)
+
+# Optimal design with Federov's exchange algorithm
+AlgDesign::optFederov(~ trt1 + trt2 + trt1:trt2, 
+                      data = data,
+                      nTrials = 40,
+                      criterion = "D")
+
+# Optimal design via Monte Carlo
+AlgDesign::optMonteCarlo(~ trt1 + trt2 + trt1:trt2, 
+                         data = data,
+                         nTrials = 40,
+                         criterion = "D")
+
+```
+
+::: fragment
+
+<i class="fa-solid fa-bell fa-shake"></i> But what are the units??
+
+:::
+
+
+
+
+## The Grammar of Experimental Designs {auto-animate=true}
+
+<center class="f3">
+<i class="fa-solid fa-book"></i> [emitanaka.org/edibble-book](https://emitanaka.org/edibble-book) (work-in-progress)
+</center>
+
+::: fragment
+
+::: {.callout-note}
+
+## <i class="fa-solid fa-circle-info"></i> Definitions from computer science {auto-animate=true}
+
+*  [**Concrete syntax**]{.monash-blue2} refers to the **external** representation of a language
+*  [**Abstract syntax**]{.monash-blue2} refers to the **internal** representation of a language
+
+:::
+
+:::
+
+::: fragment
+
+::: {.callout-important .f1}
+
+## Proposition
+
+**_Design of the abstract and concrete syntax_** can aid both intra- and inter-personal communication and this will in turn help the experimental design. 
+
+* [**Intra-personal**]{.monash-red2}: users can **clearly express, abstract and clarify the desired experimental design**.
+* [**Inter-personal**]{.monash-red2}: others can read the users **understanding and intention**.
+
+:::
+
+:::
+
+
+
+
+---
+
+```{r refs, include = FALSE, cache = TRUE}
+fn <- namedropR::drop_name("ref.bib", 
+                           "Steinauer2015-jt",
+                            export_as = "png", 
+                            style = "newspaper")
+fnc <- namedropR::drop_name("ref.bib", 
+                    "Steinauer2015-jt",
+                    output_dir = "images",
+                    export_as = "png", 
+                    vc_width = 2200,
+                    style = "newspaper")
+```
+
+
+```{r ref1, echo = FALSE}
+knitr::include_graphics(fn[1])
+```
+
+::: small
+
+Hypothesis: 
+
+1. &nbsp; increasing plant diversity leads to increasing soil microbial biomass and enzyme activity,
+2. &nbsp; higher temperature decreases soil microbial biomassand enzyme activity, and 
+3. &nbsp; higher plant diversity buffers effects of elevated temperature on soil microbialbiomass and enzyme activity.
+
+:::
+
+
+
+
+---
+
+## 🌾 <img src="`r fnc[1]`" class="cite-compact" height="120px"/> {auto-animate=true}
+
+::: {.box .scroll style="height:70%;"}
+
+MATERIALS AND METHODS
+
+*Experimental design*
+
+The present study took place in the BAC experiment site established at the Cedar Creek Ecosystem Science Reserve, Minnesota, USA. The site occurs on a glacial outwash plain with sandy soils. Mean temperature during the growing season (April–September) was 15.98°C in 2011 and 17.18°C in 2012. Precipitation during the growing season was 721 mm in 2011. The growing season in 2012 was considerably drier, with 545 mm rainfall.
+
+Experimental plots (9×9 m) were planted in 1994 and 1995 with different plant communities spanning a plant diversity gradient of one, four, and 16 species, which were randomly chosen from the species listed below (Tilman et al. 2001). The grassland prairie species belonged to one of five plant functional groups: C<sub>3</sub> grasses (_Agropyron smithii_ Tydb., _Elymus canadensis_ L., _Koeleria cristata_ (Ledeb.) Schult., _Poa pratensis_ L.), C<sub>4</sub> grasses (_Andropogon gerardii_ Vitman., _Panicum virgatum_ L., _Schizachyrium scoparium_ (Michx.) Nash, _Sorghas-trum nutans_ (L.) Nash), legumes (_Amorpha canescens_ Pursh., _Lespedeza capitata_ Michx., _Lupinus perennis_ L., _Petalostemum purpureum_ (Vent.) Rydb., _Petalostemum villosum_ Spreng.), nonlegume forbs (_Achillea millefolium_ L., _Asclepias  tuberosa_ L., _Liatris  aspera_ Michx., _Monarda fistulosa_ L., _Soldidago rigida_ L.), and woody species (_Quercus ellipsoidalis_ E. J. Hill, _Quercus macro-carpa_ Michx.). The individuals of those two woody species (_Quercus_ spp.), which were small in size and rare because of low survival, were removed from all plots in which they occurred in 2010.
+
+In addition to the manipulation of plant diversity,the plots were divided into three subplots (2.5×3.0 m). Heat treatments were applied from March to November each year, beginning in 2009, using infrared lamps 1.8 m above ground emitting 600 W (which caused a 1.5°C increase in soil temperature for vegetation-freesoils) and 1200 W (which caused a 3°C increase; Valpine and Harte 2001, Kimball 2005, Whittingtonet al. 2013) to increase the surface soil temperature of each subplot (see Plate 1). To account for possible shading effects, metal flanges and frames were hungover control subplots. An average across all vegetated plots, temperature manipulations elevated soil temperature at 1 cm depth by 1.18°C in the low warming (+1.5°C) treatment and by 2.69°C in the high warming (+3°C) treatment, and at 10 cm depth temperature by 1.00°C in the low warming (+1.5°C) treatment and by 2.16°C in the high warming (+3°C) treatment.
+
+Soil  samples  of  three  subplots  in  each  of  27 experimental plots were taken; due to technical difficulties we could only analyze 66 samples out of 81 existing subplots (monoculture, 10 replicates in ambient +0°C treatment, eight replicates in +1.5°C treatment, nine replicates in +3°C treatment; four species mixture, six replicates in ambient +0°C treatment, six replicates in +1.5°C treatment, seven replicates in +3°C treatment; 16 species mixture, six replicates in ambient +0°C treatment, six replicates in +1.5°C treatment, eight replicates in +3°C treatment). The BAC plots are a representative subset of the plots in the biodiversity experiment E120 at Cedar Creek, which were assembled as random draws of a given number of species from the species pool (Zak et al. 2003). Given low heterogeneity of soil abiotic conditions at the start of the experiment, the experiment was not blocked.
+
+:::
+
+
+
+
+---
+
+
+## 🌾 <img src="`r fnc[1]`" class="cite-compact" height="120px"/> {auto-animate=true}
+
+:::: {.columns}
+
+::: {.column .box width="40%"}
+
+MATERIALS AND METHODS 
+
+*Experimental design* **(condensed version)**
+
+* Experimental plots were planted with different plant communities spanning a [plant diversity gradient of one, four, and 16 species]{.fragment .highlight-red}, which were randomly chosen from the species listed (5 plant functional groups -- 19 species in total)
+* [Plots were divided into three subplots]{.fragment .highlight-red}
+* [Heat treatments were applied to subplots]{.fragment .highlight-red} emitting 600 W which caused a 1.5°C increase in soil temperature for vegetation-free soils) and 1200 W (which caused a 3°C increase) (control with 0°C included)
+* Soil  samples  of  three  subplots  in  each  of  [27 experimental plots]{.fragment .highlight-red} were taken
+* Given low heterogeneity of soil abiotic conditions at the start of the experiment, the experiment was not blocked.
+
+:::
+
+::: {.column width="56%"}
+
+::: fragment
+This is in fact a **split-plot design**!
+:::
+
+::: fragment
+
+```{r}
+#| code-line-numbers: "|2|3-4|5-7|8-9|10|11|12"
+library(edibble)
+des1 <- design("Steinauer et al. 2015") %>% 
+  set_units(plot = 27,
+            subplot = nested_in(plot, 3)) %>% 
+  set_trts(
+    nspecies = c(1, 4, 16),
+    temperature = c("0°C", "1.5°C", "3°C")) %>% 
+  allot_trts(   nspecies ~ plot,
+             temperature ~ subplot) %>% 
+  assign_trts("random") %>% 
+  serve_table()
+des1
+```
+
+:::
+
+
+:::
+
+
+
+::::
+
+
+
+
+
+## Why `edibble`? {auto-animate=true}
+
+::: {.incremental}
+- **Semantics** of the syntactic sugar are aligned with basic terms in experimental design (i.e. code can be used for communication that captures _user intention_)
+- Experimental structure are built up step-by-step: 
+  - **Abstract syntax** allows for an _incomplete experimental structure_
+  - **Concrete syntax** makes it easy to _modify or replace a single step_ instead of redoing whole structure 
+- A number of **downstream benefits**...
+:::
+
+---
+
+
+## [Downstream Benefit #1]{.story} Easy-and-quick visualisation {auto-animate=true}
+
+:::: {.columns}
+
+
+
+::: {.column width="50%"}
+
+```{r plot-des1, eval = FALSE}
+## Only developmental now
+# install.packages("remotes")
+# remotes::install_github("emitanaka/deggust")
+library(deggust)
+autoplot(des1)
+```
+
+:::
+
+
+::: {.column width="50%"}
+
+```{r plot-des1, echo = FALSE, fig.align = "center", fig.height = 7, fig.width = 7}
+```
+
+
+:::
+
+::::
+
+
+
+
+## [Downstream Benefit #2]{.story} Cutomise visualisation  {auto-animate=true}
+
+
+:::: {.columns}
+
+
+
+::: {.column width="50%"}
+
+```{r plot-des1B, eval = FALSE}
+#| output-location: column
+#| code-line-numbers: "|2|3-17"
+library(deggust)
+autoplot(des1, aspect_ratio = 3/2) +
+  # the result is a ggplot object --
+  # add ggplot functions on top 
+  # as you like to customise the plot!
+  theme(
+    legend.position = "bottom",
+    text = element_text(size = 18),
+    plot.background = 
+      element_rect(color = "black",
+                   linetype = "dashed",
+                   fill = "wheat"),
+    plot.margin = margin(20, 20, 20, 20),
+    plot.subtitle =
+      element_text(margin = margin(0, 0, 10, 0))) +
+  
+  scale_fill_brewer(palette = "Reds")
+```
+
+
+:::
+
+::: {.column width="50%"}
+
+```{r plot-des1B, fig.align = "center", fig.width = 7, fig.height = 7, echo = FALSE}
+```
+
+
+:::
+
+::::
+
+
+
+
+## [Downstream Benefit #3]{.story} Set record {auto-animate=true}
+
+::: incremental
+
+* In `edibble`, records are intended variables, e.g. responses, that will be measured or observed
+* You can **set expectations** of the record (plausible values) and **simulate records**, censoring values (default as missing) outside of expectations, or **export data with data validation**
+
+:::
+
+::: fragment
+
+```{r}
+#| code-line-numbers: "|2|3"
+des1 %>% 
+  set_rcrds(microbial_biomass = subplot) %>% 
+  expect_rcrds(microbial_biomass >= 0) 
+```
+
+:::
+
+
+
+---
+
+## Specifying unbalanced designs {auto-animate=true}
+
+:::: {.columns}
+
+::: {.column .box width="35%"}
+
+MATERIALS AND METHODS 
+
+*Experimental design* **(condensed version)**
+
+* Experimental plots were planted with different plant communities spanning a [plant diversity gradient of one, four, and 16 species, which were randomly chosen from the species listed (5 plant functional groups -- 19 species in total)]{.red}
+
+:::
+
+::: {.column width="60%"}
+
+```{r autoplot-part2, eval = FALSE}
+#| code-line-numbers: "|2|3-5|6|7|11-12"
+des2 <- design("Steinauer et al. 2015 Part II") %>% 
+  set_units(plot = 27,
+            plant = nested_in(plot, 1:9 ~ 1,
+                                  10:18 ~ 4,
+                                  19:27 ~ 16)) %>% 
+  set_trts(species = 19) %>% 
+  allot_trts(species ~ plant) %>% 
+  assign_trts("random") %>% 
+  serve_table()
+
+options(deggust.nfill_max = 3)
+autoplot(des2) + facet_wrap(~plot, nrow = 2)
+```
+
+
+:::
+
+:::
+
+::: fragment
+```{r autoplot-part2, echo = FALSE, fig.align = "center", fig.height = 2.5, fig.width = 10}
+```
+:::
+
+
+
+## Leveraging existing work {auto-animate=true}
+
+::: fragment
+
+From computer science:
+
+1. Make your language consistent
+2. Compose existing language where possible
+3. Limit the number of language elements
+4. Adopt existing notations domain experts use
+5. Enable modularity
+
+And more (see Karsai et al, 2009)
+
+::: aside
+
+Karsai et al. (2009) Design Guidelines for Domain Specific Languages. *Proceedings of the 9th OOPSLA Workshop on Domain-Specific Modeling*
+
+:::
+
+:::
+
+
+
+
+## Leveraging existing work {auto-animate=true}
+
+Building on the shoulders of giants:
+
+* Original creators of R, [Ross Ihaka]{.monash-blue} and Robert Gentleman,
+* R Core Team, 
+* Tidyverse Team and
+* the wider R community.
+
+
+
+---
+
+
+<img src="images/stickman/domain1.svg"  style="position:absolute;top:0%;left:10%;" height="120px">
+<img src="images/stickman/statistician1.svg"  style="position:absolute;top:0%;left:30%;" height="120px">
+<img src="images/stickman/statistician2.svg" class="img-hor" style="position:absolute;top:0%;left:70%;" height="120px">
+<img src="images/stickman/technician1.svg" class="img-hor" style="position:absolute;top:0%;left:90%;" height="120px">
+
+<div class='pac-man'></div>
+
+<br>
+
+`r fa_list(c("fa-solid fa-people-group" = "Experiments are human endeavours.", "fa-solid fa-crop-simple" = "Our understanding is fuzzy but certain frameworks can shed clarity.", "fa-solid fa-trash-arrow-up" = 'Remember the **"garbage-in garbage-out"** principle.'), incremental = TRUE)`
+
+
+::: {.fragment style="font-size:24pt;"}
+
+`r fa_list(c("fa-solid fa-link" = "Slides at [emitanaka.org/slides/Ihaka2022/](https://emitanaka.org/slides/Ihaka2022/)", "fa-brands fa-r-project" = '<i class="fa-solid fa-terminal"></i> <code>install.packages("edibble")</code><br><i class="fa-solid fa-terminal"></i> <code>remotes::install_github("emitanaka/deggust")</code>',"fa-solid fa-book" = "[emitanaka.org/edibble-book](https://emitanaka.org/edibble-book) (WIP)", "fa-solid fa-file-pdf" = "Paper about experimental design R-packages at [arxiv.org/abs/2206.07532](https://arxiv.org/abs/2206.07532)", "fa-solid fa-envelope" = "[emi.tanaka@monash.edu](mailto:emi.tanaka@monash.edu)"))`
+  
+
+:::
+
+

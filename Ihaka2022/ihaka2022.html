@@ -1,0 +1,1302 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<script src="ihaka2022_files/libs/clipboard/clipboard.min.js"></script>
+<script src="ihaka2022_files/libs/quarto-html/tabby.min.js"></script>
+<script src="ihaka2022_files/libs/quarto-html/popper.min.js"></script>
+<script src="ihaka2022_files/libs/quarto-html/tippy.umd.min.js"></script>
+<link href="ihaka2022_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="ihaka2022_files/libs/quarto-html/quarto-html.min.css" rel="stylesheet">
+<link href="ihaka2022_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-0.9.615">
+
+  <meta name="author" content="Emi Tanaka">
+  <title>The Genesis of Experimentation</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="ihaka2022_files/libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="ihaka2022_files/libs/revealjs/dist/reveal.css">
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      { color: #003b4f; background-color: #f1f3f5; }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #003b4f; } /* Normal */
+    code span.al { color: #ad0000; } /* Alert */
+    code span.an { color: #5e5e5e; } /* Annotation */
+    code span.at { color: #657422; } /* Attribute */
+    code span.bn { color: #ad0000; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #003b4f; } /* ControlFlow */
+    code span.ch { color: #20794d; } /* Char */
+    code span.cn { color: #8f5902; } /* Constant */
+    code span.co { color: #5e5e5e; } /* Comment */
+    code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
+    code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
+    code span.dt { color: #ad0000; } /* DataType */
+    code span.dv { color: #ad0000; } /* DecVal */
+    code span.er { color: #ad0000; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #ad0000; } /* Float */
+    code span.fu { color: #4758ab; } /* Function */
+    code span.im { color: #00769e; } /* Import */
+    code span.in { color: #5e5e5e; } /* Information */
+    code span.kw { color: #003b4f; } /* Keyword */
+    code span.op { color: #5e5e5e; } /* Operator */
+    code span.ot { color: #003b4f; } /* Other */
+    code span.pp { color: #ad0000; } /* Preprocessor */
+    code span.sc { color: #5e5e5e; } /* SpecialChar */
+    code span.ss { color: #20794d; } /* SpecialString */
+    code span.st { color: #20794d; } /* String */
+    code span.va { color: #111111; } /* Variable */
+    code span.vs { color: #20794d; } /* VerbatimString */
+    code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
+  </style>
+  <link rel="stylesheet" href="ihaka2022_files/libs/revealjs/dist/theme/quarto.css" id="theme">
+  <link rel="stylesheet" href="assets/custom.css">
+  <link rel="stylesheet" href="assets/pacman.css">
+  <link rel="stylesheet" href="assets/tachyons-addon.css">
+  <link href="ihaka2022_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="ihaka2022_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="ihaka2022_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="ihaka2022_files/libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <style type="text/css">
+
+  .callout {
+    margin-top: 1em;
+    margin-bottom: 1em;  
+    border-radius: .25rem;
+  }
+
+  .callout.callout-style-simple { 
+    padding: 0em 0.5em;
+    border-left: solid #acacac .3rem;
+    border-right: solid 1px silver;
+    border-top: solid 1px silver;
+    border-bottom: solid 1px silver;
+    display: flex;
+  }
+
+  .callout.callout-style-default {
+    border-left: solid #acacac .3rem;
+    border-right: solid 1px silver;
+    border-top: solid 1px silver;
+    border-bottom: solid 1px silver;
+  }
+
+  .callout .callout-body-container {
+    flex-grow: 1;
+  }
+
+  .callout.callout-style-simple .callout-body {
+    font-size: 1rem;
+    font-weight: 400;
+  }
+
+  .callout.callout-style-default .callout-body {
+    font-size: 0.9rem;
+    font-weight: 400;
+  }
+
+  .callout.callout-captioned.callout-style-simple .callout-body {
+    margin-top: 0.2em;
+  }
+
+  .callout:not(.callout-captioned) .callout-body {
+      display: flex;
+  }
+
+  .callout:not(.no-icon).callout-captioned.callout-style-simple .callout-content {
+    padding-left: 1.6em;
+  }
+
+  .callout.callout-captioned .callout-header {
+    padding-top: 0.2em;
+    margin-bottom: -0.2em;
+  }
+
+  .callout.callout-captioned .callout-caption  p {
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+  }
+    
+  .callout.callout-captioned.callout-style-simple .callout-content  p {
+    margin-top: 0;
+  }
+
+  .callout.callout-captioned.callout-style-default .callout-content  p {
+    margin-top: 0.7em;
+  }
+
+  .callout.callout-style-simple div.callout-caption {
+    border-bottom: none;
+    font-size: .9rem;
+    font-weight: 600;
+    opacity: 75%;
+  }
+
+  .callout.callout-style-default  div.callout-caption {
+    border-bottom: none;
+    font-weight: 600;
+    opacity: 85%;
+    font-size: 0.9rem;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+  }
+
+  .callout.callout-style-default div.callout-content {
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+  }
+
+  .callout.callout-style-simple .callout-icon::before {
+    height: 1rem;
+    width: 1rem;
+    display: inline-block;
+    content: "";
+    background-repeat: no-repeat;
+    background-size: 1rem 1rem;
+  }
+
+  .callout.callout-style-default .callout-icon::before {
+    height: 0.9rem;
+    width: 0.9rem;
+    display: inline-block;
+    content: "";
+    background-repeat: no-repeat;
+    background-size: 0.9rem 0.9rem;
+  }
+
+  .callout-caption {
+    display: flex
+  }
+    
+  .callout-icon::before {
+    margin-top: 1rem;
+    padding-right: .5rem;
+  }
+
+  .callout.no-icon::before {
+    display: none !important;
+  }
+
+  .callout.callout-captioned .callout-body > .callout-content > :last-child {
+    margin-bottom: 0.5rem;
+  }
+
+  .callout.callout-captioned .callout-icon::before {
+    margin-top: .5rem;
+    padding-right: .5rem;
+  }
+
+  .callout:not(.callout-captioned) .callout-icon::before {
+    margin-top: 1rem;
+    padding-right: .5rem;
+  }
+
+  /* Callout Types */
+
+  div.callout-note {
+    border-left-color: #4582ec !important;
+  }
+
+  div.callout-note .callout-icon::before {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAAEU0lEQVRYCcVXTWhcVRQ+586kSUMMxkyaElstCto2SIhitS5Ek8xUKV2poatCcVHtUlFQk8mbaaziwpWgglJwVaquitBOfhQXFlqlzSJpFSpIYyXNjBNiTCck7x2/8/LeNDOZxDuEkgOXe++553zfefee+/OYLOXFk3+1LLrRdiO81yNqZ6K9cG0P3MeFaMIQjXssE8Z1JzLO9ls20MBZX7oG8w9GxB0goaPrW5aNMp1yOZIa7Wv6o2ykpLtmAPs/vrG14Z+6d4jpbSKuhdcSyq9wGMPXjonwmESXrriLzFGOdDBLB8Y6MNYBu0dRokSygMA/mrun8MGFN3behm6VVAwg4WR3i6FvYK1T7MHo9BK7ydH+1uurECoouk5MPRyVSBrBHMYwVobG2aOXM07sWrn5qgB60rc6mcwIDJtQrnrEr44kmy+UO9r0u9O5/YbkS9juQckLed3DyW2XV/qWBBB3ptvI8EUY3I9p/67OW+g967TNr3Sotn3IuVlfMLVnsBwH4fsnebJvyGm5GeIUA3jljERmrv49SizPYuq+z7c2H/jlGC+Ghhupn/hcapqmcudB9jwJ/3jvnvu6vu5lVzF1fXyZuZZ7U8nRmVzytvT+H3kilYvH09mLWrQdwFSsFEsxFVs5fK7A0g8gMZjbif4ACpKbjv7gNGaD8bUrlk8x+KRflttr22JEMRUbTUwwDQScyzPgedQHZT0xnx7ujw2jfVfExwYHwOsDTjLdJ2ebmeQIlJ7neo41s/DrsL3kl+W2lWvAga0tR3zueGr6GL78M3ifH0rGXrBC2aAR8uYcIA5gwV8zIE8onoh8u0Fca/ciF7j1uOzEnqcIm59sEXoGc0+z6+H45V1CvAvHcD7THztu669cnp+L0okAeIc6zjbM/24LgGM1gZk7jnRu1aQWoU9sfUOuhrmtaPIO3YY1KLLWZaEO5TKUbMY5zx8W9UJ6elpLwKXbsaZ4EFl7B4bMtDv0iRipKoDQT2sNQI9b1utXFdYisi+wzZ/ri/1m7QfDgEuvgUUEIJPq3DhX/5DWNqIXDOweC2wvIR90Oq3lDpdMIgD2r0dXvGdsEW5H6x6HLRJYU7C69VefO1x8Gde1ZFSJLfWS1jbCnhtOPxmpfv2LXOA2Xk2tvnwKKPFuZ/oRmwBwqRQDcKNeVQkYcOjtWVBuM/JuYw5b6isojIkYxyYAFn5K7ZBF10fea52y8QltAg6jnMqNHFBmGkQ1j+U43HMi2xMar1Nv0zGsf1s8nUsmUtPOOrbFIR8bHFDMB5zL13Gmr/kGlCkUzedTzzmzsaJXhYawnA3UmARpiYj5ooJZiUoxFRtK3X6pgNPv+IZVPcnwbOl6f+aBaO1CNvPW9n9LmCp01nuSaTRF2YxHqZ8DYQT6WsXT+RD6eUztwYLZ8rM+rcPxamv1VQzFUkzFXvkiVrySGQgJNvXHJAxiU3/NwiC03rSf05VBaPtu/Z7/B8Yn/w7eguloAAAAAElFTkSuQmCC');
+  }
+
+  div.callout-note.callout-style-default .callout-caption {
+    background-color: #dae6fb
+  }
+
+  div.callout-important {
+    border-left-color: #d9534f !important;
+  }
+
+  div.callout-important .callout-icon::before {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAAEKklEQVRYCcVXTWhcVRS+575MJym48A+hSRFr00ySRQhURRfd2HYjk2SSTokuBCkU2o0LoSKKraKIBTcuFCoidGFD08nkBzdREbpQ1EDNIv8qSGMFUboImMSZd4/f9zJv8ibJMC8xJQfO3HPPPef7zrvvvnvviIkpC9nsw0UttFunbUhpFzFtarSd6WJkStVMw5xyVqYTvkwfzuf/5FgtkVoB0729j1rjXwThS7Vio+Mo6DNnvLfahoZ+i/o32lULuJ3NNiz7q6+pyAUkJaFF6JwaM2lUJlV0MlnQn5aTRbEu0SEqHUa0A4AdiGuB1kFXRfVyg5d87+Dg4DL6m2TLAub60ilj7A1Ec4odSAc8X95sHh7+ZRPCFo6Fnp7HfU/fBng/hi10CjCnWnJjsxvDNxWw0NfV6Rv5GgP3I3jGWXumdTD/3cbEOP2ZbOZp69yniG3FQ9z1jD7bnBu9Fc2tKGC2q+uAJOQHBDRiZX1x36o7fWBs7J9ownbtO+n0/qWkvW7UPIfc37WgT6ZGR++EOJyeQDSb9UB+DZ1G6DdLDzyS+b/kBCYGsYgJbSQHuThGKRcw5xdeQf8YdNHsc6ePXrlSYMBuSIAFTGAtQo+VuALo4BX83N190NWZWbynBjhOHsmNfFWLeL6v+ynsA58zDvvAC8j5PkbOcXCMg2PZFk3q8MjI7WAG/Dp9AwP7jdGBOOQkAvlFUB+irtm16I1Zw9YBcpGTGXYmk3kQIC/Cds55l+iMI3jqhjAuaoe+am2Jw5GT3Nbz3CkE12NavmzN5+erJW7046n/CH1RO/RVa8lBLozXk9uqykkGAyRXLWlLv5jyp4RFsG5vGVzpDLnIjTWgnRy2Rr+tDKvRc7Y8AyZq10jj8DqXdnIRNtFZb+t/ZRtXcDiVnzpqx8mPcDWxgARUqx0W1QB9MeUZiNrV4qP+Ehc+BpNgATsTX8ozYKL2NtFYAHc84fG7ndxUPr+AR/iQSns7uSUufAymwDOb2+NjK27lEFocm/EE2WpyIy/Hi66MWuMKJn8RvxIcj87IM5Vh9663ziW36kR0HNenXuxmfaD8JC7tfKbrhFr7LiZCrMjrzTeGx+PmkosrkNzW94ObzwocJ7A1HokLolY+AvkTiD/q1H0cN48c5EL8Crkttsa/AXQVDmutfyku0E7jShx49XqV3MFK8IryDhYVbj7Sj2P2eBxwcXoe8T8idsKKPRcnZw1b+slFTubwUwhktrfnAt7J++jwQtLZcm3sr9LQrjRzz6cfMv9aLvgmnAGvpoaGLxM4mAEaLV7iAzQ3oU0IvD5x9ix3yF2RAAuYAOO2f7PEFWCXZ4C9Pb2UsgDeVnFSpbFK7/IWu7TPTvBqzbGdCHOJQSxiEjt6IyZmxQyEJHv6xyQsYk//moVFsN2zP6fRImjfq7/n/wFDguUQFNEwugAAAABJRU5ErkJggg==');
+  }
+
+  div.callout-important.callout-style-default .callout-caption {
+    background-color: #f7dddc
+  }
+
+  div.callout-warning {
+    border-left-color: #f0ad4e !important;
+  }
+
+  div.callout-warning .callout-icon::before {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAAETklEQVRYCeVWW2gcVRg+58yaTUnizqbipZeX4uWhBEniBaoUX1Ioze52t7sRq6APio9V9MEaoWlVsFasRq0gltaAPuxms8lu0gcviE/FFOstVbSIxgcv6SU7EZqmdc7v9+9mJtNks51NTUH84ed889/PP+cmxP+d5FIbMJmNbpREu4WUkiTtCicKny0l1pIKmBzovF2S+hIJHX8iEu3hZJ5lNZGqyRrGSIQpq15AzF28jgpeY6yk6GVdrfFqdrD6Iw+QlB8g0YS2g7dyQmXM/IDhBhT0UCiRf59lfqmmDvzRt6kByV/m4JjtzuaujMUM2c5Z2d6JdKrRb3K2q6mA+oYVz8JnDdKPmmNthzkAk/lN63sYPgevrguc72aZX/L9C6x09GYyxBgCX4NlvyGUHOKELlm5rXeR1kchuChJt4SSwyddZRXgvwMGvYo4QSlk3/zkHD8UHxwVJA6zjZZqP8v8kK8OWLnIZtLyCAJagYC4rTGW/9Pqj92N/c+LUaAj27movwbi19tk/whRCIE7Q9vyI6yvRpftAKVTdUjOW40X3h5OXsKCdmFcx0xlLJoSuQngnrJe7Kcjm4OMq9FlC7CMmScQANuNvjfP3PjGXDBaUQmbp296S5L4DrpbrHN1T87ZVEZVCzg1FF0Ft+dKrlLukI+/c9ENo+TvlTDbYFvuKPtQ9+l052rXrgKoWkDAFnvh0wTOmYn8R5f4k/jN/fZiCM1tQx9jQQ4ANhqG4hiL0qIFTGViG9DKB7GYzgubnpofgYRwO+DFjh0Zin2m4b/97EDkXkc+f6xYAPX0KK2I/7fUQuwzuwo/L3AkcjugPNixC8cHf0FyPjWlItmLxWw4Ou9YsQCr5fijMGoD/zpdRy95HRysyXA74MWOnscpO4j2y3HAVisw85hX5+AFBRSHt4ShfLFkIMXTqyKFc46xdzQM6XbAi702a7sy04J0+feReMFKp5q9esYLCqAZYw/k14E/xcLLsFElaornTuJB0svMuJINy8xkIYuL+xPAlWRceH6+HX7THJ0djLUom46zREu7tTkxwmf/FdOZ/sh6Q8qvEAiHpm4PJ4a/doJe0gH1t+aHRgCzOvBvJedEK5OFE5jpm4AGP2a8Dxe3gGJ/pAutug9Gp6he92CsSsWBaEcxGx0FHytmIpuqGkOpldqNYQK8cSoXvd+xLxXADw0kf6UkJNFtdo5MOgaLjiQOQHcn+A6h5NuL2s0qsC2LOM75PcF3yr5STuBSAcGG+meA14K/CI21HcS4LBT6tv0QAh8Dr5l93AhZzG5ZJ4VxAqdZUEl9z7WJ4aN+svMvwHHL21UKTd1mqvChH7/Za5xzXBBKrUcB0TQ+Ulgkfbi/H/YT5EptrGzsEK7tR1B7ln9BBwckYfMiuSqklSznIuoIIOM42MQO+QnduCoFCI0bpkzjCjddHPN/F+2Yu+sd9bKNpVwHhbS3LluK/0zgfwD0xYI5dXuzlQAAAABJRU5ErkJggg==');
+  }
+
+  div.callout-warning.callout-style-default .callout-caption {
+    background-color: #fcefdc
+  }
+
+  div.callout-tip {
+    border-left-color: #02b875 !important;
+  }
+
+  div.callout-tip .callout-icon::before {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAADr0lEQVRYCe1XTWgTQRj9ZjZV8a9SPIkKgj8I1bMHsUWrqYLVg4Ue6v9BwZOxSYsIerFao7UiUryIqJcqgtpimhbBXoSCVxUFe9CTiogUrUp2Pt+3aUI2u5vdNh4dmMzOzHvvezuz8xNFM0mjnbXaNu1MvFWRXkXEyE6aYOYJpdW4IXuA4r0fo8qqSMDBU0v1HJUgVieAXxzCsdE/YJTdFcVIZQNMyhruOMJKXYFoLfIfIvVIMWdsrd+Rpd86ZmyzzjJmLStqRn0v8lzkb4rVIXvnpScOJuAn2ACC65FkPzEdEy4TPWRLJ2h7z4cArXzzaOdKlbOvKKX25Wl00jSnrwVxAg3o4dRxhO13RBSdNvH0xSARv3adTXbBdTf64IWO2vH0LT+cv4GR1DJt+DUItaQogeBX/chhbTBxEiZ6gftlDNXTrvT7co4ub5A6gp9HIcHvzTa46OS5fBeP87Qm0fQkr4FsYgVQ7Qg+ZayaDg9jhg1GkWj8RG6lkeSacrrHgDaxdoBiZPg+NXV/KifMuB6//JmYH4CntVEHy/keA6x4h4CU5oFy8GzrBS18cLJMXcljAKB6INjWsRcuZBWVaS3GDrqB7rdapVIeA+isQ57Eev9eCqzqOa81CY05VLd6SamW2wA2H3SiTbnbSxmzfp7WtKZkqy4mdyAlGx7ennghYf8voqp9cLSgKdqNfa6RdRsAAkPwRuJZNbpByn+RrJi1RXTwdi8RQF6ymDwGMAtZ6TVE+4uoKh+MYkcLsT0Hk8eAienbiGdjJHZTpmNjlbFJNKDVAp2fJlYju6IreQxQ08UJDNYdoLSl6AadO+fFuCQqVMB1NJwPm69T04Wv5WhfcWyfXQB+wXRs1pt+nCknRa0LVzSA/2B+a9+zQJadb7IyyV24YAxKp2Jqs3emZTuNnKxsah+uabKbMk7CbTgJx/zIgQYErIeTKRQ9yD9wxVof5YolPHqaWo7TD6tJlh7jQnK5z2n3+fGdggIOx2kaa2YI9QWarc5Ce1ipNWMKeSG4DysFF52KBmTNMmn5HqCFkwy34rDg05gDwgH3bBi+sgFhN/e8QvRn8kbamCOhgrZ9GJhFDgfcMHzFb6BAtjKpFhzTjwv1KCVuxHvCbsSiEz4CANnj84cwHdFXAbAOJ4LTSAawGWFn5tDhLMYz6nWeU2wJfIhmIJBefcd/A5FWQWGgrWzyORZ3Q6HuV+Jf0Bj+BTX69fm1zWgK7By1YTXchFDORywnfQ7GpzOo6S+qECrsx2ifVQAAAABJRU5ErkJggg==');
+  }
+
+  div.callout-tip.callout-style-default .callout-caption {
+    background-color: #ccf1e3
+  }
+
+  div.callout-caution {
+    border-left-color: #fd7e14 !important;
+  }
+
+  div.callout-caution .callout-icon::before {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAACV0lEQVRYCdVWzWoUQRCuqp2ICBLJXgITZL1EfQDBW/bkzUMUD7klD+ATSHBEfAIfQO+iXsWDxJsHL96EHAwhgzlkg8nBg25XWb0zIb0zs9muYYWkoKeru+vn664fBqElyZNuyh167NXJ8Ut8McjbmEraKHkd7uAnAFku+VWdb3reSmRV8PKSLfZ0Gjn3a6Xlcq9YGb6tADjn+lUfTXtVmaZ1KwBIvFI11rRXlWlatwIAAv2asaa9mlB9wwygiDX26qaw1yYPzFXg2N1GgG0FMF8Oj+VIx7E/03lHx8UhvYyNZLN7BwSPgekXXLribw7w5/c8EF+DBK5idvDVYtEEwMeYefjjLAdEyQ3M9nfOkgnPTEkYU+sxMq0BxNR6jExrAI31H1rzvLEfRIdgcv1XEdj6QTQAS2wtstEALLG1yEZ3QhH6oDX7ExBSFEkFINXH98NTrme5IOaaA7kIfiu2L8A3qhH9zRbukdCqdsA98TdElyeMe5BI8Rs2xHRIsoTSSVFfCFCWGPn9XHb4cdobRIWABNf0add9jakDjQJpJ1bTXOJXnnRXHRf+dNL1ZV1MBRCXhMbaHqGI1JkKIL7+i8uffuP6wVQAzO7+qVEbF6NbS0LJureYcWXUUhH66nLR5rYmva+2tjRFtojkM2aD76HEGAD3tPtKM309FJg5j/K682ywcWJ3PASCcycH/22u+Bh7Aa0ehM2Fu4z0SAE81HF9RkB21c5bEn4Dzw+/qNOyXr3DCTQDMBOdhi4nAgiFDGCinIa2owCEChUwD8qzd03PG+qdW/4fDzjUMcE1ZpIAAAAASUVORK5CYII=');
+  }
+
+  div.callout-caution.callout-style-default .callout-caption {
+    background-color: #ffe5d0
+  }
+
+  </style>
+  <style type="text/css">
+    .reveal div.sourceCode {
+      margin: 0;
+      overflow: auto;
+    }
+    .reveal div.hanging-indent {
+      margin-left: 1em;
+      text-indent: -1em;
+    }
+    .reveal .slide:not(.center) {
+      height: 100%;
+    }
+    .reveal .slide.scrollable {
+      overflow-y: auto;
+    }
+    .reveal .footnotes {
+      height: 100%;
+      overflow-y: auto;
+    }
+    .reveal .slide .absolute {
+      position: absolute;
+      display: block;
+    }
+    .reveal .footnotes ol {
+      counter-reset: ol;
+      list-style-type: none; 
+      margin-left: 0;
+    }
+    .reveal .footnotes ol li:before {
+      counter-increment: ol;
+      content: counter(ol) ". "; 
+    }
+    .reveal .footnotes ol li > p:first-child {
+      display: inline-block;
+    }
+    .reveal .slide ul,
+    .reveal .slide ol {
+      margin-bottom: 0.5em;
+    }
+    .reveal .slide ul li,
+    .reveal .slide ol li {
+      margin-top: 0.4em;
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide ul[role="tablist"] li {
+      margin-bottom: 0;
+    }
+    .reveal .slide ul li > *:first-child,
+    .reveal .slide ol li > *:first-child {
+      margin-block-start: 0;
+    }
+    .reveal .slide ul li > *:last-child,
+    .reveal .slide ol li > *:last-child {
+      margin-block-end: 0;
+    }
+    .reveal .slide .columns:nth-child(3) {
+      margin-block-start: 0.8em;
+    }
+    .reveal blockquote {
+      box-shadow: none;
+    }
+    .reveal .tippy-content>* {
+      margin-top: 0.2em;
+      margin-bottom: 0.7em;
+    }
+    .reveal .tippy-content>*:last-child {
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide > img.stretch.quarto-figure-center,
+    .reveal .slide > img.r-stretch.quarto-figure-center {
+      display: block;
+      margin-left: auto;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-left,
+    .reveal .slide > img.r-stretch.quarto-figure-left  {
+      display: block;
+      margin-left: 0;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-right,
+    .reveal .slide > img.r-stretch.quarto-figure-right  {
+      display: block;
+      margin-left: auto;
+      margin-right: 0; 
+    }
+  </style>
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+
+<section id="title-slide" class="slide level2 center" data-background="images/wales-planet-effect-bg.jpg">
+<h2></h2>
+<div class="title-box">
+<h2>
+The Genesis of Experimentation
+</h2>
+<p>👩🏻‍💻 <span class="author">Emi Tanaka @ Monash University</span></p>
+<div style="overflow: hidden; height: 1.2em;">
+<ul class="content__container__list center" style="text-align: center">
+<li class="content__container__list__item">
+<i class="fa-solid fa-envelope"></i> emi.tanaka@monash.edu
+</li>
+<li class="content__container__list__item">
+<i class="fa-brands fa-twitter"></i> <span class="citation" data-cites="statsgen">@statsgen</span>
+</li>
+<li class="content__container__list__item">
+<i class="fa-brands fa-github"></i> github.com/emitanaka
+</li>
+<li class="content__container__list__item">
+<i class="fa-solid fa-globe"></i> emitanaka.org
+</li>
+</ul>
+</div>
+</div>
+<p><br><br></p>
+<div class="absolute bottom-0 monash-white w-100" style="">
+<p><span class="monash-white fl">28th July 2022</span> <span class="fr monash-white">Ihaka Lecture</span></p>
+</div>
+</section>
+<section>
+<section id="which-vaccines-are-effective-against-covid-19" class="title-slide slide level1 center" data-background-image="images/mask-worksplace.jpeg">
+<h1><span class="strokeme">Which vaccines are effective against COVID-19?</span></h1>
+
+</section>
+<section id="section" class="slide level2" data-auto-animate="true">
+<h2 data-id="quarto-animate-title"></h2>
+<div class="fragment fade-up" data-fragment-index="1">
+<h2>
+The <span class="monash-blue2">Originator</span> of an Experiment
+</h2>
+</div>
+<div class="flex">
+<div class="w-20">
+<p><img src="images/stickman/domain1.svg" width="200px" class=""></p>
+</div>
+<div class="w-80">
+<p><br><br></p>
+<div class="f3">
+<div style="overflow: hidden; height: 1.2em;">
+<ul class="content__container__list left!important" style="text-align: left!important">
+<li class="content__container__list__item">
+<span class="speech"><strong>What diet</strong> lowers insulin?</span>
+</li>
+<li class="content__container__list__item">
+<span class="speech"><strong>Is the lockout laws effective</strong> to reduce alcohol-fuelled violence?</span>
+</li>
+<li class="content__container__list__item">
+<span class="speech"><strong>Which brand</strong> of washing powder is most effective for cleaning clothes?</span>
+</li>
+<li class="content__container__list__item">
+<span class="speech"><strong>How much fertilizer</strong> should you use for optimal crop yield?</span>
+</li>
+</ul>
+</div>
+</div>
+<p><br><br></p>
+<div class="fragment fade-up" data-fragment-index="1">
+<p>The <span class="monash-blue2"><strong>“domain expert”</strong></span> drives the experimental objective and has the intricate knowledge about the subject area</p>
+</div>
+</div>
+</div>
+<div class="absolute bottom-0 f5" style="">
+<p>Stick person images by <a href="https://pixabay.com/users/openclipart-vectors-30363/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=151793">OpenClipart-Vectors</a> from <a href="https://pixabay.com/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=151793">Pixabay</a></p>
+</div>
+</section>
+<section id="the-designer-of-the-experiment" class="slide level2" data-auto-animate="true">
+<h2 data-id="quarto-animate-title">The <span class="monash-ruby2">Designer</span> of the Experiment</h2>
+<div class="flex">
+<div class="w-80">
+<p><span class="speech f3 fr">Let there be an <strong>experimental design</strong>!</span></p>
+<p><br><br></p>
+<p>The <span class="monash-ruby2"><strong>“statistican”</strong></span> creates the experimental design layout after taking into account the statistical and practical constraints.</p>
+</div>
+<div class="w-20">
+<p><img src="images/stickman/statistician1.svg" width="100%" class="img-hor"></p>
+</div>
+</div>
+</section>
+<section id="the-executor-of-the-experiment" class="slide level2" data-auto-animate="true">
+<h2 data-id="quarto-animate-title">The <span class="monash-green2">Executor</span> of the Experiment</h2>
+<div class="flex">
+<div class="w-60">
+<p><br><br></p>
+<p>The <span class="monash-green2"><strong>“technician”</strong></span> carries out the experiment and collects the data.</p>
+</div>
+<div class="w-40">
+<p><img src="images/stickman/technician2.svg" width="200px" class="img-hor"></p>
+</div>
+</div>
+</section>
+<section id="the-digester-of-the-experiment" class="slide level2" data-auto-animate="true">
+<h2 data-id="quarto-animate-title">The <span class="monash-red2">Digester</span> of the Experiment</h2>
+<div class="flex">
+<div class="w-80">
+<p><br><br></p>
+<p>The <span class="monash-red2"><strong>“analyst”</strong></span> analyses the data after the data is collected.</p>
+</div>
+<div class="w-20">
+<p><img src="images/stickman/statistician2.svg" width="200px" class="img-hor"></p>
+</div>
+</div>
+</section>
+<section id="the-actors-are-purely-illustrative" class="slide level2" data-auto-animate="true">
+<h2 data-id="quarto-animate-title">The actors are purely illustrative</h2>
+<p><img src="images/stickman/domain1.svg" data-id="person3" width="200px" class=""> <img src="images/stickman/statistician1.svg" data-id="person2" width="280px" class="img-hor"> <img src="images/stickman/technician2.svg" data-id="person1" width="200px" class="img-hor"> <img src="images/stickman/statistician2.svg" data-id="person2" width="200px" class="img-hor"></p>
+</section>
+<section id="roles-may-be-fuzzy" class="slide level2" data-auto-animate="true">
+<h2 data-id="quarto-animate-title"><span class="monash-blue">Roles</span> may be fuzzy</h2>
+<p>In practice:</p>
+<ul>
+<li>multiple people can take on each role,</li>
+<li>one person can take on multiple roles, and/or</li>
+<li>a person in the role may not specialise in that role.</li>
+</ul>
+<center>
+<p><img src="images/stickman/technician1.svg" data-id="person1" width="200px" class=""> <img src="images/stickman/actor1.svg" data-id="person2" width="150px" class=""> <img src="images/stickman/actor2.svg" data-id="person3" width="200px" class=""></p>
+</center>
+</section>
+<section id="communications-may-be-fuzzy" class="slide level2" data-auto-animate="true">
+<h2 data-id="quarto-animate-title"><span class="monash-blue">Communications</span> may be fuzzy</h2>
+<center>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xl="http://www.w3.org/1999/xlink" xmlns:dc="http://purl.org/dc/elements/1.1/" version="1.1" viewbox="17 51 1028 570" width="1028" height="570">   <defs>     <lineargradient x1="0" x2="1" id="Gradient" gradientunits="userSpaceOnUse">       <stop offset="0" stop-color="black"></stop>       <stop offset="0" stop-color="black" stop-opacity=".5"></stop>       <stop offset="1" stop-color="black" stop-opacity="0"></stop>     </lineargradient>     <lineargradient id="Obj_Gradient" xl:href="#Gradient" gradienttransform="translate(401.5167 237.53566) rotate(3.1411804) scale(105.00389)"></lineargradient>     <lineargradient x1="0" x2="1" id="Gradient_2" gradientunits="userSpaceOnUse">       <stop offset="0" stop-color="black"></stop>       <stop offset=".4625907" stop-color="black" stop-opacity=".5"></stop>       <stop offset="1" stop-color="black" stop-opacity="0"></stop>     </lineargradient>     <lineargradient id="Obj_Gradient_2" xl:href="#Gradient_2" gradienttransform="translate(91.75393 224.38832) rotate(41.240423) scale(54.857464)"></lineargradient>     <font-face font-family="Arial" font-size="18" panose-1="2 11 6 4 2 2 2 2 2 4" units-per-em="1000" underline-position="-105.95703" underline-thickness="73.24219" slope="0" x-height="518.5547" cap-height="716.3086" ascent="905.2734" descent="-211.91406" font-weight="400">       <font-face-src>         <font-face-name name="ArialMT"></font-face-name>       </font-face-src>     </font-face>     <marker orient="auto" overflow="visible" markerunits="strokeWidth" id="FilledArrow_Marker" stroke-linejoin="miter" stroke-miterlimit="10" viewbox="-1 -2 5 4" markerwidth="5" markerheight="4" color="black">       <g>         <path d="M 2.5142857 0 L 0 -.9428571 L 0 .9428571 Z" fill="currentColor" stroke="currentColor" stroke-width="1"></path>       </g>     </marker>     <marker orient="auto" overflow="visible" markerunits="strokeWidth" id="FilledArrow_Marker_2" stroke-linejoin="miter" stroke-miterlimit="10" viewbox="-4 -2 5 4" markerwidth="5" markerheight="4" color="black">       <g>         <path d="M -2.5142857 0 L 0 .9428571 L 0 -.9428571 Z" fill="currentColor" stroke="currentColor" stroke-width="1"></path>       </g>     </marker>     <font-face font-family="Arial" font-size="18" panose-1="2 11 7 4 2 2 2 2 2 4" units-per-em="1000" underline-position="-105.95703" underline-thickness="104.98047" slope="0" x-height="518.5547" cap-height="715.8203" ascent="905.2734" descent="-211.91406" font-weight="700">       <font-face-src>         <font-face-name name="Arial-BoldMT"></font-face-name>       </font-face-src>     </font-face>     <font-face font-family="Arial" font-size="16" panose-1="2 11 7 4 2 2 2 2 2 4" units-per-em="1000" underline-position="-105.95703" underline-thickness="104.98047" slope="0" x-height="518.5547" cap-height="715.8203" ascent="905.2734" descent="-211.91406" font-weight="700">       <font-face-src>         <font-face-name name="Arial-BoldMT"></font-face-name>       </font-face-src>     </font-face>     <font-face font-family="Arial" font-size="16" panose-1="2 11 6 4 2 2 2 2 2 4" units-per-em="1000" underline-position="-105.95703" underline-thickness="73.24219" slope="0" x-height="518.5547" cap-height="716.3086" ascent="905.2734" descent="-211.91406" font-weight="400">       <font-face-src>         <font-face-name name="ArialMT"></font-face-name>       </font-face-src>     </font-face>   </defs>   <metadata> Produced by OmniGraffle 7.19.2\n2022-07-27 23:28:41 +0000</metadata>   <g id="Canvas_1" stroke-dasharray="none" fill-opacity="1" stroke-opacity="1" stroke="none" fill="none" transform="scale(1.6)">     <title>comm-model</title>     <g id="Canvas_1_Layer_1">       <title>Layer 1</title>       <g id="Graphic_87">         <ellipse cx="391.5" cy="193.38462" rx="137.00021891256" ry="140.250224105741" fill="#c8008f" fill-opacity=".2"></ellipse>         <ellipse cx="391.5" cy="193.38462" rx="137.00021891256" ry="140.250224105741" stroke="#c8008f" stroke-linecap="round" stroke-linejoin="round" stroke-width="4"></ellipse>       </g>       <g id="Graphic_86">         <ellipse cx="156.36727" cy="193.45245" rx="137.00021891256" ry="140.250224105741" fill="#027eb6" fill-opacity=".2049221"></ellipse>         <ellipse cx="156.36727" cy="193.45245" rx="137.00021891256" ry="140.250224105741" stroke="#027eb6" stroke-linecap="round" stroke-linejoin="round" stroke-width="4"></ellipse>       </g>       <g id="Graphic_98">         <title>noise</title>         <path d="M 332.4739 166.99896 L 340.56966 173.71028 C 341.42003 174.41522 341.5379 175.67605 340.83297 176.52642 C 340.75358 176.62219 340.66543 176.71034 340.56966 176.78972 L 333.9764 182.2555 C 333.1407 182.94827 333.0102 184.18116 333.6823 185.03356 L 339.5744 192.50623 C 340.2583 193.3736 340.10958 194.63117 339.2422 195.31508 C 339.1339 195.40047 339.01708 195.47443 338.89356 195.53577 L 332.12794 198.89625 C 331.1387 199.3876 330.73506 200.5879 331.22642 201.57715 C 331.23514 201.59471 331.24412 201.61215 331.25336 201.62944 L 335.96453 210.45317 C 336.48478 211.42755 336.11662 212.63919 335.14224 213.15943 C 334.96163 213.25586 334.7673 213.324 334.566 213.36143 L 328.17898 214.54944 C 327.09303 214.75143 326.37645 215.7955 326.57844 216.88145 C 326.59613 216.97655 326.6207 217.07024 326.65194 217.16178 L 329.9596 226.85216 C 330.3164 227.8975 329.75822 229.0342 328.71287 229.391 C 328.45153 229.4802 328.17455 229.51432 327.89937 229.4912 L 322.15108 229.00827 C 321.0504 228.9158 320.08314 229.73313 319.99067 230.83382 C 319.97562 231.01292 319.9848 231.19323 320.0179 231.36989 L 321.86285 241.20806 C 322.06644 242.2937 321.3514 243.33883 320.26575 243.54242 C 319.90346 243.61036 319.52944 243.57686 319.185 243.4456 L 314.28307 241.5778 C 313.2509 241.1845 312.0953 241.70243 311.70202 242.7346 C 311.60478 242.9898 311.56083 243.26224 311.5729 243.53508 L 311.98687 252.8972 C 312.03566 254.0007 311.18066 254.93482 310.07717 254.9836 C 309.6308 255.00335 309.1907 254.87306 308.82703 254.61352 L 304.77936 251.7249 C 303.88026 251.08327 302.63125 251.29198 301.9896 252.19108 C 301.78452 252.47846 301.65916 252.815 301.62627 253.16654 L 300.8477 261.48692 C 300.7448 262.5867 299.76984 263.3948 298.67008 263.2919 C 298.17168 263.24526 297.7089 263.01342 297.3731 262.64217 L 293.9451 258.85205 C 293.20418 258.03285 291.93944 257.9694 291.12024 258.71034 C 290.8209 258.9811 290.61046 259.33608 290.51662 259.72865 L 288.8213 266.8208 C 288.5645 267.8951 287.48544 268.55782 286.41114 268.30102 C 285.8889 268.17618 285.43878 267.8466 285.1621 267.3864 L 282.268 262.573 C 281.69882 261.62636 280.47 261.32036 279.52338 261.88953 C 279.14755 262.1155 278.8564 262.45874 278.69477 262.8664 L 276.32694 268.8382 C 275.9198 269.865 274.75738 270.36734 273.73058 269.9602 C 273.22044 269.75794 272.81583 269.35494 272.61152 268.8456 L 270.20316 262.84165 C 269.79194 261.81648 268.6275 261.31878 267.60234 261.73 C 267.19787 261.89225 266.85746 262.18217 266.6329 262.55566 L 263.74306 267.362 C 263.1739 268.30862 261.94508 268.61462 260.99845 268.04545 C 260.53585 267.7673 260.20532 267.314 260.08196 266.7885 L 258.42587 259.734 C 258.17343 258.65865 257.09706 257.99156 256.02172 258.244 C 255.6285 258.3363 255.27245 258.5455 255.00043 258.84407 L 251.51453 262.66998 C 250.7706 263.48646 249.50564 263.54528 248.68916 262.80136 C 248.321 262.46592 248.09125 262.0052 248.04485 261.5093 L 247.2642 253.16654 C 247.1613 252.06677 246.18633 251.25866 245.08656 251.36157 C 244.73504 251.39446 244.3985 251.51982 244.1111 251.7249 L 240.06343 254.61352 C 239.16434 255.25516 237.91533 255.04645 237.2737 254.14735 C 237.01415 253.78367 236.88386 253.34357 236.9036 252.8972 L 237.31756 243.5352 C 237.36636 242.43172 236.51135 241.4976 235.40786 241.44882 C 235.135 241.43675 234.86254 241.4807 234.6073 241.57797 L 229.70662 243.44554 C 228.67446 243.83888 227.51886 243.321 227.12552 242.28884 C 226.99427 241.94443 226.96075 241.57044 227.02865 241.20817 L 228.8728 231.3697 C 229.0763 230.28404 228.36118 229.23897 227.27551 229.03547 C 227.0989 229.00237 226.91866 228.9932 226.7396 229.00826 L 220.9911 229.4912 C 219.8904 229.58368 218.92315 228.76635 218.83068 227.66566 C 218.80756 227.39048 218.84168 227.1135 218.93088 226.85216 L 222.23853 217.16178 C 222.59534 216.11643 222.03717 214.97975 220.99182 214.62294 C 220.90028 214.5917 220.80659 214.56713 220.7115 214.54944 L 214.32447 213.36143 C 213.23853 213.15944 212.52194 212.11536 212.72393 211.02942 C 212.76137 210.82813 212.8295 210.63378 212.92593 210.45317 L 217.6371 201.62944 C 218.15735 200.65506 217.7892 199.44343 216.81481 198.92319 C 216.79752 198.91395 216.78008 198.90497 216.76252 198.89625 L 209.9969 195.53577 C 209.00764 195.0444 208.60402 193.84413 209.09538 192.85487 C 209.15673 192.73135 209.2307 192.61452 209.31608 192.50623 L 215.21216 185.0285 C 215.88267 184.17813 215.75456 182.94855 214.92314 182.25467 L 208.3699 176.7855 C 207.52187 176.07775 207.40815 174.81654 208.1159 173.9685 C 208.19278 173.87639 208.2778 173.79138 208.3699 173.7145 L 214.92314 168.24533 C 215.75456 167.55145 215.88267 166.32187 215.21216 165.4715 L 209.31608 157.99377 C 208.63216 157.1264 208.7809 155.86883 209.64826 155.18492 C 209.75656 155.09953 209.8734 155.02557 209.9969 154.96423 L 216.76252 151.60375 C 217.75178 151.11239 218.1554 149.9121 217.66404 148.92285 C 217.65532 148.90529 217.64634 148.88785 217.6371 148.87056 L 212.92593 140.04683 C 212.4057 139.07245 212.77384 137.86081 213.74822 137.34057 C 213.92883 137.24414 214.12318 137.17601 214.32447 137.13857 L 220.7115 135.95056 C 221.79743 135.74857 222.51402 134.70449 222.31203 133.61855 C 222.29434 133.52345 222.26977 133.42976 222.23853 133.33822 L 218.93088 123.64784 C 218.57407 122.60249 219.13224 121.46581 220.1776 121.109 C 220.43893 121.0198 220.71592 120.98568 220.9911 121.0088 L 226.7396 121.49174 C 227.8403 121.58422 228.80755 120.7669 228.90002 119.6662 C 228.91507 119.48715 228.9059 119.3069 228.8728 119.1303 L 227.02865 109.29183 C 226.82515 108.20617 227.54028 107.16109 228.62595 106.95759 C 228.98821 106.88969 229.3622 106.92321 229.70662 107.05446 L 234.6073 108.92203 C 235.63947 109.31537 236.79507 108.7975 237.1884 107.76534 C 237.28567 107.5101 237.32963 107.23766 237.31756 106.96479 L 236.9036 97.60279 C 236.8548 96.4993 237.7098 95.56518 238.8133 95.51639 C 239.25965 95.49665 239.69976 95.62694 240.06343 95.88648 L 244.1111 98.77509 C 245.0102 99.41673 246.25922 99.20802 246.90085 98.30892 C 247.10594 98.02154 247.2313 97.68499 247.2642 97.33346 L 248.04485 88.99069 C 248.14776 87.89092 249.12272 87.08281 250.22248 87.18572 C 250.71837 87.23212 251.1791 87.46187 251.51453 87.83002 L 255.00043 91.65593 C 255.74435 92.47241 257.0093 92.53123 257.8258 91.78731 C 258.12436 91.51528 258.33356 91.15923 258.42587 90.76601 L 260.09287 83.665 C 260.3453 82.58967 261.4217 81.92258 262.49702 82.17502 C 263.0179 82.2973 263.46807 82.62319 263.7469 83.07984 L 266.6288 87.79969 C 267.2044 88.74242 268.43527 89.04002 269.378 88.4644 C 269.7456 88.23994 270.03094 87.9028 270.19153 87.50314 L 272.5669 81.59164 C 272.97875 80.56672 274.14347 80.06972 275.1684 80.48155 C 275.67166 80.68378 276.0712 81.08172 276.27546 81.58417 L 278.69155 87.52764 C 279.10752 88.5509 280.27424 89.0432 281.2975 88.62723 C 281.69395 88.46607 282.02825 88.18198 282.25128 87.81672 L 285.15816 83.05593 C 285.7338 82.1132 286.96465 81.8156 287.90737 82.39122 C 288.36162 82.66858 288.6866 83.115555 288.81032 83.6332 L 290.51662 90.77135 C 290.77342 91.84565 291.8525 92.50837 292.9268 92.25157 C 293.31937 92.15773 293.67436 91.9473 293.9451 91.64795 L 297.3731 87.85783 C 298.11404 87.03863 299.3788 86.97518 300.198 87.71611 C 300.56924 88.05189 300.80107 88.51468 300.8477 89.01308 L 301.62627 97.33346 C 301.72918 98.43323 302.70414 99.24134 303.8039 99.13843 C 304.15542 99.10554 304.49198 98.98018 304.77936 98.77509 L 308.82703 95.88648 C 309.72613 95.24484 310.97514 95.45355 311.61678 96.35265 C 311.8763 96.71633 312.0066 97.15643 311.98687 97.60279 L 311.5729 106.96492 C 311.5241 108.06841 312.3791 109.00252 313.4826 109.05132 C 313.75544 109.06338 314.02786 109.01944 314.28307 108.9222 L 319.185 107.05439 C 320.21717 106.66109 321.37275 107.17901 321.76604 108.21119 C 321.8973 108.55563 321.9308 108.92965 321.86285 109.29194 L 320.0179 119.13011 C 319.81432 120.21576 320.52937 121.26089 321.615 121.46448 C 321.79167 121.49761 321.97198 121.50677 322.15108 121.49173 L 327.89937 121.0088 C 329.00006 120.91632 329.9673 121.73365 330.0598 122.83434 C 330.0829 123.10952 330.0488 123.3865 329.9596 123.64784 L 326.65194 133.33822 C 326.29513 134.38357 326.8533 135.52025 327.89865 135.87706 C 327.9902 135.9083 328.08388 135.93287 328.17898 135.95056 L 334.566 137.13857 C 335.65194 137.34056 336.36852 138.38464 336.16653 139.47058 C 336.1291 139.67187 336.06097 139.86622 335.96453 140.04683 L 331.25336 148.87056 C 330.7331 149.84494 331.10127 151.05657 332.07565 151.57681 C 332.09295 151.58605 332.1104 151.59503 332.12794 151.60375 L 338.89356 154.96423 C 339.88282 155.45559 340.28645 156.65587 339.7951 157.64513 C 339.73374 157.76865 339.65978 157.88548 339.5744 157.99377 L 332.4739 166.99896 Z" fill="black"></path>         <path d="M 332.4739 166.99896 L 340.56966 173.71028 C 341.42003 174.41522 341.5379 175.67605 340.83297 176.52642 C 340.75358 176.62219 340.66543 176.71034 340.56966 176.78972 L 333.9764 182.2555 C 333.1407 182.94827 333.0102 184.18116 333.6823 185.03356 L 339.5744 192.50623 C 340.2583 193.3736 340.10958 194.63117 339.2422 195.31508 C 339.1339 195.40047 339.01708 195.47443 338.89356 195.53577 L 332.12794 198.89625 C 331.1387 199.3876 330.73506 200.5879 331.22642 201.57715 C 331.23514 201.59471 331.24412 201.61215 331.25336 201.62944 L 335.96453 210.45317 C 336.48478 211.42755 336.11662 212.63919 335.14224 213.15943 C 334.96163 213.25586 334.7673 213.324 334.566 213.36143 L 328.17898 214.54944 C 327.09303 214.75143 326.37645 215.7955 326.57844 216.88145 C 326.59613 216.97655 326.6207 217.07024 326.65194 217.16178 L 329.9596 226.85216 C 330.3164 227.8975 329.75822 229.0342 328.71287 229.391 C 328.45153 229.4802 328.17455 229.51432 327.89937 229.4912 L 322.15108 229.00827 C 321.0504 228.9158 320.08314 229.73313 319.99067 230.83382 C 319.97562 231.01292 319.9848 231.19323 320.0179 231.36989 L 321.86285 241.20806 C 322.06644 242.2937 321.3514 243.33883 320.26575 243.54242 C 319.90346 243.61036 319.52944 243.57686 319.185 243.4456 L 314.28307 241.5778 C 313.2509 241.1845 312.0953 241.70243 311.70202 242.7346 C 311.60478 242.9898 311.56083 243.26224 311.5729 243.53508 L 311.98687 252.8972 C 312.03566 254.0007 311.18066 254.93482 310.07717 254.9836 C 309.6308 255.00335 309.1907 254.87306 308.82703 254.61352 L 304.77936 251.7249 C 303.88026 251.08327 302.63125 251.29198 301.9896 252.19108 C 301.78452 252.47846 301.65916 252.815 301.62627 253.16654 L 300.8477 261.48692 C 300.7448 262.5867 299.76984 263.3948 298.67008 263.2919 C 298.17168 263.24526 297.7089 263.01342 297.3731 262.64217 L 293.9451 258.85205 C 293.20418 258.03285 291.93944 257.9694 291.12024 258.71034 C 290.8209 258.9811 290.61046 259.33608 290.51662 259.72865 L 288.8213 266.8208 C 288.5645 267.8951 287.48544 268.55782 286.41114 268.30102 C 285.8889 268.17618 285.43878 267.8466 285.1621 267.3864 L 282.268 262.573 C 281.69882 261.62636 280.47 261.32036 279.52338 261.88953 C 279.14755 262.1155 278.8564 262.45874 278.69477 262.8664 L 276.32694 268.8382 C 275.9198 269.865 274.75738 270.36734 273.73058 269.9602 C 273.22044 269.75794 272.81583 269.35494 272.61152 268.8456 L 270.20316 262.84165 C 269.79194 261.81648 268.6275 261.31878 267.60234 261.73 C 267.19787 261.89225 266.85746 262.18217 266.6329 262.55566 L 263.74306 267.362 C 263.1739 268.30862 261.94508 268.61462 260.99845 268.04545 C 260.53585 267.7673 260.20532 267.314 260.08196 266.7885 L 258.42587 259.734 C 258.17343 258.65865 257.09706 257.99156 256.02172 258.244 C 255.6285 258.3363 255.27245 258.5455 255.00043 258.84407 L 251.51453 262.66998 C 250.7706 263.48646 249.50564 263.54528 248.68916 262.80136 C 248.321 262.46592 248.09125 262.0052 248.04485 261.5093 L 247.2642 253.16654 C 247.1613 252.06677 246.18633 251.25866 245.08656 251.36157 C 244.73504 251.39446 244.3985 251.51982 244.1111 251.7249 L 240.06343 254.61352 C 239.16434 255.25516 237.91533 255.04645 237.2737 254.14735 C 237.01415 253.78367 236.88386 253.34357 236.9036 252.8972 L 237.31756 243.5352 C 237.36636 242.43172 236.51135 241.4976 235.40786 241.44882 C 235.135 241.43675 234.86254 241.4807 234.6073 241.57797 L 229.70662 243.44554 C 228.67446 243.83888 227.51886 243.321 227.12552 242.28884 C 226.99427 241.94443 226.96075 241.57044 227.02865 241.20817 L 228.8728 231.3697 C 229.0763 230.28404 228.36118 229.23897 227.27551 229.03547 C 227.0989 229.00237 226.91866 228.9932 226.7396 229.00826 L 220.9911 229.4912 C 219.8904 229.58368 218.92315 228.76635 218.83068 227.66566 C 218.80756 227.39048 218.84168 227.1135 218.93088 226.85216 L 222.23853 217.16178 C 222.59534 216.11643 222.03717 214.97975 220.99182 214.62294 C 220.90028 214.5917 220.80659 214.56713 220.7115 214.54944 L 214.32447 213.36143 C 213.23853 213.15944 212.52194 212.11536 212.72393 211.02942 C 212.76137 210.82813 212.8295 210.63378 212.92593 210.45317 L 217.6371 201.62944 C 218.15735 200.65506 217.7892 199.44343 216.81481 198.92319 C 216.79752 198.91395 216.78008 198.90497 216.76252 198.89625 L 209.9969 195.53577 C 209.00764 195.0444 208.60402 193.84413 209.09538 192.85487 C 209.15673 192.73135 209.2307 192.61452 209.31608 192.50623 L 215.21216 185.0285 C 215.88267 184.17813 215.75456 182.94855 214.92314 182.25467 L 208.3699 176.7855 C 207.52187 176.07775 207.40815 174.81654 208.1159 173.9685 C 208.19278 173.87639 208.2778 173.79138 208.3699 173.7145 L 214.92314 168.24533 C 215.75456 167.55145 215.88267 166.32187 215.21216 165.4715 L 209.31608 157.99377 C 208.63216 157.1264 208.7809 155.86883 209.64826 155.18492 C 209.75656 155.09953 209.8734 155.02557 209.9969 154.96423 L 216.76252 151.60375 C 217.75178 151.11239 218.1554 149.9121 217.66404 148.92285 C 217.65532 148.90529 217.64634 148.88785 217.6371 148.87056 L 212.92593 140.04683 C 212.4057 139.07245 212.77384 137.86081 213.74822 137.34057 C 213.92883 137.24414 214.12318 137.17601 214.32447 137.13857 L 220.7115 135.95056 C 221.79743 135.74857 222.51402 134.70449 222.31203 133.61855 C 222.29434 133.52345 222.26977 133.42976 222.23853 133.33822 L 218.93088 123.64784 C 218.57407 122.60249 219.13224 121.46581 220.1776 121.109 C 220.43893 121.0198 220.71592 120.98568 220.9911 121.0088 L 226.7396 121.49174 C 227.8403 121.58422 228.80755 120.7669 228.90002 119.6662 C 228.91507 119.48715 228.9059 119.3069 228.8728 119.1303 L 227.02865 109.29183 C 226.82515 108.20617 227.54028 107.16109 228.62595 106.95759 C 228.98821 106.88969 229.3622 106.92321 229.70662 107.05446 L 234.6073 108.92203 C 235.63947 109.31537 236.79507 108.7975 237.1884 107.76534 C 237.28567 107.5101 237.32963 107.23766 237.31756 106.96479 L 236.9036 97.60279 C 236.8548 96.4993 237.7098 95.56518 238.8133 95.51639 C 239.25965 95.49665 239.69976 95.62694 240.06343 95.88648 L 244.1111 98.77509 C 245.0102 99.41673 246.25922 99.20802 246.90085 98.30892 C 247.10594 98.02154 247.2313 97.68499 247.2642 97.33346 L 248.04485 88.99069 C 248.14776 87.89092 249.12272 87.08281 250.22248 87.18572 C 250.71837 87.23212 251.1791 87.46187 251.51453 87.83002 L 255.00043 91.65593 C 255.74435 92.47241 257.0093 92.53123 257.8258 91.78731 C 258.12436 91.51528 258.33356 91.15923 258.42587 90.76601 L 260.09287 83.665 C 260.3453 82.58967 261.4217 81.92258 262.49702 82.17502 C 263.0179 82.2973 263.46807 82.62319 263.7469 83.07984 L 266.6288 87.79969 C 267.2044 88.74242 268.43527 89.04002 269.378 88.4644 C 269.7456 88.23994 270.03094 87.9028 270.19153 87.50314 L 272.5669 81.59164 C 272.97875 80.56672 274.14347 80.06972 275.1684 80.48155 C 275.67166 80.68378 276.0712 81.08172 276.27546 81.58417 L 278.69155 87.52764 C 279.10752 88.5509 280.27424 89.0432 281.2975 88.62723 C 281.69395 88.46607 282.02825 88.18198 282.25128 87.81672 L 285.15816 83.05593 C 285.7338 82.1132 286.96465 81.8156 287.90737 82.39122 C 288.36162 82.66858 288.6866 83.115555 288.81032 83.6332 L 290.51662 90.77135 C 290.77342 91.84565 291.8525 92.50837 292.9268 92.25157 C 293.31937 92.15773 293.67436 91.9473 293.9451 91.64795 L 297.3731 87.85783 C 298.11404 87.03863 299.3788 86.97518 300.198 87.71611 C 300.56924 88.05189 300.80107 88.51468 300.8477 89.01308 L 301.62627 97.33346 C 301.72918 98.43323 302.70414 99.24134 303.8039 99.13843 C 304.15542 99.10554 304.49198 98.98018 304.77936 98.77509 L 308.82703 95.88648 C 309.72613 95.24484 310.97514 95.45355 311.61678 96.35265 C 311.8763 96.71633 312.0066 97.15643 311.98687 97.60279 L 311.5729 106.96492 C 311.5241 108.06841 312.3791 109.00252 313.4826 109.05132 C 313.75544 109.06338 314.02786 109.01944 314.28307 108.9222 L 319.185 107.05439 C 320.21717 106.66109 321.37275 107.17901 321.76604 108.21119 C 321.8973 108.55563 321.9308 108.92965 321.86285 109.29194 L 320.0179 119.13011 C 319.81432 120.21576 320.52937 121.26089 321.615 121.46448 C 321.79167 121.49761 321.97198 121.50677 322.15108 121.49173 L 327.89937 121.0088 C 329.00006 120.91632 329.9673 121.73365 330.0598 122.83434 C 330.0829 123.10952 330.0488 123.3865 329.9596 123.64784 L 326.65194 133.33822 C 326.29513 134.38357 326.8533 135.52025 327.89865 135.87706 C 327.9902 135.9083 328.08388 135.93287 328.17898 135.95056 L 334.566 137.13857 C 335.65194 137.34056 336.36852 138.38464 336.16653 139.47058 C 336.1291 139.67187 336.06097 139.86622 335.96453 140.04683 L 331.25336 148.87056 C 330.7331 149.84494 331.10127 151.05657 332.07565 151.57681 C 332.09295 151.58605 332.1104 151.59503 332.12794 151.60375 L 338.89356 154.96423 C 339.88282 155.45559 340.28645 156.65587 339.7951 157.64513 C 339.73374 157.76865 339.65978 157.88548 339.5744 157.99377 L 332.4739 166.99896 Z" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"></path>       </g>       <g id="Group_85" data-id="person3">         <title>personB</title>         <g id="Group_51">           <g id="Graphic_66">             <path d="M 463.82367 216.6029 C 458.5851 224.7951 450.94686 224.20305 446.7432 215.27896 C 442.5395 206.35487 443.35463 192.46193 448.56594 184.21187 C 453.77725 175.96181 461.4208 176.4638 465.65825 185.3344 C 469.8957 194.205 469.13014 208.1012 463.9463 216.40876" stroke="#c8008f" stroke-linecap="round" stroke-linejoin="round" stroke-width="0"></path>           </g>           <g id="Graphic_65">             <path d="M 452.0178 205.26895 C 450.89677 206.90896 448.9373 206.99372 447.6361 205.4585 C 446.3349 203.92327 446.1823 201.34662 447.29485 199.69665 C 448.4074 198.04669 450.36587 197.9452 451.6743 199.46974 C 452.98274 200.99426 453.14805 203.57025 452.04397 205.2301" stroke="#c8008f" stroke-linecap="round" stroke-linejoin="round" stroke-width="0"></path>           </g>           <g id="Graphic_64">             <path d="M 449.11544 190.31377 C 455.2082 184.21196 459.1791 189.57552 459.9764 191.63974" stroke="#c8008f" stroke-linecap="butt" stroke-linejoin="round" stroke-width="1.25"></path>           </g>           <g id="Graphic_63">             <path d="M 461.7562 205.43627 C 460.6352 207.07628 458.67576 207.16104 457.37454 205.62581 C 456.0733 204.09059 455.9207 201.51394 457.0333 199.86397 C 458.14586 198.214 460.1043 198.11253 461.41275 199.63706 C 462.7212 201.16158 462.8865 203.73757 461.7824 205.39742" stroke="#c8008f" stroke-linecap="round" stroke-linejoin="round" stroke-width="0"></path>           </g>           <g id="Graphic_62">             <path d="M 457.51484 178.2315 C 458.3671 175.8965 458.1887 175.07258 457.869 172.49902 C 460.15894 161.95785 471.2159 131.34002 471.7028 111.21581 C 480.0131 121.11236 464.3208 160.86498 458.6646 172.47084 C 458.49237 174.07887 458.1322 176.4047 457.51504 178.2315 Z" stroke="#c8008f" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"></path>           </g>           <g id="Graphic_61">             <path d="M 469.51443 228.63605 C 482.6213 226.07077 506.99873 222.99886 504.59977 219.82885 C 499.75124 213.42375 472.47944 177.98472 460.0125 171.09553" stroke="#c8008f" stroke-linecap="butt" stroke-linejoin="round" stroke-width="1.9"></path>           </g>           <g id="Graphic_60">             <path d="M 471.36647 111.43093 C 440.45475 109.42432 419.9962 109.22997 396.24136 93.17894 C 395.17656 92.40582 392.54858 103.72716 392.54858 103.72716" stroke="#c8008f" stroke-linecap="butt" stroke-linejoin="round" stroke-width="1.9"></path>           </g>           <g id="Graphic_59">             <path d="M 471.8882 111.68279 C 468.9517 108.49578 412.1524 85.56852 394.93797 85.2603 C 394.0952 86.3868 392.63405 86.83179 389.6194 87.96754" stroke="#c8008f" stroke-linecap="butt" stroke-linejoin="round" stroke-width="1.9"></path>           </g>           <g id="Graphic_58">             <path d="M 395.93703 98.51927 C 394.5646 95.61222 397.97367 91.36466 396.07735 93.08463 C 392.1733 96.62565 393.4092 96.75686 390.8844 100.50853 C 388.15017 104.57142 386.6456 110.19637 395.9371 98.51927 Z" fill="#c8008f"></path>             <path d="M 395.93703 98.51927 C 394.5646 95.61222 397.97367 91.36466 396.07735 93.08463 C 392.1733 96.62565 393.4092 96.75686 390.8844 100.50853 C 388.15017 104.57142 386.6456 110.19637 395.9371 98.51927 Z" stroke="#c8008f" stroke-linecap="butt" stroke-linejoin="round" stroke-width="1"></path>           </g>           <g id="Graphic_57">             <path d="M 395.25012 87.77908 C 394.6865 84.76344 397.3032 83.15233 394.8988 84.25682 C 389.9487 86.5307 384.1952 90.48835 385.0934 94.99173 C 386.07124 99.8935 384.78807 93.8019 395.25007 87.77935 Z" fill="#c8008f"></path>             <path d="M 395.25012 87.77908 C 394.6865 84.76344 397.3032 83.15233 394.8988 84.25682 C 389.9487 86.5307 384.1952 90.48835 385.0934 94.99173 C 386.07124 99.8935 384.78807 93.8019 395.25007 87.77935 Z" stroke="#c8008f" stroke-linecap="butt" stroke-linejoin="round" stroke-width="1"></path>           </g>           <g id="Graphic_56">             <path d="M 464.07134 228.09006 C 462.6832 229.96616 461.62464 228.89498 461.1405 230.28222 C 460.17144 233.05885 461.25 234.34282 464.824 231.5565 C 468.7144 228.5235 479.5551 227.45116 464.0713 228.09006 Z" fill="#c8008f"></path>             <path d="M 464.07134 228.09006 C 462.6832 229.96616 461.62464 228.89498 461.1405 230.28222 C 460.17144 233.05885 461.25 234.34282 464.824 231.5565 C 468.7144 228.5235 479.5551 227.45116 464.0713 228.09006 Z" stroke="#c8008f" stroke-linecap="butt" stroke-linejoin="round" stroke-width="1"></path>           </g>           <g id="Group_53">             <g id="Graphic_55">               <path d="M 457.86875 171.55412 C 439.0051 176.5727 440.8229 179.90092 429.0207 188.62474 C 429.22824 196.6443 428.50115 231.97645 428.50115 231.97645 L 420.5479 232.16483" stroke="#c8008f" stroke-linecap="butt" stroke-linejoin="round" stroke-width="1.8999608"></path>             </g>             <g id="Graphic_54">               <path d="M 419.17234 232.3219 C 415.1439 231.79413 410.5448 233.0779 412.22216 231.69086 C 413.828 230.36223 418.33337 226.325 422.0409 228.94284 C 426.07655 231.79255 435.2069 231.27719 419.1727 232.32179 Z" fill="#c8008f"></path>               <path d="M 419.17234 232.3219 C 415.1439 231.79413 410.5448 233.0779 412.22216 231.69086 C 413.828 230.36223 418.33337 226.325 422.0409 228.94284 C 426.07655 231.79255 435.2069 231.27719 419.1727 232.32179 Z" stroke="#c8008f" stroke-linecap="butt" stroke-linejoin="round" stroke-width="1.0000093"></path>             </g>           </g>           <g id="Graphic_52">             <path d="M 465.8708 231.05182 C 443.03413 233.0314 490.2795 233.58267 493.1593 233.67884 C 507.7617 232.99805 462.25364 235.18939 446.44693 235.98786 C 413.2258 238.75595 491.029 237.20093 495.44 237.42558 C 494.0961 232.61723 434.54256 232.34045 450.6327 238.23804 C 476.04397 245.77396 471.4269 242.97637 446.9514 244.31634 C 430.33347 244.38494 419.9916 242.60915 406.04214 241.75388 C 405.54773 243.36658 404.7119 245.019 401.87957 247.7236 C 408.71613 247.59562 407.3822 247.66512 419.6505 248.05282 C 441.0255 249.31476 505.77047 254.78428 462.937 237.87887 C 451.33693 234.7145 519.4617 240.08662 483.87637 234.5573 C 469.10524 234.43903 405.85755 235.51543 457.04783 238.49708 C 475.2735 237.39285 540.4219 235.01356 482.5156 231.0507 C 455.88705 230.2688 448.4841 233.35321 477.97366 233.4602 L 465.87103 231.05142 L 465.871 231.05145 Z" fill="url(#Obj_Gradient)"></path>           </g>         </g>         <g id="Graphic_67">           <path d="M 446.6029 183.31124 C 439.5255 191.44933 437.30473 206.05118 441.6427 215.9254 C 445.98067 225.79968 455.23464 227.2071 462.31205 219.06895 C 469.3895 210.93087 471.61024 196.32901 467.27225 186.45478 C 462.9343 176.58051 453.68033 175.1731 446.6029 183.31124" stroke="#c8008f" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"></path>         </g>         <g id="Graphic_68">           <path d="M 455.6672 202.6988 C 453.7803 204.43875 453.29177 207.65077 454.5761 209.87304 C 455.8604 212.09532 458.4312 212.4863 460.31814 210.74634 C 462.20507 209.00637 462.6936 205.79435 461.40925 203.57208 C 460.12493 201.3498 457.55414 200.95882 455.6672 202.6988" stroke="#c8008f" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"></path>         </g>         <g id="Graphic_69">           <path d="M 443.17454 200.79492 C 441.2876 202.53488 440.7991 205.7469 442.0834 207.96917 C 443.36774 210.19145 445.93854 210.58244 447.82546 208.84246 C 449.7124 207.1025 450.2009 203.89048 448.9166 201.6682 C 447.63226 199.44593 445.06146 199.05494 443.17454 200.79492" stroke="#c8008f" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"></path>         </g>       </g>       <g id="Group_70" data-id="person2">         <title>personA</title>         <g id="Graphic_84">           <path d="M 108.92324 235.93266 C 124.38287 235.1636 92.39989 239.07355 90.45015 239.34308 C 80.56481 240.12678 111.37173 237.71922 122.07184 236.90154 C 144.56093 235.72703 91.89192 240.93688 88.90611 241.38833 C 89.81594 238.88545 130.13066 234.16563 119.2386 238.34655 C 102.03628 244.06218 105.16207 242.3109 121.7306 241.0966 C 148.96747 239.57355 115.80744 244.03606 106.44868 245.46434 C 101.27557 243.83622 154.15616 237.78417 129.7869 242.86693 C 128.28084 244.22882 120.34164 244.96073 131.83413 243.05247 C 133.35587 242.7998 128.82888 243.6546 127.36582 244.0277 C 122.42617 245.28734 122.17511 245.62673 127.39117 246.1326 C 132.5869 246.50901 137.79622 246.78637 143 247.10984 L 135.49743 249.14937 C 130.23665 248.78348 124.96246 248.5285 119.6958 248.1989 C 104.97718 246.84087 134.97689 239.3766 138.43294 241.6647 C 131.66928 243.11887 94.06835 247.34368 114.1123 243.1937 C 137.51759 240.2938 130.44453 242.50584 114.42856 243.20504 C 98.24554 244.5301 91.97049 245.01323 110.90905 239.11424 C 118.7615 236.6427 72.64516 244.5646 96.73444 239.0676 C 106.73379 237.8722 149.54931 233.54337 114.89571 238.96962 C 102.55768 239.82082 58.4563 243.64555 97.65567 237.21304 C 115.68198 234.77415 120.6938 235.74384 100.73033 238.066 L 108.92343 235.93283 Z" fill="url(#Obj_Gradient_2)"></path>         </g>         <g id="Graphic_83">           <path d="M 74.49554 113.94942 C 72.06826 134.88496 66 149.6646 66 149.6646 C 72.32727 150.2029 96.05922 135.5385 96.05922 135.5385" stroke="#027eb6" stroke-linecap="butt" stroke-linejoin="round" stroke-width="1.9"></path>         </g>         <g id="Graphic_82">           <path d="M 94.71636 182.55424 C 93.16705 235.02332 89.84402 232.1174 90.30723 233.35453 C 90.75971 234.56288 91.15402 236.19655 91.15402 236.19655" stroke="#027eb6" stroke-linecap="butt" stroke-linejoin="round" stroke-width="1.9"></path>         </g>         <g id="Graphic_81">           <path d="M 97.80024 183.37417 C 97.89494 202.35555 98.7907 228.4904 97.95093 233.23716 C 97.727 234.503 107.69042 234.62968 107.69042 234.62968" stroke="#027eb6" stroke-linecap="butt" stroke-linejoin="round" stroke-width="1.9"></path>         </g>         <g id="Graphic_80">           <path d="M 89.88392 233.75967 C 87.83526 235.757 83.04172 235.75612 85.22684 237.00772 C 89.72549 239.58447 89.39615 242.46933 92.4242 239.4438 C 95.72032 236.15033 103.43194 239.03778 89.88392 233.75967 Z" fill="#027eb6"></path>           <path d="M 89.88392 233.75967 C 87.83526 235.757 83.04172 235.75612 85.22684 237.00772 C 89.72549 239.58447 89.39615 242.46933 92.4242 239.4438 C 95.72032 236.15033 103.43194 239.03778 89.88392 233.75967 Z" stroke="#027eb6" stroke-linecap="butt" stroke-linejoin="round" stroke-width="1"></path>         </g>         <g id="Graphic_79">           <path d="M 100.78101 231.69377 C 98.73236 233.6911 96.03441 232.5419 98.21953 233.79343 C 102.71818 236.37018 108.97496 238.68085 112.00268 235.6553 C 115.2988 232.36185 114.32862 236.97186 100.78034 231.69377 Z" fill="#027eb6"></path>           <path d="M 100.78101 231.69377 C 98.73236 233.6911 96.03441 232.5419 98.21953 233.79343 C 102.71818 236.37018 108.97496 238.68085 112.00268 235.6553 C 115.2988 232.36185 114.32862 236.97186 100.78034 231.69377 Z" stroke="#027eb6" stroke-linecap="butt" stroke-linejoin="round" stroke-width="1"></path>         </g>         <g id="Graphic_78">           <path d="M 137.72971 99.15772 C 134.67568 101.90007 134.57492 105.39618 134.27952 103.3929 C 133.67147 99.26841 127.4488 101.31446 132.04 97.2411 C 137.03775 92.80704 142.03515 82.60293 137.72963 99.15772 Z" fill="#027eb6"></path>           <path d="M 137.72971 99.15772 C 134.67568 101.90007 134.57492 105.39618 134.27952 103.3929 C 133.67147 99.26841 127.4488 101.31446 132.04 97.2411 C 137.03775 92.80704 142.03515 82.60293 137.72963 99.15772 Z" stroke="#027eb6" stroke-linecap="butt" stroke-linejoin="round" stroke-width="1"></path>         </g>         <g id="Graphic_77">           <path d="M 75.57771 110.01054 C 74.87127 112.09806 75.34042 117.02166 74.418425 114.67112 C 72.400535 109.5267 67.86977 108.74117 71.333625 106.08195 C 75.10419 103.18687 74.714575 94.22592 75.57771 110.01094 Z" fill="#027eb6"></path>           <path d="M 75.57771 110.01054 C 74.87127 112.09806 75.34042 117.02166 74.418425 114.67112 C 72.400535 109.5267 67.86977 108.74117 71.333625 106.08195 C 75.10419 103.18687 74.714575 94.22592 75.57771 110.01094 Z" stroke="#027eb6" stroke-linecap="butt" stroke-linejoin="round" stroke-width="1"></path>         </g>         <g id="Graphic_76">           <path d="M 135.39187 99.91977 C 130.65012 114.2806 125.23493 126.28695 124.38328 129.45574 C 112.05783 134.32194 109.5012 133.63899 98.37443 136.37354" stroke="#027eb6" stroke-linecap="butt" stroke-linejoin="round" stroke-width="1.9"></path>         </g>         <g id="Graphic_75">           <path d="M 94.88359 127.77184 C 94.57796 129.72673 94.96273 130.52496 95.92041 132.9645 C 101.9056 148.21117 100.7443 187.78485 97.07508 186.04049 C 91.43122 183.35706 100.05435 145.55926 95.84388 132.97173 C 95.31264 131.38347 94.69549 129.31219 94.88359 127.77152 Z" stroke="#027eb6" stroke-linecap="butt" stroke-linejoin="round" stroke-width="3"></path>         </g>         <g id="Graphic_74">           <path d="M 82.00628 93.98056 C 85.5556 85.72461 92.92198 84.98431 98.45863 92.32737 C 103.99527 99.67042 105.60698 112.3156 102.05763 120.5714 C 98.50828 128.82719 91.14193 129.56764 85.60528 122.22459 C 80.11898 114.94893 78.47833 102.449 81.9238 94.17554" stroke="#027eb6" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.4530613"></path>         </g>         <g id="Graphic_73">           <path d="M 85.94521 100.86471 C 86.72413 99.19954 88.57266 98.7947 90.07392 99.96056 C 91.57518 101.12643 92.1608 103.42136 91.38187 105.08654 C 90.60294 106.75171 88.75442 107.15655 87.25316 105.99068 C 85.76558 104.83552 85.17473 102.56874 85.92715 100.90398" stroke="#027eb6" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.0750109"></path>         </g>         <g id="Graphic_72">           <path d="M 95.37539 98.43707 C 96.15431 96.7719 98.00284 96.36706 99.5041 97.53293 C 101.00536 98.6988 101.59098 100.99373 100.81205 102.6589 C 100.03312 104.32408 98.1846 104.72892 96.68334 103.56305 C 95.19576 102.40789 94.60491 100.1411 95.35733 98.47635" stroke="#027eb6" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.0750109"></path>         </g>         <g id="Graphic_71">           <path d="M 98.67829 118.15053 C 100.3551 127.71799 88.77116 123.3353 89.36966 119.92672 C 90.1752 115.33801 98.36395 116.3556 98.67829 118.15053 Z" stroke="#027eb6" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>         </g>       </g>       <g id="Graphic_91">         <text transform="translate(50.617516 248.0144)" fill="#027eb6">           <tspan font-family="Arial" font-size="18" font-weight="400" fill="#027eb6" x="40.886475" y="16">Domain expert’s </tspan>           <tspan font-family="Arial" font-size="18" font-weight="400" fill="#027eb6" x="7.685791" y="36.588867">knowledge &amp; experience</tspan>         </text>       </g>       <g id="Graphic_92">         <text transform="translate(285.75024 248.0144)" fill="#c8008f">           <tspan font-family="Arial" font-size="18" font-weight="400" fill="#c8008f" x="55.8938" y="16">Statistician’s</tspan>           <tspan font-family="Arial" font-size="18" font-weight="400" fill="#c8008f" x="7.685791" y="36.588867">knowledge &amp; experience</tspan>         </text>       </g>       <g id="Line_93">         <path d="M 143 161.68371 C 143 161.68371 194.76707 120.51493 272.39264 120.0711 C 321.1512 119.79233 365.71035 135.66356 392.10835 147.50634" marker-end="url(#FilledArrow_Marker)" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="7"></path>       </g>       <g id="Line_94">         <path d="M 164.40225 216.64828 C 187.36547 226.44897 224.7846 238.3599 270.61703 238.09786 C 348.2426 237.65403 413.5 202.5 413.5 202.5" marker-start="url(#FilledArrow_Marker_2)" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="7"></path>       </g>       <g id="Graphic_95">         <rect x="230.97804" y="127.41387" width="87.00098" height="30.588867" fill="white"></rect>         <rect x="230.97804" y="127.41387" width="87.00098" height="30.588867" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></rect>         <text transform="translate(235.97804 132.41387)" fill="black">           <tspan font-family="Arial" font-size="18" font-weight="700" fill="black" x="5.9941406" y="16">Encode</tspan>         </text>       </g>       <g id="Graphic_96">         <rect x="230.97804" y="163.82609" width="87.00098" height="30.588867" fill="white"></rect>         <rect x="230.97804" y="163.82609" width="87.00098" height="30.588867" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></rect>         <text transform="translate(235.97804 168.82609)" fill="black">           <tspan font-family="Arial" font-size="18" font-weight="700" fill="black" x="5.989746" y="16">Decode</tspan>         </text>       </g>       <g id="Graphic_97">         <rect x="230.97804" y="200.2383" width="87.00098" height="30.588867" fill="white"></rect>         <rect x="230.97804" y="200.2383" width="87.00098" height="30.588867" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></rect>         <text transform="translate(235.97804 205.2383)" fill="black">           <tspan font-family="Arial" font-size="18" font-weight="700" fill="black" x="0" y="16">Respond</tspan>         </text>       </g>       <g id="Graphic_99">         <text transform="translate(249.584 102)" fill="white">           <tspan font-family="Arial" font-size="16" font-weight="700" fill="white" x="0" y="14">NOISE</tspan>         </text>       </g>       <g id="Graphic_100">         <text transform="translate(249.76498 235.82717)" fill="white">           <tspan font-family="Arial" font-size="16" font-weight="700" fill="white" x="0" y="14">NOISE</tspan>         </text>       </g>       <g id="Graphic_105">         <text transform="translate(145.97096 109.9742) rotate(-21.224512)" fill="black">           <tspan font-family="Arial" font-size="16" font-weight="400" fill="black" x="0" y="14">Message</tspan>         </text>       </g>       <g id="Graphic_106">         <text transform="translate(421.4905 188.47643) rotate(168.38416)" fill="black">           <tspan font-family="Arial" font-size="16" font-weight="400" fill="black" x="0" y="14">Message</tspan>         </text>       </g>     </g>   </g> </svg> 
+
+</center>
+</section>
+<section id="what-diet-works-best-for-lowering-insulin" class="slide level2" data-auto-animate="true">
+<h2 data-id="quarto-animate-title">What diet works best for lowering insulin?</h2>
+<div class="control-diet" data-id="trt1">
+Control
+</div>
+<div class="sugar-diet" data-id="trt2">
+High-sugar
+</div>
+<ul class="fa-ul">
+<li class="">
+<span class="fa-li"><i class="fa-solid fa-crosshairs fa-pulse"></i></span> <em>Process:</em> Measure insulin level after 4 weeks of subjects under either the control or high-sugar diet
+</li>
+<li class="">
+<span class="fa-li"><i class="fa-solid fa-cubes"></i></span> <em>Design:</em> Randomise treatments (control or high-sugar diet) to subjects
+</li>
+</ul>
+</section>
+<section id="what-diet-works-best-for-lowering-insulin-1" class="slide level2" data-auto-animate="true">
+<h2 data-id="quarto-animate-title">What diet works best for lowering insulin?</h2>
+<div class="fat-diet">
+High-fat
+</div>
+<div class="control-diet" data-id="trt1">
+Control
+</div>
+<div class="sugar-diet" data-id="trt2">
+High-sugar
+</div>
+<ul class="fa-ul">
+<li class="fragment">
+<span class="fa-li"><i class="fa-solid fa-spinner fa-pulse"></i></span> In practice, experiments can be modified in consultation
+</li>
+<li class="fragment">
+<span class="fa-li"><i class="fa-solid fa-layer-group"></i></span> We need to take into account the <em>experimental structure</em> for appropriate randomisation and/or optimisation
+</li>
+</ul>
+<div class="fragment">
+<div class="callout callout-important no-icon callout-captioned callout-style-default">
+<div class="callout-body">
+<div class="callout-caption">
+<p><strong>Proposition</strong></p>
+</div>
+<div class="callout-content">
+<p><i class="fa-solid fa-comments"></i> <strong><em>Communication</em></strong> is key to get the most out of the experimental data</p>
+</div>
+</div>
+</div>
+</div>
+</section></section>
+<section>
+<section id="design-of-the-internal-domain-specific-language" class="title-slide slide level1 center" data-auto-animate="true">
+<h1 data-id="quarto-animate-title">Design of the (Internal) Domain Specific Language</h1>
+<div>
+<ul>
+<li class="fragment">Domain Specific Language (<strong>DSL</strong>) is a computer language specialised in a particular application domain. <span style="font-size:20pt;"><i class="fa-solid fa-circle-info"></i> Source: <a href="https://en.wikipedia.org/wiki/Domain-specific_language">Wikipedia</a></span></li>
+<li class="fragment">R is one of the most popular DSL for statistics. <span style="font-size:20pt;"><i class="fa-solid fa-circle-info"></i> As suggested by the <a href="https://www.tiobe.com/tiobe-index/">TIOBE index</a></span></li>
+</ul>
+</div>
+</section>
+<section id="experimental-design-r-packages" class="slide level2" data-auto-animate="true">
+<h2 data-id="quarto-animate-title">Experimental design R-packages</h2>
+<div>
+<ul>
+<li class="fragment"><i class="fa-solid fa-circle-info"></i> An R-package is an <strong>internal DSL</strong></li>
+<li class="fragment">There are <strong>over 100 R-packages for the design and analysis of experiments</strong>. (In contrast, say Python has only a handful of packages with limited designs of experiments.)</li>
+<li class="fragment">Widely used R-packages for constructing the design of experiments often are <strong>recipe-based functions</strong> with context stripped away. <br><span style="font-size:20pt;"><i class="fa-solid fa-file-pdf"></i> More details in Tanaka &amp; Amaliah (2022) Current state and prospects of R-packages for the design of experiments. <a href="https://arxiv.org/abs/2206.07532">arxiv.org/abs/2206.07532</a></span></li>
+</ul>
+</div>
+</section>
+<section id="agricolae-package" class="slide level2" data-auto-animate="true">
+<h2 data-id="quarto-animate-title"><code>agricolae</code> package</h2>
+<p>“Recipe”-based experimental designs</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1" data-code-line-numbers="|1|3-4|5-6|1,8|10-11|12-13"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb1-1" class="hljs-ln-code"><a href="#cb1-1"></a>diets <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Control"</span>, <span class="st">"High-sugar"</span>, <span class="st">"High-fat"</span>)</span>
+<span id="cb1-2" class="hljs-ln-code"><a href="#cb1-2"></a></span>
+<span id="cb1-3" class="hljs-ln-code"><a href="#cb1-3"></a><span class="co"># Completely Randomised Design</span></span>
+<span id="cb1-4" class="hljs-ln-code"><a href="#cb1-4"></a>agricolae<span class="sc">::</span><span class="fu">design.crd</span>(<span class="at">trt =</span> diets, <span class="at">r =</span> <span class="dv">10</span>) </span>
+<span id="cb1-5" class="hljs-ln-code"><a href="#cb1-5"></a><span class="co"># Randomised Complete Block Design</span></span>
+<span id="cb1-6" class="hljs-ln-code"><a href="#cb1-6"></a>agricolae<span class="sc">::</span><span class="fu">design.rcbd</span>(<span class="at">trt =</span> diets, <span class="at">r =</span> <span class="dv">10</span>) </span>
+<span id="cb1-7" class="hljs-ln-code"><a href="#cb1-7"></a></span>
+<span id="cb1-8" class="hljs-ln-code"><a href="#cb1-8"></a>exercise <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Yes"</span>, <span class="st">"No"</span>)</span>
+<span id="cb1-9" class="hljs-ln-code"><a href="#cb1-9"></a></span>
+<span id="cb1-10" class="hljs-ln-code"><a href="#cb1-10"></a><span class="co"># Factorial design</span></span>
+<span id="cb1-11" class="hljs-ln-code"><a href="#cb1-11"></a>agricolae<span class="sc">::</span><span class="fu">design.ab</span>(<span class="at">trt =</span> <span class="fu">c</span>(<span class="fu">length</span>(diets), <span class="fu">length</span>(exercise)), <span class="at">r =</span> <span class="dv">10</span>) </span>
+<span id="cb1-12" class="hljs-ln-code"><a href="#cb1-12"></a><span class="co"># Split-plot design</span></span>
+<span id="cb1-13" class="hljs-ln-code"><a href="#cb1-13"></a>agricolae<span class="sc">::</span><span class="fu">design.split</span>(<span class="at">trt1 =</span> diets, <span class="at">trt2 =</span> exercise, <span class="at">r =</span> <span class="dv">10</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="algdesign-package" class="slide level2" data-auto-animate="true">
+<h2 data-id="quarto-animate-title"><code>AlgDesign</code> package</h2>
+<p>“Recipe”-based optimal designs</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2" data-code-line-numbers="|1-3|5-9|11-15"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb2-1" class="hljs-ln-code"><a href="#cb2-1"></a>diets <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Control"</span>, <span class="st">"High-sugar"</span>, <span class="st">"High-fat"</span>)</span>
+<span id="cb2-2" class="hljs-ln-code"><a href="#cb2-2"></a>exercise <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Yes"</span>, <span class="st">"No"</span>)</span>
+<span id="cb2-3" class="hljs-ln-code"><a href="#cb2-3"></a>data <span class="ot">&lt;-</span> <span class="fu">expand.grid</span>(<span class="at">trt1 =</span> diets, <span class="at">trt2 =</span> exercise, <span class="at">rep =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>)</span>
+<span id="cb2-4" class="hljs-ln-code"><a href="#cb2-4"></a></span>
+<span id="cb2-5" class="hljs-ln-code"><a href="#cb2-5"></a><span class="co"># Optimal design with Federov's exchange algorithm</span></span>
+<span id="cb2-6" class="hljs-ln-code"><a href="#cb2-6"></a>AlgDesign<span class="sc">::</span><span class="fu">optFederov</span>(<span class="sc">~</span> trt1 <span class="sc">+</span> trt2 <span class="sc">+</span> trt1<span class="sc">:</span>trt2, </span>
+<span id="cb2-7" class="hljs-ln-code"><a href="#cb2-7"></a>                      <span class="at">data =</span> data,</span>
+<span id="cb2-8" class="hljs-ln-code"><a href="#cb2-8"></a>                      <span class="at">nTrials =</span> <span class="dv">40</span>,</span>
+<span id="cb2-9" class="hljs-ln-code"><a href="#cb2-9"></a>                      <span class="at">criterion =</span> <span class="st">"D"</span>)</span>
+<span id="cb2-10" class="hljs-ln-code"><a href="#cb2-10"></a></span>
+<span id="cb2-11" class="hljs-ln-code"><a href="#cb2-11"></a><span class="co"># Optimal design via Monte Carlo</span></span>
+<span id="cb2-12" class="hljs-ln-code"><a href="#cb2-12"></a>AlgDesign<span class="sc">::</span><span class="fu">optMonteCarlo</span>(<span class="sc">~</span> trt1 <span class="sc">+</span> trt2 <span class="sc">+</span> trt1<span class="sc">:</span>trt2, </span>
+<span id="cb2-13" class="hljs-ln-code"><a href="#cb2-13"></a>                         <span class="at">data =</span> data,</span>
+<span id="cb2-14" class="hljs-ln-code"><a href="#cb2-14"></a>                         <span class="at">nTrials =</span> <span class="dv">40</span>,</span>
+<span id="cb2-15" class="hljs-ln-code"><a href="#cb2-15"></a>                         <span class="at">criterion =</span> <span class="st">"D"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="fragment">
+<p><i class="fa-solid fa-bell fa-shake"></i> But what are the units??</p>
+</div>
+</section>
+<section id="the-grammar-of-experimental-designs" class="slide level2" data-auto-animate="true">
+<h2 data-id="quarto-animate-title">The Grammar of Experimental Designs</h2>
+<center class="f3">
+<i class="fa-solid fa-book"></i> <a href="https://emitanaka.org/edibble-book">emitanaka.org/edibble-book</a> (work-in-progress)
+</center>
+<div class="fragment">
+<div class="callout callout-note no-icon callout-captioned callout-style-default">
+<div class="callout-body">
+<div class="callout-caption">
+<p><strong><i class="fa-solid fa-circle-info"></i> Definitions from computer science</strong></p>
+</div>
+<div class="callout-content">
+<ul>
+<li><span class="monash-blue2"><strong>Concrete syntax</strong></span> refers to the <strong>external</strong> representation of a language</li>
+<li><span class="monash-blue2"><strong>Abstract syntax</strong></span> refers to the <strong>internal</strong> representation of a language</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="fragment">
+<div class="callout callout-important no-icon callout-captioned callout-style-default">
+<div class="callout-body">
+<div class="callout-caption">
+<p><strong>Proposition</strong></p>
+</div>
+<div class="callout-content">
+<p><strong><em>Design of the abstract and concrete syntax</em></strong> can aid both intra- and inter-personal communication and this will in turn help the experimental design.</p>
+<ul>
+<li><span class="monash-red2"><strong>Intra-personal</strong></span>: users can <strong>clearly express, abstract and clarify the desired experimental design</strong>.</li>
+<li><span class="monash-red2"><strong>Inter-personal</strong></span>: others can read the users <strong>understanding and intention</strong>.</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="slide level2">
+
+
+<img data-src="visual_citations/Steinauer2015-jt.html.png" width="860" class="r-stretch"><div class="small">
+<p>Hypothesis:</p>
+<ol type="1">
+<li>&nbsp; increasing plant diversity leads to increasing soil microbial biomass and enzyme activity,</li>
+<li>&nbsp; higher temperature decreases soil microbial biomassand enzyme activity, and</li>
+<li>&nbsp; higher plant diversity buffers effects of elevated temperature on soil microbialbiomass and enzyme activity.</li>
+</ol>
+</div>
+</section>
+<section id="section-1" class="slide level2" data-auto-animate="true">
+<h2 data-id="quarto-animate-title">🌾 <img src="images/Steinauer2015-jt.html.png" class="cite-compact" height="120px"></h2>
+<div class="box scroll" style="height:70%;">
+<p>MATERIALS AND METHODS</p>
+<p><em>Experimental design</em></p>
+<p>The present study took place in the BAC experiment site established at the Cedar Creek Ecosystem Science Reserve, Minnesota, USA. The site occurs on a glacial outwash plain with sandy soils. Mean temperature during the growing season (April–September) was 15.98°C in 2011 and 17.18°C in 2012. Precipitation during the growing season was 721 mm in 2011. The growing season in 2012 was considerably drier, with 545 mm rainfall.</p>
+<p>Experimental plots (9×9 m) were planted in 1994 and 1995 with different plant communities spanning a plant diversity gradient of one, four, and 16 species, which were randomly chosen from the species listed below (Tilman et al.&nbsp;2001). The grassland prairie species belonged to one of five plant functional groups: C<sub>3</sub> grasses (<em>Agropyron smithii</em> Tydb., <em>Elymus canadensis</em> L., <em>Koeleria cristata</em> (Ledeb.) Schult., <em>Poa pratensis</em> L.), C<sub>4</sub> grasses (<em>Andropogon gerardii</em> Vitman., <em>Panicum virgatum</em> L., <em>Schizachyrium scoparium</em> (Michx.) Nash, <em>Sorghas-trum nutans</em> (L.) Nash), legumes (<em>Amorpha canescens</em> Pursh., <em>Lespedeza capitata</em> Michx., <em>Lupinus perennis</em> L., <em>Petalostemum purpureum</em> (Vent.) Rydb., <em>Petalostemum villosum</em> Spreng.), nonlegume forbs (<em>Achillea millefolium</em> L., <em>Asclepias tuberosa</em> L., <em>Liatris aspera</em> Michx., <em>Monarda fistulosa</em> L., <em>Soldidago rigida</em> L.), and woody species (<em>Quercus ellipsoidalis</em> E. J. Hill, <em>Quercus macro-carpa</em> Michx.). The individuals of those two woody species (<em>Quercus</em> spp.), which were small in size and rare because of low survival, were removed from all plots in which they occurred in 2010.</p>
+<p>In addition to the manipulation of plant diversity,the plots were divided into three subplots (2.5×3.0 m). Heat treatments were applied from March to November each year, beginning in 2009, using infrared lamps 1.8 m above ground emitting 600 W (which caused a 1.5°C increase in soil temperature for vegetation-freesoils) and 1200 W (which caused a 3°C increase; Valpine and Harte 2001, Kimball 2005, Whittingtonet al.&nbsp;2013) to increase the surface soil temperature of each subplot (see Plate 1). To account for possible shading effects, metal flanges and frames were hungover control subplots. An average across all vegetated plots, temperature manipulations elevated soil temperature at 1 cm depth by 1.18°C in the low warming (+1.5°C) treatment and by 2.69°C in the high warming (+3°C) treatment, and at 10 cm depth temperature by 1.00°C in the low warming (+1.5°C) treatment and by 2.16°C in the high warming (+3°C) treatment.</p>
+<p>Soil samples of three subplots in each of 27 experimental plots were taken; due to technical difficulties we could only analyze 66 samples out of 81 existing subplots (monoculture, 10 replicates in ambient +0°C treatment, eight replicates in +1.5°C treatment, nine replicates in +3°C treatment; four species mixture, six replicates in ambient +0°C treatment, six replicates in +1.5°C treatment, seven replicates in +3°C treatment; 16 species mixture, six replicates in ambient +0°C treatment, six replicates in +1.5°C treatment, eight replicates in +3°C treatment). The BAC plots are a representative subset of the plots in the biodiversity experiment E120 at Cedar Creek, which were assembled as random draws of a given number of species from the species pool (Zak et al.&nbsp;2003). Given low heterogeneity of soil abiotic conditions at the start of the experiment, the experiment was not blocked.</p>
+</div>
+</section>
+<section id="section-2" class="slide level2" data-auto-animate="true">
+<h2 data-id="quarto-animate-title">🌾 <img src="images/Steinauer2015-jt.html.png" class="cite-compact" height="120px"></h2>
+<div class="columns">
+<div class="column box" style="width:40%;">
+<p>MATERIALS AND METHODS</p>
+<p><em>Experimental design</em> <strong>(condensed version)</strong></p>
+<ul>
+<li>Experimental plots were planted with different plant communities spanning a <span class="fragment highlight-red">plant diversity gradient of one, four, and 16 species</span>, which were randomly chosen from the species listed (5 plant functional groups – 19 species in total)</li>
+<li><span class="fragment highlight-red">Plots were divided into three subplots</span></li>
+<li><span class="fragment highlight-red">Heat treatments were applied to subplots</span> emitting 600 W which caused a 1.5°C increase in soil temperature for vegetation-free soils) and 1200 W (which caused a 3°C increase) (control with 0°C included)</li>
+<li>Soil samples of three subplots in each of <span class="fragment highlight-red">27 experimental plots</span> were taken</li>
+<li>Given low heterogeneity of soil abiotic conditions at the start of the experiment, the experiment was not blocked.</li>
+</ul>
+</div><div class="column" style="width:56%;">
+<div class="fragment">
+<p>This is in fact a <strong>split-plot design</strong>!</p>
+</div>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3" data-code-line-numbers="|2|3-4|5-7|8-9|10|11|12"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb3-1" class="hljs-ln-code"><a href="#cb3-1"></a><span class="fu">library</span>(edibble)</span>
+<span id="cb3-2" class="hljs-ln-code"><a href="#cb3-2"></a>des1 <span class="ot">&lt;-</span> <span class="fu">design</span>(<span class="st">"Steinauer et al. 2015"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb3-3" class="hljs-ln-code"><a href="#cb3-3"></a>  <span class="fu">set_units</span>(<span class="at">plot =</span> <span class="dv">27</span>,</span>
+<span id="cb3-4" class="hljs-ln-code"><a href="#cb3-4"></a>            <span class="at">subplot =</span> <span class="fu">nested_in</span>(plot, <span class="dv">3</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb3-5" class="hljs-ln-code"><a href="#cb3-5"></a>  <span class="fu">set_trts</span>(</span>
+<span id="cb3-6" class="hljs-ln-code"><a href="#cb3-6"></a>    <span class="at">nspecies =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">4</span>, <span class="dv">16</span>),</span>
+<span id="cb3-7" class="hljs-ln-code"><a href="#cb3-7"></a>    <span class="at">temperature =</span> <span class="fu">c</span>(<span class="st">"0°C"</span>, <span class="st">"1.5°C"</span>, <span class="st">"3°C"</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb3-8" class="hljs-ln-code"><a href="#cb3-8"></a>  <span class="fu">allot_trts</span>(   nspecies <span class="sc">~</span> plot,</span>
+<span id="cb3-9" class="hljs-ln-code"><a href="#cb3-9"></a>             temperature <span class="sc">~</span> subplot) <span class="sc">%&gt;%</span> </span>
+<span id="cb3-10" class="hljs-ln-code"><a href="#cb3-10"></a>  <span class="fu">assign_trts</span>(<span class="st">"random"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb3-11" class="hljs-ln-code"><a href="#cb3-11"></a>  <span class="fu">serve_table</span>()</span>
+<span id="cb3-12" class="hljs-ln-code"><a href="#cb3-12"></a>des1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># Steinauer et al. 2015 
+# An edibble: 81 x 4
+         plot    subplot nspecies temperature
+   &lt;unit(27)&gt; &lt;unit(81)&gt; &lt;trt(3)&gt;    &lt;trt(3)&gt;
+ 1      plot1  subplot1         1       0°C  
+ 2      plot1  subplot2         1       3°C  
+ 3      plot1  subplot3         1       1.5°C
+ 4      plot2  subplot4         4       1.5°C
+ 5      plot2  subplot5         4       0°C  
+ 6      plot2  subplot6         4       3°C  
+ 7      plot3  subplot7         1       0°C  
+ 8      plot3  subplot8         1       3°C  
+ 9      plot3  subplot9         1       1.5°C
+10      plot4  subplot10        4       3°C  
+# … with 71 more rows</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="why-edibble" class="slide level2" data-auto-animate="true">
+<h2 data-id="quarto-animate-title">Why <code>edibble</code>?</h2>
+<div>
+<ul>
+<li class="fragment"><strong>Semantics</strong> of the syntactic sugar are aligned with basic terms in experimental design (i.e.&nbsp;code can be used for communication that captures <em>user intention</em>)</li>
+<li class="fragment">Experimental structure are built up step-by-step:
+<ul>
+<li class="fragment"><strong>Abstract syntax</strong> allows for an <em>incomplete experimental structure</em></li>
+<li class="fragment"><strong>Concrete syntax</strong> makes it easy to <em>modify or replace a single step</em> instead of redoing whole structure</li>
+</ul></li>
+<li class="fragment">A number of <strong>downstream benefits</strong>…</li>
+</ul>
+</div>
+</section>
+<section id="downstream-benefit-1-easy-and-quick-visualisation" class="slide level2" data-auto-animate="true">
+<h2 data-id="quarto-animate-title"><span class="story">Downstream Benefit #1</span> Easy-and-quick visualisation</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb5-1" class="hljs-ln-code"><a href="#cb5-1"></a><span class="do">## Only developmental now</span></span>
+<span id="cb5-2" class="hljs-ln-code"><a href="#cb5-2"></a><span class="co"># install.packages("remotes")</span></span>
+<span id="cb5-3" class="hljs-ln-code"><a href="#cb5-3"></a><span class="co"># remotes::install_github("emitanaka/deggust")</span></span>
+<span id="cb5-4" class="hljs-ln-code"><a href="#cb5-4"></a><span class="fu">library</span>(deggust)</span>
+<span id="cb5-5" class="hljs-ln-code"><a href="#cb5-5"></a><span class="fu">autoplot</span>(des1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="ihaka2022_files/figure-revealjs/plot-des1-1.png" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="downstream-benefit-2-cutomise-visualisation" class="slide level2" data-auto-animate="true">
+<h2 data-id="quarto-animate-title"><span class="story">Downstream Benefit #2</span> Cutomise visualisation</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="cell" data-output-location="column">
+<div class="sourceCode cell-code" id="cb6" data-code-line-numbers="|2|3-17"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb6-1" class="hljs-ln-code"><a href="#cb6-1"></a><span class="fu">library</span>(deggust)</span>
+<span id="cb6-2" class="hljs-ln-code"><a href="#cb6-2"></a><span class="fu">autoplot</span>(des1, <span class="at">aspect_ratio =</span> <span class="dv">3</span><span class="sc">/</span><span class="dv">2</span>) <span class="sc">+</span></span>
+<span id="cb6-3" class="hljs-ln-code"><a href="#cb6-3"></a>  <span class="co"># the result is a ggplot object --</span></span>
+<span id="cb6-4" class="hljs-ln-code"><a href="#cb6-4"></a>  <span class="co"># add ggplot functions on top </span></span>
+<span id="cb6-5" class="hljs-ln-code"><a href="#cb6-5"></a>  <span class="co"># as you like to customise the plot!</span></span>
+<span id="cb6-6" class="hljs-ln-code"><a href="#cb6-6"></a>  <span class="fu">theme</span>(</span>
+<span id="cb6-7" class="hljs-ln-code"><a href="#cb6-7"></a>    <span class="at">legend.position =</span> <span class="st">"bottom"</span>,</span>
+<span id="cb6-8" class="hljs-ln-code"><a href="#cb6-8"></a>    <span class="at">text =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">18</span>),</span>
+<span id="cb6-9" class="hljs-ln-code"><a href="#cb6-9"></a>    <span class="at">plot.background =</span> </span>
+<span id="cb6-10" class="hljs-ln-code"><a href="#cb6-10"></a>      <span class="fu">element_rect</span>(<span class="at">color =</span> <span class="st">"black"</span>,</span>
+<span id="cb6-11" class="hljs-ln-code"><a href="#cb6-11"></a>                   <span class="at">linetype =</span> <span class="st">"dashed"</span>,</span>
+<span id="cb6-12" class="hljs-ln-code"><a href="#cb6-12"></a>                   <span class="at">fill =</span> <span class="st">"wheat"</span>),</span>
+<span id="cb6-13" class="hljs-ln-code"><a href="#cb6-13"></a>    <span class="at">plot.margin =</span> <span class="fu">margin</span>(<span class="dv">20</span>, <span class="dv">20</span>, <span class="dv">20</span>, <span class="dv">20</span>),</span>
+<span id="cb6-14" class="hljs-ln-code"><a href="#cb6-14"></a>    <span class="at">plot.subtitle =</span></span>
+<span id="cb6-15" class="hljs-ln-code"><a href="#cb6-15"></a>      <span class="fu">element_text</span>(<span class="at">margin =</span> <span class="fu">margin</span>(<span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">10</span>, <span class="dv">0</span>))) <span class="sc">+</span></span>
+<span id="cb6-16" class="hljs-ln-code"><a href="#cb6-16"></a>  </span>
+<span id="cb6-17" class="hljs-ln-code"><a href="#cb6-17"></a>  <span class="fu">scale_fill_brewer</span>(<span class="at">palette =</span> <span class="st">"Reds"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="ihaka2022_files/figure-revealjs/plot-des1B-1.png" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="downstream-benefit-3-set-record" class="slide level2" data-auto-animate="true">
+<h2 data-id="quarto-animate-title"><span class="story">Downstream Benefit #3</span> Set record</h2>
+<div>
+<ul>
+<li class="fragment">In <code>edibble</code>, records are intended variables, e.g.&nbsp;responses, that will be measured or observed</li>
+<li class="fragment">You can <strong>set expectations</strong> of the record (plausible values) and <strong>simulate records</strong>, censoring values (default as missing) outside of expectations, or <strong>export data with data validation</strong></li>
+</ul>
+</div>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7" data-code-line-numbers="|2|3"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb7-1" class="hljs-ln-code"><a href="#cb7-1"></a>des1 <span class="sc">%&gt;%</span> </span>
+<span id="cb7-2" class="hljs-ln-code"><a href="#cb7-2"></a>  <span class="fu">set_rcrds</span>(<span class="at">microbial_biomass =</span> subplot) <span class="sc">%&gt;%</span> </span>
+<span id="cb7-3" class="hljs-ln-code"><a href="#cb7-3"></a>  <span class="fu">expect_rcrds</span>(microbial_biomass <span class="sc">&gt;=</span> <span class="dv">0</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># Steinauer et al. 2015 
+# An edibble: 81 x 5
+         plot    subplot nspecies temperature microbial_biomass
+   &lt;unit(27)&gt; &lt;unit(81)&gt; &lt;trt(3)&gt;    &lt;trt(3)&gt;            &lt;rcrd&gt;
+ 1      plot1  subplot1         1       0°C                   o
+ 2      plot1  subplot2         1       3°C                   o
+ 3      plot1  subplot3         1       1.5°C                 o
+ 4      plot2  subplot4         4       1.5°C                 o
+ 5      plot2  subplot5         4       0°C                   o
+ 6      plot2  subplot6         4       3°C                   o
+ 7      plot3  subplot7         1       0°C                   o
+ 8      plot3  subplot8         1       3°C                   o
+ 9      plot3  subplot9         1       1.5°C                 o
+10      plot4  subplot10        4       3°C                   o
+# … with 71 more rows</code></pre>
+</div>
+</div>
+</div>
+</section>
+<section id="specifying-unbalanced-designs" class="slide level2" data-auto-animate="true">
+<h2 data-id="quarto-animate-title">Specifying unbalanced designs</h2>
+<div class="columns">
+<div class="column box" style="width:35%;">
+<p>MATERIALS AND METHODS</p>
+<p><em>Experimental design</em> <strong>(condensed version)</strong></p>
+<ul>
+<li>Experimental plots were planted with different plant communities spanning a <span class="red">plant diversity gradient of one, four, and 16 species, which were randomly chosen from the species listed (5 plant functional groups – 19 species in total)</span></li>
+</ul>
+</div><div class="column" style="width:60%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9" data-code-line-numbers="|2|3-5|6|7|11-12"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb9-1" class="hljs-ln-code"><a href="#cb9-1"></a>des2 <span class="ot">&lt;-</span> <span class="fu">design</span>(<span class="st">"Steinauer et al. 2015 Part II"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb9-2" class="hljs-ln-code"><a href="#cb9-2"></a>  <span class="fu">set_units</span>(<span class="at">plot =</span> <span class="dv">27</span>,</span>
+<span id="cb9-3" class="hljs-ln-code"><a href="#cb9-3"></a>            <span class="at">plant =</span> <span class="fu">nested_in</span>(plot, <span class="dv">1</span><span class="sc">:</span><span class="dv">9</span> <span class="sc">~</span> <span class="dv">1</span>,</span>
+<span id="cb9-4" class="hljs-ln-code"><a href="#cb9-4"></a>                                  <span class="dv">10</span><span class="sc">:</span><span class="dv">18</span> <span class="sc">~</span> <span class="dv">4</span>,</span>
+<span id="cb9-5" class="hljs-ln-code"><a href="#cb9-5"></a>                                  <span class="dv">19</span><span class="sc">:</span><span class="dv">27</span> <span class="sc">~</span> <span class="dv">16</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb9-6" class="hljs-ln-code"><a href="#cb9-6"></a>  <span class="fu">set_trts</span>(<span class="at">species =</span> <span class="dv">19</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb9-7" class="hljs-ln-code"><a href="#cb9-7"></a>  <span class="fu">allot_trts</span>(species <span class="sc">~</span> plant) <span class="sc">%&gt;%</span> </span>
+<span id="cb9-8" class="hljs-ln-code"><a href="#cb9-8"></a>  <span class="fu">assign_trts</span>(<span class="st">"random"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb9-9" class="hljs-ln-code"><a href="#cb9-9"></a>  <span class="fu">serve_table</span>()</span>
+<span id="cb9-10" class="hljs-ln-code"><a href="#cb9-10"></a></span>
+<span id="cb9-11" class="hljs-ln-code"><a href="#cb9-11"></a><span class="fu">options</span>(<span class="at">deggust.nfill_max =</span> <span class="dv">3</span>)</span>
+<span id="cb9-12" class="hljs-ln-code"><a href="#cb9-12"></a><span class="fu">autoplot</span>(des2) <span class="sc">+</span> <span class="fu">facet_wrap</span>(<span class="sc">~</span>plot, <span class="at">nrow =</span> <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+<div class="fragment">
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="ihaka2022_files/figure-revealjs/autoplot-part2-1.png" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="leveraging-existing-work" class="slide level2" data-auto-animate="true">
+<h2 data-id="quarto-animate-title">Leveraging existing work</h2>
+<div class="fragment">
+<p>From computer science:</p>
+<ol type="1">
+<li>Make your language consistent</li>
+<li>Compose existing language where possible</li>
+<li>Limit the number of language elements</li>
+<li>Adopt existing notations domain experts use</li>
+<li>Enable modularity</li>
+</ol>
+<p>And more (see Karsai et al, 2009)</p>
+
+</div>
+<aside><div>
+<p>Karsai et al.&nbsp;(2009) Design Guidelines for Domain Specific Languages. <em>Proceedings of the 9th OOPSLA Workshop on Domain-Specific Modeling</em></p>
+</div></aside></section>
+<section id="leveraging-existing-work-1" class="slide level2" data-auto-animate="true">
+<h2 data-id="quarto-animate-title">Leveraging existing work</h2>
+<p>Building on the shoulders of giants:</p>
+<ul>
+<li>Original creators of R, <span class="monash-blue">Ross Ihaka</span> and Robert Gentleman,</li>
+<li>R Core Team,</li>
+<li>Tidyverse Team and</li>
+<li>the wider R community.</li>
+</ul>
+</section>
+<section class="slide level2">
+
+<p><img src="images/stickman/domain1.svg" style="position:absolute;top:0%;left:10%;" height="120px"> <img src="images/stickman/statistician1.svg" style="position:absolute;top:0%;left:30%;" height="120px"> <img src="images/stickman/statistician2.svg" class="img-hor" style="position:absolute;top:0%;left:70%;" height="120px"> <img src="images/stickman/technician1.svg" class="img-hor" style="position:absolute;top:0%;left:90%;" height="120px"></p>
+<div class="pac-man">
+
+</div>
+<p><br></p>
+<ul class="fa-ul">
+<li class="fragment">
+<span class="fa-li"><i class="fa-solid fa-people-group"></i></span> Experiments are human endeavours.
+</li>
+<li class="fragment">
+<span class="fa-li"><i class="fa-solid fa-crop-simple"></i></span> Our understanding is fuzzy but certain frameworks can shed clarity.
+</li>
+<li class="fragment">
+<span class="fa-li"><i class="fa-solid fa-trash-arrow-up"></i></span> Remember the <strong>“garbage-in garbage-out”</strong> principle.
+</li>
+</ul>
+<div class="fragment" style="font-size:24pt;">
+<ul class="fa-ul">
+<li class="">
+<span class="fa-li"><i class="fa-solid fa-link"></i></span> Slides at <a href="https://emitanaka.org/slides/Ihaka2022/">emitanaka.org/slides/Ihaka2022/</a>
+</li>
+<li class="">
+<span class="fa-li"><i class="fa-brands fa-r-project"></i></span> <i class="fa-solid fa-terminal"></i> <code>install.packages(“edibble”)</code><br><i class="fa-solid fa-terminal"></i> <code>remotes::install_github(“emitanaka/deggust”)</code>
+</li>
+<li class="">
+<span class="fa-li"><i class="fa-solid fa-book"></i></span> <a href="https://emitanaka.org/edibble-book">emitanaka.org/edibble-book</a> (WIP)
+</li>
+<li class="">
+<span class="fa-li"><i class="fa-solid fa-file-pdf"></i></span> Paper about experimental design R-packages at <a href="https://arxiv.org/abs/2206.07532">arxiv.org/abs/2206.07532</a>
+</li>
+<li class="">
+<span class="fa-li"><i class="fa-solid fa-envelope"></i></span> <a href="mailto:emi.tanaka@monash.edu">emi.tanaka@monash.edu</a>
+</li>
+</ul>
+</div>
+<p><img src="images/monash-one-line-black-rgb.png" class="slide-logo"></p>
+<div class="footer footer-default">
+
+</div>
+</section></section>
+    </div>
+  </div>
+
+  <script>window.backupDefine = window.define; window.define = undefined;</script>
+  <script src="ihaka2022_files/libs/revealjs/dist/reveal.js"></script>
+  <!-- reveal.js plugins -->
+  <script src="ihaka2022_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="ihaka2022_files/libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="ihaka2022_files/libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="ihaka2022_files/libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="ihaka2022_files/libs/revealjs/plugin/multiplex/socket.io.js"></script>
+  <script src="ihaka2022_files/libs/revealjs/plugin/multiplex/multiplex.js"></script>
+  <script src="ihaka2022_files/libs/revealjs/plugin/quarto-support/support.js"></script>
+  
+
+  <script src="ihaka2022_files/libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="ihaka2022_files/libs/revealjs/plugin/search/search.js"></script>
+  <script src="ihaka2022_files/libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script src="ihaka2022_files/libs/revealjs/plugin/math/math.js"></script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+'controlsAuto': false,
+'previewLinksAuto': false,
+'smaller': false,
+'pdfSeparateFragments': false,
+'autoAnimateEasing': "ease",
+'autoAnimateDuration': 1,
+'autoAnimateUnmatched': true,
+'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
+'multiplex': {"secret":null,"id":"212deafa9e15fb39","url":"https://reveal-multiplex.glitch.me/"},
+'smaller': false,
+ 
+        // Display controls in the bottom right corner
+        controls: true,
+
+        // Help the user learn the controls by providing hints, for example by
+        // bouncing the down arrow when they first encounter a vertical slide
+        controlsTutorial: false,
+
+        // Determines where controls appear, "edges" or "bottom-right"
+        controlsLayout: 'edges',
+
+        // Visibility rule for backwards navigation arrows; "faded", "hidden"
+        // or "visible"
+        controlsBackArrows: 'faded',
+
+        // Display a presentation progress bar
+        progress: true,
+
+        // Display the page number of the current slide
+        slideNumber: 'c/t',
+
+        // 'all', 'print', or 'speaker'
+        showSlideNumber: 'all',
+
+        // Add the current slide number to the URL hash so that reloading the
+        // page/copying the URL will return you to the same slide
+        hash: true,
+
+        // Start with 1 for the hash rather than 0
+        hashOneBasedIndex: false,
+
+        // Flags if we should monitor the hash and change slides accordingly
+        respondToHashChanges: true,
+
+        // Push each slide change to the browser history
+        history: true,
+
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+
+        // Enable the slide overview mode
+        overview: true,
+
+        // Disables the default reveal.js slide layout (scaling and centering)
+        // so that you can use custom CSS layout
+        disableLayout: false,
+
+        // Vertical centering of slides
+        center: false,
+
+        // Enables touch navigation on devices with touch input
+        touch: true,
+
+        // Loop the presentation
+        loop: false,
+
+        // Change the presentation direction to be RTL
+        rtl: false,
+
+        // see https://revealjs.com/vertical-slides/#navigation-mode
+        navigationMode: 'linear',
+
+        // Randomizes the order of slides each time the presentation loads
+        shuffle: false,
+
+        // Turns fragments on and off globally
+        fragments: true,
+
+        // Flags whether to include the current fragment in the URL,
+        // so that reloading brings you to the same fragment position
+        fragmentInURL: false,
+
+        // Flags if the presentation is running in an embedded mode,
+        // i.e. contained within a limited portion of the screen
+        embedded: false,
+
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+
+        // Flags if it should be possible to pause the presentation (blackout)
+        pause: true,
+
+        // Flags if speaker notes should be visible to all viewers
+        showNotes: false,
+
+        // Global override for autoplaying embedded media (null/true/false)
+        autoPlayMedia: null,
+
+        // Global override for preloading lazy-loaded iframes (null/true/false)
+        preloadIframes: null,
+
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
+
+        // Use this method for navigation when auto-sliding
+        autoSlideMethod: null,
+
+        // Specify the average time in seconds that you think you will spend
+        // presenting each slide. This is used to show a pacing timer in the
+        // speaker view
+        defaultTiming: null,
+
+        // Enable slide navigation via mouse wheel
+        mouseWheel: false,
+
+        // The display mode that will be used to show slides
+        display: 'block',
+
+        // Hide cursor if inactive
+        hideInactiveCursor: true,
+
+        // Time before the cursor is hidden (in ms)
+        hideCursorTime: 5000,
+
+        // Opens links in an iframe preview overlay
+        previewLinks: false,
+
+        // Transition style (none/fade/slide/convex/concave/zoom)
+        transition: 'none',
+
+        // Transition speed (default/fast/slow)
+        transitionSpeed: 'default',
+
+        // Transition style for full page slide backgrounds
+        // (none/fade/slide/convex/concave/zoom)
+        backgroundTransition: 'none',
+
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
+
+        // Number of slides away from the current that are visible on mobile
+        // devices. It is advisable to set this to a lower number than
+        // viewDistance in order to save resources.
+        mobileViewDistance: 2,
+
+        // The "normal" size of the presentation, aspect ratio will be preserved
+        // when the presentation is scaled to fit different resolutions. Can be
+        // specified using percentage units.
+        width: 1280,
+
+        height: 720,
+
+        // Factor of the display size that should remain empty around the content
+        margin: 0.1,
+
+        math: {
+          mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js',
+          config: 'TeX-AMS_HTML-full',
+          tex2jax: {
+            inlineMath: [['\\(','\\)']],
+            displayMath: [['\\[','\\]']],
+            balanceBraces: true,
+            processEscapes: false,
+            processRefs: true,
+            processEnvironments: true,
+            preview: 'TeX',
+            skipTags: ['script','noscript','style','textarea','pre','code'],
+            ignoreClass: 'tex2jax_ignore',
+            processClass: 'tex2jax_process'
+          },
+        },
+
+        // reveal.js plugins
+        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, QuartoSupport,
+
+          RevealMath,
+          
+          RevealSearch,
+          RevealZoom
+        ]
+      });
+    </script>
+    
+    <script>
+      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
+      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
+      // slide changes (different for each slide format).
+      (function () {
+        function fireSlideChanged(previousSlide, currentSlide) {
+
+          // dispatch for htmlwidgets
+          const event = window.document.createEvent("Event");
+          event.initEvent("slideenter", true, true);
+          window.document.dispatchEvent(event);
+
+          // dispatch for shiny
+          if (window.jQuery) {
+            if (previousSlide) {
+              window.jQuery(previousSlide).trigger("hidden");
+            }
+            if (currentSlide) {
+              window.jQuery(currentSlide).trigger("shown");
+            }
+          }
+        }
+
+        // hookup for reveal
+        if (window.Reveal) {
+          window.Reveal.addEventListener("slidechanged", function(event) {
+            fireSlideChanged(event.previousSlide, event.currentSlide);
+          });
+        }
+
+        // hookup for slidy
+        if (window.w3c_slidy) {
+          window.w3c_slidy.add_observer(function (slide_num) {
+            // slide_num starts at position 1
+            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
+          });
+        }
+
+      })();
+    </script>
+
+    <script id="quarto-html-after-body" type="application/javascript">
+    window.document.addEventListener("DOMContentLoaded", function (event) {
+      const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
+      tabsets.forEach(function(tabset) {
+        const tabby = new Tabby('#' + tabset.id);
+      });
+      const clipboard = new window.ClipboardJS('.code-copy-button', {
+        target: function(trigger) {
+          return trigger.previousElementSibling;
+        }
+      });
+      clipboard.on('success', function(e) {
+        // button target
+        const button = e.trigger;
+        // don't keep focus
+        button.blur();
+        // flash "checked"
+        button.classList.add('code-copy-button-checked');
+        var currentTitle = button.getAttribute("title");
+        button.setAttribute("title", "Copied!");
+        setTimeout(function() {
+          button.setAttribute("title", currentTitle);
+          button.classList.remove('code-copy-button-checked');
+        }, 1000);
+        // clear code selection
+        e.clearSelection();
+      });
+      function tippyHover(el, contentFn) {
+        const config = {
+          allowHTML: true,
+          content: contentFn,
+          maxWidth: 500,
+          delay: 100,
+          arrow: false,
+          appendTo: function(el) {
+              return el.closest('section.slide') || el.parentElement;
+          },
+          interactive: true,
+          interactiveBorder: 10,
+          theme: 'quarto-reveal',
+          placement: 'bottom-start'
+        };
+          config['offset'] = [0,0];
+          config['maxWidth'] = 700;
+        window.tippy(el, config); 
+      }
+      const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+      for (var i=0; i<noterefs.length; i++) {
+        const ref = noterefs[i];
+        tippyHover(ref, function() {
+          let href = ref.getAttribute('href');
+          try { href = new URL(href).hash; } catch {}
+          const id = href.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          return note.innerHTML;
+        });
+      }
+      var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+      for (var i=0; i<bibliorefs.length; i++) {
+        const ref = bibliorefs[i];
+        const cites = ref.parentNode.getAttribute('data-cites').split(' ');
+        tippyHover(ref, function() {
+          var popup = window.document.createElement('div');
+          cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    });
+    </script>
+    <link rel="stylesheet" href="assets/syntax-highlight.css">
+    <link rel="stylesheet" href="assets/fontawesome-free-6.1.1-web/css/all.min.css">
+    <script src="assets/fontawesome-free-6.1.1-web/js/all.min.js"></script>
+    
+
+</body></html>
