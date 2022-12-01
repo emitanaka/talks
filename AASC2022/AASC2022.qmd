@@ -1,0 +1,603 @@
+---
+pagetitle: "Automated visualisation of experimental designs"
+abstract: |
+ As those in the forefront of statistical consulting would well know, communication with the domain expert is of paramount importance in the construction of a valid experimental design. This communication can be better enhanced by the use of visualisation of the experimental design layout that allows all parties to assess understanding and clarify structure for the desired experimental design. There is, however, a friction to the manual construction of this visual representation.  In this talk, I extend the "the grammar of experimental designs" system in the edibble R-package to automate construction of the visualisation object; this system is implemented as the deggust R-package. 
+author: "Emi Tanaka"
+date: "29th Novemebr 2022"
+host: "Australasian Applied Statistics Conference 2022"
+institute: "Monash University"
+strip-comments: true
+format: 
+  revealjs:
+    logo: images/monash-one-line-black-rgb.png
+    slide-number: true
+    multiplex: true
+    theme: assets/monash.scss
+    show-slide-number: all
+    controls: true
+    width: 1280
+    height: 720
+    incremental: true
+    auto-stretch: false
+    css: [assets/custom.css, assets/pacman.css, assets/tachyons-addon.css]
+    include-after: |
+      <link rel="stylesheet" href="assets/syntax-highlight.css">
+      <link rel="stylesheet" href="assets/fontawesome-free-6.1.1-web/css/all.min.css">
+      <script src="assets/fontawesome-free-6.1.1-web/js/all.min.js"></script>
+callout-icon: false
+output-file: index.html
+execute:
+  echo: true
+---
+
+
+## {#title-slide background="images/book-bg.jpg"}
+
+```{r setup, include = FALSE}
+library(tidyverse)
+
+rotating_text <- function(x, align = "center") {
+  glue::glue('
+<div style="overflow: hidden; height: 1.2em;">
+<ul class="content__container__list {align}" style="text-align: {align}">
+<li class="content__item">{x[1]}</li>
+<li class="content__item">{x[2]}</li>
+<li class="content__item">{x[3]}</li>
+<li class="content__item">{x[4]}</li>
+</ul>
+</div>')
+}
+
+fa_list <- function(x, incremental = FALSE) {
+  icons <- names(x)
+  fragment <- ifelse(incremental, "fragment", "")
+  items <- glue::glue('<li class="{fragment}"><span class="fa-li"><i class="{icons}"></i></span> {x}</li>')
+  paste('<ul class="fa-ul">', 
+        paste(items, collapse = "\n"),
+        "</ul>", sep = "\n")
+}
+
+```
+
+```{r, include = FALSE}
+asciicast::init_knitr_engine(
+  startup = quote({
+      library(edibble)
+      options(tibble.width = Inf,
+        tibble.print_max = Inf)
+    }),
+  echo = FALSE,
+  echo_input = FALSE,
+  options =    list(asciicast_knitr_svg = TRUE, asciicast_at = "end", asciicast_typing_speed = 0, 
+        asciicast_padding = 20, asciicast_window = FALSE, asciicast_omit_last_line = FALSE, 
+        asciicast_cursor = FALSE, width = 400, asciicast_rows = "auto", 
+        asciicast_cols = 100, asciicast_end_wait = 0, crayon.enabled = TRUE, 
+        crayon.colors = 256,
+        tibble.width = Inf,
+        tibble.print_max = Inf)
+  )
+```
+
+
+::: title-box
+
+<h2>`r rmarkdown::metadata$pagetitle`</h2>
+
+👩🏻‍💻 [`r rmarkdown::metadata$author` @ `r rmarkdown::metadata$institute`]{.author}  
+
+
+`r rotating_text(c('<i class="fa-solid fa-envelope"></i> emi.tanaka@monash.edu', '<i class="fa-brands fa-twitter"></i> @statsgen', '<i class="fa-brands fa-github"></i> github.com/emitanaka', '<i class="fa-solid fa-globe"></i> emitanaka.org'))`
+
+
+:::
+
+
+<br><br>
+
+::: {.absolute .bottom-0 .monash-white .w-100}
+
+[`r rmarkdown::metadata$date`]{.monash-white .fl .strokeme} [`r rmarkdown::metadata$host`]{.fr .monash-white .strokeme} 
+
+:::
+
+
+## `edibble` R package 📦
+
+<img src="images/edibble.png" width="140px" class="absolute top-1 right-1">
+
+
+🎯 To construct an **e**xperimental **d**esign table (or t**ibble**)
+
+* [<i class="fa-solid fa-book"></i> The Grammar of Experimental Designs]{.monash-blue} (WIP)<br> [emitanaka.org/edibble-book](https://emitanaka.org/edibble-book) 
+
+::: {.boxit .fragment}
+
+An **_object oriented programming system_** to construct an experimental design by encapsulating the experimental structure and context in a cognitive approach.
+
+:::
+
+* Combine words (functions) = Unlimited sentences (designs)
+* [<i class="fas fa-check-circle"></i> Health check]{.monash-green2}<br>Cooking experimental designs based on _raw ingredients_, rather than _ready-made meals_
+
+
+## Demonstration for `edibble` 📦 {.scrollable auto-animate=true}
+
+::: {.f3 .monash-gray80 style="line-height:0.9!important;"}
+
+Steinauer et al. (2015) Plant diversity effects on soil microbial functions and enzymes are stronger than warming in a grassland experiment. *Ecology*. 96 (1) 99-112
+
+:::
+
+```{r des, eval = FALSE}
+library(edibble)
+design("Steinauer et al. 2015") 
+```
+```{asciicast des, out.width = "100%"}
+```
+
+## Demonstration for `edibble` 📦 {visibility="uncounted" auto-animate=true}
+
+::: {.f3 .monash-gray80 style="line-height:0.9!important;"}
+
+Steinauer et al. (2015) Plant diversity effects on soil microbial functions and enzymes are stronger than warming in a grassland experiment. *Ecology*. 96 (1) 99-112
+
+:::
+
+
+```{r des2, eval = FALSE}
+#| code-line-numbers: "3-4"
+library(edibble)
+design("Steinauer et al. 2015") %>% 
+  set_units(plot = 27,
+            subplot = nested_in(plot, 3))
+```
+```{asciicast des2, out.width = "100%"}
+```
+
+## Demonstration for `edibble` 📦 {visibility="uncounted" auto-animate=true}
+
+::: {.f3 .monash-gray80 style="line-height:0.9!important;"}
+
+Steinauer et al. (2015) Plant diversity effects on soil microbial functions and enzymes are stronger than warming in a grassland experiment. *Ecology*. 96 (1) 99-112
+
+:::
+
+
+```{r des3, eval = FALSE}
+#| code-line-numbers: "5-6"
+library(edibble)
+design("Steinauer et al. 2015") %>% 
+  set_units(plot = 27,
+            subplot = nested_in(plot, 3)) %>% 
+  set_trts(plant_diversity = c(1, 4, 16),
+           temperature = c("0°C", "1.5°C", "3°C")) 
+```
+```{asciicast des3, out.width = "100%"}
+```
+
+## Demonstration for `edibble` 📦 {visibility="uncounted" auto-animate=true}
+
+::: {.f3 .monash-gray80 style="line-height:0.9!important;"}
+
+Steinauer et al. (2015) Plant diversity effects on soil microbial functions and enzymes are stronger than warming in a grassland experiment. *Ecology*. 96 (1) 99-112
+
+:::
+
+
+```{r des4, eval = FALSE}
+#| code-line-numbers: "7-8"
+library(edibble)
+design("Steinauer et al. 2015") %>% 
+  set_units(plot = 27,
+            subplot = nested_in(plot, 3)) %>% 
+  set_trts(plant_diversity = c(1, 4, 16),
+           temperature = c("0°C", "1.5°C", "3°C")) %>% 
+  allot_trts(plant_diversity ~ plot,
+                 temperature ~ subplot)
+```
+```{asciicast des4, out.width = "100%"}
+```
+
+## Demonstration for `edibble` 📦 {visibility="uncounted" auto-animate=true}
+
+::: {.f3 .monash-gray80 style="line-height:0.9!important;"}
+
+Steinauer et al. (2015) Plant diversity effects on soil microbial functions and enzymes are stronger than warming in a grassland experiment. *Ecology*. 96 (1) 99-112
+
+:::
+
+
+```{r des5, eval = FALSE}
+#| code-line-numbers: "9"
+library(edibble)
+design("Steinauer et al. 2015") %>% 
+  set_units(plot = 27,
+            subplot = nested_in(plot, 3)) %>% 
+  set_trts(plant_diversity = c(1, 4, 16),
+           temperature = c("0°C", "1.5°C", "3°C")) %>% 
+  allot_trts(plant_diversity ~ plot,
+                 temperature ~ subplot) %>% 
+  assign_trts("random")
+```
+```{asciicast des5, out.width = "100%"}
+```
+
+## Demonstration for `edibble` 📦 {visibility="uncounted" auto-animate=true .scrollable}
+
+::: {.f3 .monash-gray80 style="line-height:0.9!important;"}
+
+Steinauer et al. (2015) Plant diversity effects on soil microbial functions and enzymes are stronger than warming in a grassland experiment. *Ecology*. 96 (1) 99-112
+
+:::
+
+
+```{r des6, eval = FALSE}
+#| code-line-numbers: "10"
+library(edibble)
+design("Steinauer et al. 2015") %>% 
+  set_units(plot = 27,
+            subplot = nested_in(plot, 3)) %>% 
+  set_trts(plant_diversity = c(1, 4, 16),
+           temperature = c("0°C", "1.5°C", "3°C")) %>% 
+  allot_trts(plant_diversity ~ plot,
+                 temperature ~ subplot) %>% 
+  assign_trts("random") %>% 
+  serve_table()
+```
+```{asciicast des6, out.width = "150%"}
+```
+
+## Demonstration for `edibble` 📦 {visibility="uncounted" auto-animate=true}
+
+::: {.f3 .monash-gray80 style="line-height:0.9!important;"}
+
+Steinauer et al. (2015) Plant diversity effects on soil microbial functions and enzymes are stronger than warming in a grassland experiment. *Ecology*. 96 (1) 99-112
+
+:::
+
+
+```{r}
+#| code-line-numbers: "10"
+library(edibble)
+design("Steinauer et al. 2015") %>% 
+  set_units(plot = 27,
+            subplot = nested_in(plot, 3)) %>% 
+  set_trts(plant_diversity = c(1, 4, 16),
+           temperature = c("0°C", "1.5°C", "3°C")) %>% 
+  allot_trts(plant_diversity ~ plot,
+                 temperature ~ subplot) %>% 
+  assign_trts("random") %>% 
+  serve_table() -> des
+```
+
+Let's save this edibble design object as `des`. 
+
+## Internal structure of an `edibble` design object
+
+Factor graph
+
+```{r, eval = FALSE}
+#| code-line-numbers: false
+plot(des) # OR plot(des, which = "factors") OR plot_fct_graph(des)
+```
+
+```{r, echo = FALSE}
+widgetframe::frameWidget(plot(des))
+```
+
+
+## Internal structure of an `edibble` design object
+
+Level graph
+
+```{r, eval = FALSE}
+#| code-line-numbers: false
+plot(des, which = "levels") # OR plot_lvl_graph(des)
+```
+
+```{r, echo = FALSE}
+widgetframe::frameWidget(plot(des, which = "levels"))
+```
+
+
+## `deggust` R package 📦
+
+<img src="images/deggust.png" width="140px" class="absolute top-1 right-1">
+
+
+🎯 The **d**esign of **e**xperiment as a **gg**plot object
+
+::: {.boxit .fragment}
+
+```{r}
+#| output: asis
+#| echo: false
+cat(fa_list(c("fas fa-book" = "**degust** *(verb)* to taste or savor carefully or appreciatively.",
+              "fas fa-box-open" = "**deggust** *(package)* to visualise edibble design objects appreciatively."), incremental = TRUE))
+
+```
+
+
+
+
+:::
+
+* An `edibble` design object contains encoding with experimental structure already.
+* The `deggust` package aims to leverage this to quickly view this.
+
+
+## Easy-and-quick visualisation {auto-animate=true}
+
+:::: {.columns}
+
+
+
+::: {.column width="50%"}
+
+```{r plot-des, eval = FALSE}
+library(deggust)
+autoplot(des)
+```
+
+Yup that's all!
+
+
+
+:::
+
+
+::: {.column width="50%" .fragment}
+
+```{r plot-des, echo = FALSE, fig.align = "center", fig.height = 7, fig.width = 7}
+```
+
+
+:::
+
+::::
+
+
+
+
+## Cutomise visualisation  {auto-animate=true}
+
+
+:::: {.columns}
+
+
+
+::: {.column width="50%"}
+
+```{r plot-desB, eval = FALSE}
+#| code-line-numbers: "2"
+library(deggust)
+autoplot(des, aspect_ratio = 3/2)
+```
+
+
+:::
+
+::: {.column width="50%"}
+
+```{r plot-desB, fig.align = "center", fig.width = 7, fig.height = 5, echo = FALSE}
+```
+
+
+:::
+
+::::
+
+
+## Cutomise visualisation with `ggplot2` {auto-animate=true}
+
+
+:::: {.columns}
+
+
+
+::: {.column width="50%"}
+
+```{r plot-desC, eval = FALSE}
+#| output-location: column
+#| code-line-numbers: "3-17"
+library(deggust)
+autoplot(des, aspect_ratio = 3/2) +
+  theme(
+    legend.position = "bottom",
+    text = element_text(size = 18),
+    plot.background = 
+      element_rect(color = "black",
+                   linetype = "dashed",
+                   fill = "wheat"),
+    plot.margin = margin(20, 20, 20, 20),
+    plot.subtitle =
+      element_text(margin = margin(0, 0, 10, 0))) +
+  
+  scale_fill_brewer(palette = "Reds")
+```
+
+Leveraging the power of established graphical system.
+
+:::
+
+::: {.column width="50%"}
+
+```{r plot-desC, fig.align = "center", fig.width = 7, fig.height = 7, echo = FALSE}
+```
+
+
+:::
+
+::::
+
+# <i class="fas fa-utensils"></i> Recipe designs {background-color="#006DAE"}
+
+## Completely randomised designs
+
+```{r des-crd}
+#| output-location: column
+#| code-line-numbers: "1-6|8"
+#| fig-width: 5
+#| fig-height: 4.5
+crd <- design("CRD") %>%
+  set_units(unit = 30) %>%
+  set_trts(trt = 5) %>%
+  allot_trts(trt ~ unit) %>%
+  assign_trts("random", seed = 2022) %>%
+  serve_table()
+
+autoplot(crd)
+```
+
+
+## Randomised complete block designs
+
+```{r des-rcbd}
+#| output-location: column
+#| code-line-numbers: "1-7|9"
+#| fig-width: 5
+#| fig-height: 4.5
+rcbd <- design("RCBD") %>%
+  set_units(block = 10,
+            unit = nested_in(block, 6)) %>%
+  set_trts(trt = 6) %>%
+  allot_trts(trt ~ unit) %>%
+  assign_trts("random", seed = 2022) %>%
+  serve_table()
+
+autoplot(rcbd)
+```
+
+## Modified block design
+
+```{r des-mbd}
+#| output-location: column
+#| code-line-numbers: "1-11|3-7|13"
+#| fig-width: 5
+#| fig-height: 4.5
+mbd <- design("Modified Block Design") %>%
+  set_units(block = 10,
+            unit = nested_in(block, 
+                               1 ~ 3,
+                               2 ~ 4,
+                               3 ~ 5,
+                               . ~ 6)) %>%
+  set_trts(trt = 6) %>%
+  allot_trts(trt ~ unit) %>%
+  assign_trts("random", seed = 2022) %>%
+  serve_table()
+
+autoplot(mbd)
+```
+
+## Graeco-Latin square design
+
+```{r des-glsd}
+#| output-location: column
+#| code-line-numbers: "1-10|2-4|12"
+#| fig-width: 4.5
+#| fig-height: 5
+glsd <- design("GLSD") %>%
+  set_units(row = 9,
+            col = 9,
+            unit = crossed_by(row, col)) %>%
+  set_trts(trt1 = 9,
+           trt2 = 9) %>%
+  allot_trts(trt1 ~ unit,
+             trt2 ~ unit) %>%
+  assign_trts("random", seed = 2022) %>%
+  serve_table()
+
+autoplot(glsd)
+```
+
+## Hyper-Graeco-Latin Square Design
+
+```{r des-hglsd}
+#| output-location: column
+#| code-line-numbers: "1-13|2-9|15"
+#| fig-width: 5
+#| fig-height: 4.5
+hglsd <- design("HGLSD") %>%
+  set_units(block1 = 4,
+            block2 = 4,
+            block3 = 4,
+            block4 = 4,
+            unit = crossed_by(block1,
+                              block2, 
+                              block3,
+                              block4)) %>%
+  set_trts(trt = 4) %>%
+  allot_trts(trt ~ unit) %>%
+  assign_trts("random", seed = 2022) %>%
+  serve_table()
+
+autoplot(hglsd)
+```
+
+
+
+---
+
+::: {.flex style="text-align:center;margin-bottom:10px;"}
+
+::: w-50
+
+`edibble` R package
+
+::: boxit
+
+<center>
+<img src="images/edibble.png" width="140px">
+</center>
+
+To construct experimental design objects.
+
+<i class="fab fa-r-project"></i> On CRAN <i class="fab fa-github-alt"></i> On GitHub 
+[github.com/emitanaka/edibble](https://github.com/emitanaka/edibble)
+
+:::
+
+:::
+
+::: w-50
+
+`deggust` R package
+
+::: boxit
+
+<center>
+<img src="images/deggust.png" width="140px">
+</center>
+
+To visualise edibble designs. 
+
+<i class="fab fa-github-alt"></i> On GitHub  
+[github.com/emitanaka/deggust](https://github.com/emitanaka/deggust)
+
+:::
+
+:::
+
+:::
+
+
+
+
+
+
+
+
+
+::: {style="font-size:20pt;border-radius:10px;border:5px solid #006DAE;background-color:rgba(0, 109, 174, 0.2);" .pa3}
+
+<i class='fa-solid fa-link'></i> Slides at [emitanaka.org/slides/AASC2022/](https://emitanaka.org/slides/AASC2022/)
+
+Feedback/comments/questions/requests/collaborations welcome!
+
+<i class='fa-solid fa-envelope'></i> [emi.tanaka@monash.edu](mailto:emi.tanaka@monash.edu) <i class='fab fa-twitter'></i> [@statsgen](https://twitter.com/statsgen) <i class='fab fa-mastodon'></i>  [@emitanaka@fosstodon.org](https://fosstodon.org/@emitanaka) <i class="fab fa-github"></i> [github.com/emitanaka](https://github.com/emitanaka/)
+
+:::
+
+
+
